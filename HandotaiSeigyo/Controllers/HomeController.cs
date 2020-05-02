@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HandotaiSeigyo.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace HandotaiSeigyo.Controllers
 {
@@ -15,7 +16,7 @@ namespace HandotaiSeigyo.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger;        
         }
 
         public IActionResult Index()
