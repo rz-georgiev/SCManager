@@ -1,5 +1,4 @@
 ﻿using HandotaiSeigyo.Data.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,14 +11,12 @@ namespace HandotaiSeigyo.Data
         {
         }
 
-        //public DbSet<BaseEntity> BaseEntities { get; set; }
+        public DbSet<ComponentType> ComponentTypes { get; set; }
 
-        //public DbSet<Component> Components { get; set; }
+        public DbSet<ComponentTypeDetail> ComponentTypeDetails { get; set; }
 
-        //public DbSet<ComponentDetail> ComponentDetails { get; set; }
+        public DbSet<UserComponentType> UserComponentTypes { get; set; }
 
-        //public DbSet<UserComponent> UserComponents { get; set; }
-
-        //public DbSet<UserComponentDetail> UserComponentDetails { get; set; }
+        public DbSet<UserComponentTypeDetail> UserComponentTypeDetails { get; set; }
     }
 }
