@@ -1,9 +1,12 @@
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Services.deps.json
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Services.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Services.pdb
+E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Data.dll
+E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Data.pdb
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.csprojAssemblyReference.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.csproj.CoreCompileInputs.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.AssemblyInfoInputs.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.AssemblyInfo.cs
+E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.csproj.CopyComplete
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Services\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Services.pdb

@@ -16,6 +16,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HandotaiSeigyo.Data\HandotaiSeigyo.Data.csproj" />
+    <ProjectReference Include="..\HandotaiSeigyo.Services\HandotaiSeigyo.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Home\" />
   </ItemGroup>
 
 </Project>

@@ -21,13 +21,13 @@ using HandotaiSeigyo;
 #nullable disable
 #nullable restore
 #line 2 "E:\Development\HandotaiSeigyo\HandotaiSeigyo\Views\_ViewImports.cshtml"
-using HandotaiSeigyo.Models;
+using HandotaiSeigyo.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dbca9a6412ff6a7471cd4cf596ab7b088416f53", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b92ae62d5c8f1e793fca2419b2af122af55ec1d4", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
