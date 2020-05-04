@@ -21,13 +21,13 @@ using HandotaiSeigyo;
 #nullable disable
 #nullable restore
 #line 2 "E:\Development\HandotaiSeigyo\HandotaiSeigyo\Views\_ViewImports.cshtml"
-using HandotaiSeigyo.Models;
+using HandotaiSeigyo.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6dbca9a6412ff6a7471cd4cf596ab7b088416f53", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b92ae62d5c8f1e793fca2419b2af122af55ec1d4", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998

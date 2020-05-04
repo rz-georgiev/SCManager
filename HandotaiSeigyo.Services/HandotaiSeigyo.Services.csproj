@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HandotaiSeigyo.Data\HandotaiSeigyo.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -12,9 +12,9 @@ namespace HandotaiSeigyo.Data.Models
 
         public int CreatedByUserId { get; set; }
 
-        public DateTime LastUpdatedDateTime { get; set; }
+        public DateTime? LastUpdatedDateTime { get; set; }
 
-        public int LastUpdatedByUserId { get; set; }
+        public int? LastUpdatedByUserId { get; set; }
 
         public bool IsActive { get; set; }
     }

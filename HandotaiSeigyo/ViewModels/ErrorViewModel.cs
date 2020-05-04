@@ -1,6 +1,6 @@
 using System;
 
-namespace HandotaiSeigyo.Models
+namespace HandotaiSeigyo.ViewModels
 {
     public class ErrorViewModel
     {

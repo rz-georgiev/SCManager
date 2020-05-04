@@ -1,0 +1,33 @@
+﻿@model HandotaiSeigyo.ViewModels.Admin.ComponentTypeViewModel
+@using System;
+ 
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a href="">Create new component</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Component name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Creation/Update datetime</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (var index = 0; index < Model.ListingModels.Count(); index++)
+        {
+            var item = Model.ListingModels.ElementAtOrDefault(index);
+            <tr>
+                <th scope="row">@(index + 1)</th>
+                <td>@item.Name</td>
+                <td><img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" class="rounded-circle" alt="Cinque Terre" width="64" height="64"></td>
+                <td>@item.DateTime</td>
+                <td><a href="">Modify</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

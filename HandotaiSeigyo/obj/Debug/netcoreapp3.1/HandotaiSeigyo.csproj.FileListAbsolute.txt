@@ -126,7 +126,9 @@ E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\runtimes\un
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Data.dll
+E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Services.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Data.pdb
+E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\HandotaiSeigyo.Services.pdb
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.csprojAssemblyReference.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.csproj.CoreCompileInputs.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.MvcApplicationPartsAssemblyInfo.cs
@@ -160,3 +162,4 @@ E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\staticwebas
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.pdb
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.genruntimeconfig.cache
+E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
