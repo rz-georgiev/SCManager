@@ -3,6 +3,7 @@ using HandotaiSeigyo.Data.Interfaces;
 using HandotaiSeigyo.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -36,7 +37,9 @@ namespace HandotaiSeigyo
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<HandotaiDbContext>();
 
+            // Register your services here
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
+            services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
 
             services.AddControllers(config =>
             {

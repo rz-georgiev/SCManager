@@ -6,6 +6,8 @@ namespace HandotaiSeigyo.Data.Interfaces
 {
     public interface IComponentTypeService
     {
-        IEnumerable<ComponentType> GetAllComponentTypes();
+        IEnumerable<ComponentType> GetAll();
+
+        ComponentType GetById(int id);
     }
 }
