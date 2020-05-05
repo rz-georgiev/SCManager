@@ -7,6 +7,6 @@ namespace HandotaiSeigyo.Data.Interfaces
 {
     public interface IPostService
     {
-        IEnumerable<Post> GetLastDayPosts();
+        IEnumerable<Post> GetLast15Posts();
     }
 }
