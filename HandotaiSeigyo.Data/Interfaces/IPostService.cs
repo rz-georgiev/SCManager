@@ -1,10 +1,12 @@
-﻿using System;
+﻿using HandotaiSeigyo.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace HandotaiSeigyo.Data.Interfaces
 {
-    public class IPostService
+    public interface IPostService
     {
+        IEnumerable<Post> GetLastDayPosts();
     }
 }

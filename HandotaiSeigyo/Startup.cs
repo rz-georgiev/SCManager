@@ -40,6 +40,7 @@ namespace HandotaiSeigyo
             // Register your services here
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
+            services.AddTransient<IPostService, PostService>();
 
             services.AddControllers(config =>
             {
