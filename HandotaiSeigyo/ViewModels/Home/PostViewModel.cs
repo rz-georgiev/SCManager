@@ -7,6 +7,8 @@ namespace HandotaiSeigyo.ViewModels.Home
 {
     public class PostViewModel
     {
-        public IEnumerable<PostListingViewModel> Posts { get; set; }
+        public IEnumerable<PostListingViewModel> FirstPosts { get; set; }
+
+        public IEnumerable<PostListingViewModel> LastPosts { get; set; }
     }
 }

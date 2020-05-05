@@ -6,20 +6,119 @@
 
 <br />
 
-@foreach (var post in Model.Posts)
-{
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="@post.ImagePath" class="card-img" alt="@post.Name">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">@post.Name</h5>
-                    <p class="card-text">@post.Description</p>
-                    <p class="card-text"><small class="text-muted">@post.DateTime</small></p>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="4000">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+
+        @for (var index = 1; index < Model.FirstPosts.Count(); index++)
+        {
+            <li data-target="#carouselExampleIndicators" data-slide-to="@index"></li>
+        }
+    </ol>
+    <div class="carousel-inner">
+        @{ var firstItem = Model.FirstPosts.FirstOrDefault(); }
+        <div class="carousel-item active">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="@firstItem.ImagePath" class="card-img" alt="@firstItem.Name" height="200">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@firstItem.Name</h5>
+                            <p class="card-text">@firstItem.Description</p>
+                            <p class="card-text"><small class="text-muted">@firstItem.DateTime</small></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        @for (var index = 1; index < Model.FirstPosts.Count(); index++)
+        {
+            var item = Model.FirstPosts.ElementAtOrDefault(index);
+            <div class="carousel-item">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="@item.ImagePath" class="card-img" alt="@item.Name" height="200">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Description</p>
+                                <p class="card-text"><small class="text-muted">@item.DateTime</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-}
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel" data-interval="4000">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
+
+        @for (var index = 1; index < Model.LastPosts.Count(); index++)
+        {
+            <li data-target="#carouselExampleIndicators2" data-slide-to="@index"></li>
+        }
+    </ol>
+    <div class="carousel-inner">
+        @{ var lastPostsFirstItem = Model.LastPosts.FirstOrDefault(); }
+        <div class="carousel-item active">
+            <div class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="@lastPostsFirstItem.ImagePath" class="card-img" alt="@lastPostsFirstItem.Name" height="200">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@lastPostsFirstItem.Name</h5>
+                            <p class="card-text">@lastPostsFirstItem.Description</p>
+                            <p class="card-text"><small class="text-muted">@lastPostsFirstItem.DateTime</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @for (var index = 1; index < Model.LastPosts.Count(); index++)
+        {
+            var item = Model.LastPosts.ElementAtOrDefault(index);
+            <div class="carousel-item">
+                <div class="card mb-3">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="@item.ImagePath" class="card-img" alt="@item.Name" height="200">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Description</p>
+                                <p class="card-text"><small class="text-muted">@item.DateTime</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
