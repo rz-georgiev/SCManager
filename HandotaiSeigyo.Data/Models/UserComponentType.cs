@@ -13,8 +13,6 @@ namespace HandotaiSeigyo.Data.Models
 
         public decimal UnitPrice { get; set; }
 
-        public IdentityUser IdentityUser { get; set; }
-
         public ComponentType ComponentType { get; set; }
 
         public IEnumerable<UserComponentTypeDetail> Details { get; set; }

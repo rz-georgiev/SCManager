@@ -5,29 +5,56 @@
     ViewData["Title"] = "Admin panel";
 }
 
-<a href="">Create new component</a>
+<div class="accordion" id="accordionExample">
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Component name</th>
-            <th scope="col">Image</th>
-            <th scope="col">Creation/Update datetime</th>
-            <th scope="col">Edit</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (var index = 0; index < Model.ListingModels.Count(); index++)
-        {
-            var item = Model.ListingModels.ElementAtOrDefault(index);
-            <tr>
-                <th scope="row">@(index + 1)</th>
-                <td>@item.Name</td>
-                <td><img src="" class="rounded-circle" alt="Cinque Terre" width="64" height="64" asp-append-version="true"></td>
-                <td>@item.DateTime</td>
-                <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Detail" asp-route-id="@item.Id">Modify</a></td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Posts
+                </button>
+            </h2>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            Kurec
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Components
+                </button>
+            </h2>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Detail">Create new component</a>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Component</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Modify</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var index = 0; index < Model.ListingModels.Count(); index++)
+                    {
+                        var item = Model.ListingModels.ElementAtOrDefault(index);
+                        <tr>
+                            <th scope="row">@(index + 1)</th>
+                            <td>@item.Name</td>
+                            <td><img src="@item.ImagePath" class="rounded-circle" alt="@item.Name" width="64" height="64" asp-append-version="true"></td>
+                            <td>@item.DateTime</td>
+                            <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Detail" asp-route-id="@item.Id">Edit</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

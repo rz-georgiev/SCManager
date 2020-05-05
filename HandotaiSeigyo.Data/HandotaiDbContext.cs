@@ -18,5 +18,7 @@ namespace HandotaiSeigyo.Data
         public DbSet<UserComponentType> UserComponentTypes { get; set; }
 
         public DbSet<UserComponentTypeDetail> UserComponentTypeDetails { get; set; }
+
+        public DbSet<Post> Posts { get; set; }
     }
 }
