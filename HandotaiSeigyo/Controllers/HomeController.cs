@@ -22,18 +22,33 @@ namespace HandotaiSeigyo.Controllers
 
         public IActionResult Index()
         {
-            var posts = _postsService.GetLastDayPosts();
-            var count = posts.Count();
+            var posts = _postsService.GetLast15Posts();
+            var first = posts.Take(5);
+            var second = posts.Skip(5).Take(5);
+            var third = posts.Skip(10).Take(5);
 
-            var firstCount = count % 2 == 0 ? count / 2 : (count / 2) + 1;
-            var secondCount = count - firstCount;
+            var result = new PostViewModel();
+            result.PostLists = new List<List<PostListingViewModel>>
+            {
+                GetPostListingViewModels(first),
+                GetPostListingViewModels(second),
+                GetPostListingViewModels(third),
+            };
 
-            var firstPosts = GetPostViewModels(posts.OrderByDescending(x => x.Id).Take(firstCount));
-            var lastPosts = GetPostViewModels(posts.OrderBy(x => x.Id).Take(secondCount));
+            return View(result);
+        }
 
-            var model = new PostViewModel { FirstPosts = firstPosts, LastPosts = lastPosts };
+        private List<PostListingViewModel> GetPostListingViewModels(IEnumerable<Post> posts)
+        {
+            var models = posts.Select(x => new PostListingViewModel
+            {
+                Name = x.Name,
+                Description = x.Description,
+                ImagePath = x.ImagePath,
+                DateTime = x.CreatedDateTime.ToString("dd.MM.yyyy HH:mm")
+            }).ToList();
 
-            return View(model);
+            return models;
         }
 
         public IActionResult Privacy()

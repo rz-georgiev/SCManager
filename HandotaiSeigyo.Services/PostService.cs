@@ -15,10 +15,11 @@ namespace HandotaiSeigyo.Services
         {
             _context = context;
         }
-        public IEnumerable<Post> GetLastDayPosts()
+        public IEnumerable<Post> GetLast15Posts()
         {
             return _context.Posts
-                .Where(x => x.CreatedDateTime >= DateTime.Today);
+                .OrderByDescending(x => x.Id)
+                .Take(15);
         }
     }
 }

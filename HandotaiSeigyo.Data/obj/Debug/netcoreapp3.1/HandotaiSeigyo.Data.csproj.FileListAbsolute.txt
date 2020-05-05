@@ -9,3 +9,4 @@ E:\Development\HandotaiSeigyo\HandotaiSeigyo.Data\obj\Debug\netcoreapp3.1\Handot
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Data\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Data.dll
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Data\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Data.pdb
 E:\Development\HandotaiSeigyo\HandotaiSeigyo.Data\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Data.genruntimeconfig.cache
+E:\Development\HandotaiSeigyo\HandotaiSeigyo.Data\obj\Debug\netcoreapp3.1\HandotaiSeigyo.Data.csprojAssemblyReference.cache
