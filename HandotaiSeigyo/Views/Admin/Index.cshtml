@@ -1,8 +1,8 @@
 ﻿@model HandotaiSeigyo.ViewModels.Admin.ComponentTypeViewModel
 @using System;
- 
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Admin panel";
 }
 
 <a href="">Create new component</a>
@@ -24,9 +24,9 @@
             <tr>
                 <th scope="row">@(index + 1)</th>
                 <td>@item.Name</td>
-                <td><img src="https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg" class="rounded-circle" alt="Cinque Terre" width="64" height="64"></td>
+                <td><img src="" class="rounded-circle" alt="Cinque Terre" width="64" height="64" asp-append-version="true"></td>
                 <td>@item.DateTime</td>
-                <td><a href="">Modify</a></td>
+                <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Detail" asp-route-id="@item.Id">Modify</a></td>
             </tr>
         }
     </tbody>

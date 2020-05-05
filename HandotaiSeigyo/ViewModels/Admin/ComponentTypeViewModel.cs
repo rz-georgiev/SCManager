@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Microsoft.AspNetCore.Razor.Language.Extensions;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace HandotaiSeigyo.ViewModels.Admin

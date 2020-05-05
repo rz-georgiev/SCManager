@@ -3,6 +3,7 @@ using HandotaiSeigyo.Data.Interfaces;
 using HandotaiSeigyo.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace HandotaiSeigyo.Services
 {
@@ -15,9 +16,15 @@ namespace HandotaiSeigyo.Services
             _context = context;
         }
 
-        public IEnumerable<ComponentType> GetAllComponentTypes()
+        public IEnumerable<ComponentType> GetAll()
         {
             return _context.ComponentTypes;
+        }
+
+        public ComponentType GetById(int id)
+        {
+            return _context.ComponentTypes
+                .SingleOrDefault(x => x.Id == id);
         }
     }
 }
