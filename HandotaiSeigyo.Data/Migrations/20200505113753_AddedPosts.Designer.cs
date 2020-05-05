@@ -4,14 +4,16 @@ using HandotaiSeigyo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HandotaiSeigyo.Data.Migrations
 {
     [DbContext(typeof(HandotaiDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200505113753_AddedPosts")]
+    partial class AddedPosts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,8 +28,8 @@ namespace HandotaiSeigyo.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
@@ -38,8 +40,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastUpdatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LastUpdatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -48,10 +50,6 @@ namespace HandotaiSeigyo.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedByIdentityUserId");
-
-                    b.HasIndex("LastUpdatedByIdentityUserId");
 
                     b.ToTable("ComponentTypes");
                 });
@@ -66,8 +64,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<int?>("ComponentTypeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
@@ -75,8 +73,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastUpdatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LastUpdatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -91,10 +89,6 @@ namespace HandotaiSeigyo.Data.Migrations
 
                     b.HasIndex("ComponentTypeId");
 
-                    b.HasIndex("CreatedByIdentityUserId");
-
-                    b.HasIndex("LastUpdatedByIdentityUserId");
-
                     b.ToTable("ComponentTypeDetails");
                 });
 
@@ -105,8 +99,8 @@ namespace HandotaiSeigyo.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("CreatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
@@ -120,8 +114,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastUpdatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LastUpdatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -130,10 +124,6 @@ namespace HandotaiSeigyo.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatedByIdentityUserId");
-
-                    b.HasIndex("LastUpdatedByIdentityUserId");
 
                     b.ToTable("Posts");
                 });
@@ -148,17 +138,20 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<int>("ComponentTypeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastUpdatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LastUpdatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -173,9 +166,7 @@ namespace HandotaiSeigyo.Data.Migrations
 
                     b.HasIndex("ComponentTypeId");
 
-                    b.HasIndex("CreatedByIdentityUserId");
-
-                    b.HasIndex("LastUpdatedByIdentityUserId");
+                    b.HasIndex("IdentityUserId");
 
                     b.ToTable("UserComponentTypes");
                 });
@@ -190,8 +181,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<int?>("ComponentTypeDetailId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("CreatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedDateTime")
                         .HasColumnType("datetime2");
@@ -199,8 +190,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<string>("LastUpdatedByIdentityUserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("LastUpdatedByUserId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
@@ -214,10 +205,6 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ComponentTypeDetailId");
-
-                    b.HasIndex("CreatedByIdentityUserId");
-
-                    b.HasIndex("LastUpdatedByIdentityUserId");
 
                     b.HasIndex("UserComponentTypeId");
 
@@ -424,41 +411,11 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("HandotaiSeigyo.Data.Models.ComponentType", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedByIdentityUserId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedByIdentityUserId");
-                });
-
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.ComponentTypeDetail", b =>
                 {
                     b.HasOne("HandotaiSeigyo.Data.Models.ComponentType", "ComponentType")
                         .WithMany("Details")
                         .HasForeignKey("ComponentTypeId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedByIdentityUserId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedByIdentityUserId");
-                });
-
-            modelBuilder.Entity("HandotaiSeigyo.Data.Models.Post", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedByIdentityUserId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedByIdentityUserId");
                 });
 
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.UserComponentType", b =>
@@ -469,13 +426,9 @@ namespace HandotaiSeigyo.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedByIdentityUser")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByIdentityUserId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedByIdentityUserId");
+                        .HasForeignKey("IdentityUserId");
                 });
 
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.UserComponentTypeDetail", b =>
@@ -483,14 +436,6 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasOne("HandotaiSeigyo.Data.Models.ComponentTypeDetail", "ComponentTypeDetail")
                         .WithMany()
                         .HasForeignKey("ComponentTypeDetailId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "CreatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedByIdentityUserId");
-
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
-                        .WithMany()
-                        .HasForeignKey("LastUpdatedByIdentityUserId");
 
                     b.HasOne("HandotaiSeigyo.Data.Models.UserComponentType", "UserComponentType")
                         .WithMany("Details")

@@ -1,10 +1,13 @@
 ﻿using HandotaiSeigyo.Data.Interfaces;
 using HandotaiSeigyo.ViewModels.Admin;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 namespace HandotaiSeigyo.Controllers
 {
+    // TODO REMOVE
+    [AllowAnonymous]
     public class AdminController : Controller
     {
         private readonly IComponentTypeService _componentsService;
@@ -24,7 +27,7 @@ namespace HandotaiSeigyo.Controllers
                     Id = x.Id,
                     Name = x.Name,
                     ImagePath = x.ImagePath,
-                    DateTime = x.LastUpdatedDateTime?.ToString("r") ?? x.CreatedDateTime.ToString("r")
+                    DateTime = x.LastUpdatedDateTime?.ToString("dd.MM.yyyy") ?? x.CreatedDateTime.ToString("dd.MM.yyyy")
                 }).ToList();
 
             var model = new ComponentTypeViewModel { ListingModels = listingModels };
@@ -40,7 +43,7 @@ namespace HandotaiSeigyo.Controllers
                 Id = componentType.Id,
                 Name = componentType.Name,
                 ImagePath = componentType.ImagePath,
-                DateTime = componentType.LastUpdatedDateTime?.ToString("r") ?? componentType.CreatedDateTime.ToString("r")
+                DateTime = componentType.LastUpdatedDateTime?.ToString("dd.MM.yyyy") ?? componentType.CreatedDateTime.ToString("dd.MM.yyyy")
             };
 
             var details = _detailsService.GetByComponentTypeId(componentType.Id);
