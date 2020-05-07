@@ -4,14 +4,16 @@ using HandotaiSeigyo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HandotaiSeigyo.Data.Migrations
 {
     [DbContext(typeof(HandotaiDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200507154554_UnitMultipliersConnectionsAdded")]
+    partial class UnitMultipliersConnectionsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -169,7 +171,7 @@ namespace HandotaiSeigyo.Data.Migrations
 
                     b.HasIndex("LastUpdatedByIdentityUserId");
 
-                    b.ToTable("UnitMultipliers");
+                    b.ToTable("UnitMultiplier");
                 });
 
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.UserComponentType", b =>

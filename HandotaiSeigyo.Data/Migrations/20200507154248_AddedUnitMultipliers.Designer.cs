@@ -4,14 +4,16 @@ using HandotaiSeigyo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HandotaiSeigyo.Data.Migrations
 {
     [DbContext(typeof(HandotaiDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200507154248_AddedUnitMultipliers")]
+    partial class AddedUnitMultipliers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,6 +89,9 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<string>("Unit")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UnitMultiplierId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ComponentTypeId");
@@ -94,6 +99,8 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasIndex("CreatedByIdentityUserId");
 
                     b.HasIndex("LastUpdatedByIdentityUserId");
+
+                    b.HasIndex("UnitMultiplierId");
 
                     b.ToTable("ComponentTypeDetails");
                 });
@@ -169,7 +176,7 @@ namespace HandotaiSeigyo.Data.Migrations
 
                     b.HasIndex("LastUpdatedByIdentityUserId");
 
-                    b.ToTable("UnitMultipliers");
+                    b.ToTable("UnitMultiplier");
                 });
 
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.UserComponentType", b =>
@@ -239,9 +246,6 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.Property<DateTime?>("LastUpdatedDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UnitMultiplierId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UserComponentTypeId")
                         .HasColumnType("int");
 
@@ -255,8 +259,6 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasIndex("CreatedByIdentityUserId");
 
                     b.HasIndex("LastUpdatedByIdentityUserId");
-
-                    b.HasIndex("UnitMultiplierId");
 
                     b.HasIndex("UserComponentTypeId");
 
@@ -487,6 +489,10 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByIdentityUserId");
+
+                    b.HasOne("HandotaiSeigyo.Data.Models.UnitMultiplier", "UnitMultiplier")
+                        .WithMany()
+                        .HasForeignKey("UnitMultiplierId");
                 });
 
             modelBuilder.Entity("HandotaiSeigyo.Data.Models.Post", b =>
@@ -541,10 +547,6 @@ namespace HandotaiSeigyo.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "LastUpdatedByIdentityUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByIdentityUserId");
-
-                    b.HasOne("HandotaiSeigyo.Data.Models.UnitMultiplier", "UnitMultiplier")
-                        .WithMany()
-                        .HasForeignKey("UnitMultiplierId");
 
                     b.HasOne("HandotaiSeigyo.Data.Models.UserComponentType", "UserComponentType")
                         .WithMany("Details")

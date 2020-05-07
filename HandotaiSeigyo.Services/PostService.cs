@@ -15,6 +15,12 @@ namespace HandotaiSeigyo.Services
         {
             _context = context;
         }
+
+        public IEnumerable<Post> GetAll()
+        {
+            return _context.Posts;
+        }
+
         public IEnumerable<Post> GetLast15Posts()
         {
             return _context.Posts

@@ -1,12 +1,11 @@
 ﻿using HandotaiSeigyo.Data.Models;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace HandotaiSeigyo.Data.Interfaces
 {
-    public interface IPostService
+    public interface IUnitMultiplierService
     {
-        IEnumerable<Post> GetAll();
-
-        IEnumerable<Post> GetLast15Posts();
+        IEnumerable<UnitMultiplier> GetAll();
     }
 }
