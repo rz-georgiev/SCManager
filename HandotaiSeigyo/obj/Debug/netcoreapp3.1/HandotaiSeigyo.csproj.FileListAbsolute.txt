@@ -163,5 +163,5 @@ E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSei
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.pdb
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\HandotaiSeigyo.genruntimeconfig.cache
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
-E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Detail.cshtml.g.cs
 E:\Development\HandotaiSeigyo\HandotaiSeigyo\bin\Debug\netcoreapp3.1\appsettings.Production.json
+E:\Development\HandotaiSeigyo\HandotaiSeigyo\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ComponentTypeEditor.cshtml.g.cs

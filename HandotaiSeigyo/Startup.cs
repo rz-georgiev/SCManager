@@ -38,9 +38,10 @@ namespace HandotaiSeigyo
                 .AddEntityFrameworkStores<HandotaiDbContext>();
 
             // Register your services here
+            services.AddTransient<IPostService, PostService>();
+            services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
-            services.AddTransient<IPostService, PostService>();
 
             services.AddControllers(config =>
             {
