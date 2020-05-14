@@ -9,6 +9,7 @@ namespace HandotaiSeigyo.Data
         public HandotaiDbContext(DbContextOptions options)
             : base(options)
         {
+            
         }
 
         public DbSet<ComponentType> ComponentTypes { get; set; }
