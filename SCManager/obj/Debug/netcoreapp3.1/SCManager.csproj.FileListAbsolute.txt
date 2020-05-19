@@ -1,6 +1,7 @@
-E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.Production.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.json
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.Production.json
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\libman.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.StaticWebAssets.xml
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.exe
