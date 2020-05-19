@@ -343,39 +343,41 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home" , new { area="" })">
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    }
+        }
 
-    else
-    {
+        else
+        {
         <!-- Begin Page Content -->
         <div class="container-fluid">
             @RenderBody()
         </div>
         <!-- /.container-fluid -->
-    }
+        }
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="~/vendor/jquery/jquery.min.js"></script>
-    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="~/js/sb-admin-2.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="~/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="~/vendor/chart.js/Chart.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="~/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="~/js/demo/chart-area-demo.js"></script>
-    <script src="~/js/demo/chart-pie-demo.js"></script>
+        <!-- Page level custom scripts -->
+        <script src="~/js/demo/chart-area-demo.js"></script>
+        <script src="~/js/demo/chart-pie-demo.js"></script>
 
-    @RenderSection("Scripts", required: false)
-</body>
+        @RenderSection("Scripts", required: false)
+    </body>
 </html>
