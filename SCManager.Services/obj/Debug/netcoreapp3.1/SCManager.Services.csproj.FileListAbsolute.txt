@@ -1,12 +1,12 @@
+E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.csprojAssemblyReference.cache
+E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.csproj.CoreCompileInputs.cache
+E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.AssemblyInfoInputs.cache
+E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.AssemblyInfo.cs
 E:\Development\SCManager\SCManager.Services\bin\Debug\netcoreapp3.1\SCManager.Services.deps.json
 E:\Development\SCManager\SCManager.Services\bin\Debug\netcoreapp3.1\SCManager.Services.dll
 E:\Development\SCManager\SCManager.Services\bin\Debug\netcoreapp3.1\SCManager.Services.pdb
 E:\Development\SCManager\SCManager.Services\bin\Debug\netcoreapp3.1\SCManager.Data.dll
 E:\Development\SCManager\SCManager.Services\bin\Debug\netcoreapp3.1\SCManager.Data.pdb
-E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.csprojAssemblyReference.cache
-E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.csproj.CoreCompileInputs.cache
-E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.AssemblyInfoInputs.cache
-E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.AssemblyInfo.cs
 E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.csproj.CopyComplete
 E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.dll
 E:\Development\SCManager\SCManager.Services\obj\Debug\netcoreapp3.1\SCManager.Services.pdb
