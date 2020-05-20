@@ -9,14 +9,15 @@
     <div class="container">
 
         <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
+            <div class="card-body p-xl-5">
                 <!-- Nested Row within Card Body -->
                 <div class="row">
-                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-5 d-none d-lg-block bg-confirm-email-image"></div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <form class="user">
                                 <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Successfully created account!</h1>
                                     <h1 class="h4 text-gray-900 mb-4">Please check your email for a confirmation link!</h1>
                                 </div>
                                 <hr>
@@ -32,19 +33,3 @@
         </div>
     </div>
 </body>
-
-@*@{
-        if (@Model.DisplayConfirmAccountLink)
-        {
-    <p>
-        This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-        Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-    </p>
-        }
-        else
-        {
-    <p>
-            Please check your email to confirm your account.
-    </p>
-        }
-    }*@

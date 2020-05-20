@@ -21,17 +21,17 @@ namespace SCManager.Areas.Identity.Pages.Account
             _emailService = emailService;
         }
 
-        public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
+        public async Task<IActionResult> OnGetAsync(string receiverEmail, string returnUrl = null)
         {
-            if (email == null)
+            if (receiverEmail == null)
             {
                 return RedirectToPage("/Index");
             }
 
-            var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(receiverEmail);
             if (user == null)
             {
-                return NotFound($"Unable to load user with email '{email}'.");
+                return NotFound($"Unable to load user with email '{receiverEmail}'.");
             }
 
             var userId = await _userManager.GetUserIdAsync(user);
@@ -43,7 +43,16 @@ namespace SCManager.Areas.Identity.Pages.Account
                 values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                 protocol: Request.Scheme);
 
-            await _emailService.SendEmailAsync(email, "Confirmation link", EmailConfirmationUrl);
+            var content = $"Dear {receiverEmail}, <br/>" +
+               $"Thank you for registering to SCManager 1.0!.Your registration has been received.<br/>" +
+               $"If you would like to activate your account, click on the following link:<br/>" +
+               $"<a href='{EmailConfirmationUrl}'>Click here to confirm</a><br/>" +
+               $"Have fun using our app!<br/>" +
+               $"Best Regards,<br/>" +
+               $"SCManager<br/>";
+
+
+            await _emailService.SendEmailAsync(receiverEmail, "Confirmation link", content);
 
             return Page();
         }
