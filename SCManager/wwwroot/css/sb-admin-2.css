@@ -10586,7 +10586,7 @@ a:focus {
 .bg-login-image {
     background: url("../img/bg-login-image.jpg");
     background-position: center;
-    background-size: cover;
+    background-size: auto;
 }
 
 .bg-register-image {
@@ -10597,6 +10597,18 @@ a:focus {
 
 .bg-password-image {
     background: url('../img/bg-password-image.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-confirm-email-image {
+    background: url('../img/bg-confirm-email-image.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-email-confirmed-image {
+    background: url('../img/bg-email-confirmed-image.jpg');
     background-position: center;
     background-size: cover;
 }
