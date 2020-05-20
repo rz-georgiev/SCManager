@@ -132,9 +132,6 @@ E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Services.dl
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Data.pdb
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Services.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csprojAssemblyReference.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.AssemblyInfoInputs.cache
@@ -169,3 +166,8 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCMan
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SendGrid.dll
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
