@@ -2677,7 +2677,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "SCManager.Data": "1.0.0"
+          "SCManager.Data": "1.0.0",
+          "SendGrid": "9.15.0"
         },
         "compile": {
           "bin/placeholder/SCManager.Services.dll": {}
