@@ -1,10 +1,3 @@
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csprojAssemblyReference.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cs
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.AssemblyInfoInputs.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.AssemblyInfo.cs
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.json
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\appsettings.Production.json
@@ -138,6 +131,14 @@ E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Data.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Services.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Data.pdb
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\SCManager.Services.pdb
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csprojAssemblyReference.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorAssemblyInfo.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.AssemblyInfoInputs.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.AssemblyInfo.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.TagHelpers.input.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.TagHelpers.output.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.RazorCoreGenerate.cache
@@ -168,4 +169,3 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCMan
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
