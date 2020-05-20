@@ -35,9 +35,16 @@ namespace SCManager.Services
             message.Subject = "Confirmation link";
             // Set IsBodyHtml to true means you can send HTML email.
             message.IsBodyHtml = true;
-            message.Body = messageContent;
-            message.To.Add(receiverEmail);
 
+            message.Body = $"Dear {receiverEmail}, <br/>" +
+                $"Thank you for registering to SCManager 1.0!.Your registration has been received.<br/>" +
+                $"If you would like to activate your account, click on the following link:<br/>" +
+                $"<a href='{messageContent}'>Click here to confirm</a><br/>" +
+                $"Have fun using our app!<br/>" +
+                $"Best Regards,<br/>" +
+                $"SCManager<br/>";
+
+            message.To.Add(receiverEmail);
             await smtpClient.SendMailAsync(message);
         }
     }
