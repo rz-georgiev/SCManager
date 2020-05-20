@@ -2283,7 +2283,8 @@
       },
       "SCManager.Services/1.0.0": {
         "dependencies": {
-          "SCManager.Data": "1.0.0"
+          "SCManager.Data": "1.0.0",
+          "SendGrid": "9.15.0"
         },
         "runtime": {
           "SCManager.Services.dll": {}

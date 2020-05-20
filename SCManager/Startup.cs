@@ -1,9 +1,5 @@
-using SCManager.Data;
-using SCManager.Data.Interfaces;
-using SCManager.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
@@ -11,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SCManager.Data;
+using SCManager.Data.Interfaces;
+using SCManager.Services;
 using System;
 
 namespace SCManager
@@ -42,6 +41,9 @@ namespace SCManager
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
+            services.AddTransient<IEmailSenderService, EmailSenderService>();
+
+            services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddControllers(config =>
             {
@@ -54,6 +56,9 @@ namespace SCManager
             });
 
             services.AddRazorPages();
+
+            services.Configure<DataProtectionTokenProviderOptions>(o =>
+            o.TokenLifespan = TimeSpan.FromHours(3));
 
             services.Configure<IdentityOptions>(options =>
             {
