@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nGPW4iH4pmIDU2H8TWUpmE+C975nOgGo2gxw0qRweL3kxx+QzOAKjpkO2PomTfMe268fKTl22LzMCMLVvN+yng==",
+  "dgSpecHash": "asgfmE4O2g+q25OTzB5ZyX7g0OezkYxa349xiPRpOEpPAd4zMuqDvCnxkbVhMEXIB2AbVwQ6o92wvHrlJ8/6sw==",
   "success": true,
   "projectFilePath": "E:\\Development\\SCManager\\SCManager\\SCManager.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\RGeorgiev\\.nuget\\packages\\buildbundlerminifier\\3.2.447\\buildbundlerminifier.3.2.447.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.3\\microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.3\\microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.3\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.3.nupkg.sha512",

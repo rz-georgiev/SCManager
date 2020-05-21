@@ -58,9 +58,8 @@ namespace SCManager
             });
 
             services.AddRazorPages();
-
-            services.Configure<DataProtectionTokenProviderOptions>(o =>
-            o.TokenLifespan = TimeSpan.FromMinutes(5));
+            services.AddResponseCompression(options => options.EnableForHttps = true);
+            services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -109,11 +108,10 @@ namespace SCManager
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseResponseCompression();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthentication();
             app.UseAuthorization();
 
