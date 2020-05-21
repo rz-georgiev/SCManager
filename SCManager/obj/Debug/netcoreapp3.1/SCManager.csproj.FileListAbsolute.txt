@@ -175,3 +175,4 @@ E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\bundleconfig.json
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml.g.cs
