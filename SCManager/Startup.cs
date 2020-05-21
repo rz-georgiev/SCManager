@@ -60,7 +60,7 @@ namespace SCManager
             services.AddRazorPages();
 
             services.Configure<DataProtectionTokenProviderOptions>(o =>
-            o.TokenLifespan = TimeSpan.FromHours(3));
+            o.TokenLifespan = TimeSpan.FromMinutes(5));
 
             services.Configure<IdentityOptions>(options =>
             {
