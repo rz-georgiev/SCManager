@@ -1,8 +1,7 @@
 ﻿@page
-@model LoginModel
-
+@model LoginWith2faModel
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Two-factor authentication";
 }
 
 <body class="bg-gradient-primary">
@@ -20,22 +19,19 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome to SCManager 1.0!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Your login is protected with an authenticator app. Enter your authenticator code below.</h1>
                                     </div>
-                                    <form class="user" method="post">
+                                    <form class="user" method="post" asp-route-returnUrl="@Model.ReturnUrl">
+                                        <input asp-for="RememberMe" type="hidden" />
                                         <div asp-validation-summary="All" class="text-danger"></div>
                                         <div class="form-group">
-                                            <input asp-for="Input.Email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
-                                            <span asp-validation-for="Input.Email" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <input asp-for="Input.Password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                            <input asp-for="Input.TwoFactorCode" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="2FA code..." autocomplete="off">
+                                            <span asp-validation-for="Input.TwoFactorCode" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input asp-for="Input.RememberMe" class="custom-control-input" id="customCheck">
-                                                <label asp-for="Input.RememberMe" class="custom-control-label" for="customCheck">Remember Me</label>
+                                                <input asp-for="Input.RememberMachine" class="custom-control-input" id="customCheck">
+                                                <label asp-for="Input.RememberMachine" class="custom-control-label" for="customCheck">Remember machine</label>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -43,13 +39,8 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="text-center">
-                                                <a class="small" asp-page="./ForgotPassword">Forgot your password?</a>
-                                            </div>
-                                            <div class="text-center">
-                                                <a class="small" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                                            </div>
-                                            <div class="text-center">
-                                                <a class="small"  asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                                                Don't have access to your authenticator device? You can
+                                                <a class="small" id="recovery-code-login" asp-page="./LoginWithRecoveryCode" asp-route-returnUrl="@Model.ReturnUrl">log in with a recovery code</a>.
                                             </div>
                                         </div>
                                         <hr>
@@ -63,8 +54,6 @@
         </div>
     </div>
 </body>
-
-
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
