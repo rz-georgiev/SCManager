@@ -8,4 +8,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <_PublishTargetUrl>E:\Development\SCManager\SCManager\bin\Release\netcoreapp3.1\publish\</_PublishTargetUrl>
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SCManagerDbConnection">
+      <Value>Server=./%3bDatabase=SCManager%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
 </Project>

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
+using SCManager.Data.Models;
 using SCManager.Services;
 using System;
 
@@ -33,7 +34,7 @@ namespace SCManager
                 .UseSqlServer(Configuration.GetConnectionString("SCManagerDbConnection"))
             );
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<SCManagerDbContext>();
 
@@ -43,8 +44,6 @@ namespace SCManager
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
-
-            services.Configure<AuthMessageSenderOptions>(Configuration);
 
             services.AddControllers(config =>
             {
