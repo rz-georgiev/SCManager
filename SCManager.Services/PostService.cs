@@ -1,12 +1,11 @@
-﻿using SCManager.Data;
-using SCManager.Data.Interfaces;
-using SCManager.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SCManager.Services
+﻿namespace SCManager.Services
 {
+    using SCManager.Data;
+    using SCManager.Data.Interfaces;
+    using SCManager.Data.Models;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class PostService : IPostService
     {
         private readonly SCManagerDbContext _context;

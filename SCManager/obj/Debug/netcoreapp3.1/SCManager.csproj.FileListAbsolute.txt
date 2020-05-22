@@ -176,3 +176,8 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.Core
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Profile.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\PersonalData.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs

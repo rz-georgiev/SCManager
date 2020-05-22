@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SCManager.Data.Interfaces;
 using SCManager.ViewModels;
 using System.Diagnostics;
 
@@ -14,6 +13,11 @@ namespace SCManager.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Profile()
         {
             return View();
         }
