@@ -19,7 +19,12 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Your login is protected with an authenticator app. Enter your authenticator code below.</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">
+                                            Authentication code
+                                        </h1>
+                                        <p class="mb-4">
+                                            Your login is protected with an authenticator app. Enter your authenticator code below.
+                                        </p>
                                     </div>
                                     <form class="user" method="post" asp-route-returnUrl="@Model.ReturnUrl">
                                         <input asp-for="RememberMe" type="hidden" />

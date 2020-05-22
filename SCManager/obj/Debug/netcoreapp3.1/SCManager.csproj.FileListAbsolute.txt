@@ -183,3 +183,4 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
