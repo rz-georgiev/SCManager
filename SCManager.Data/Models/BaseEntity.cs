@@ -13,9 +13,9 @@ namespace SCManager.Data.Models
 
         public DateTime? LastUpdatedDateTime { get; set; }
 
-        public IdentityUser CreatedByIdentityUser { get; set; }
+        public ApplicationUser CreatedByIdentityUser { get; set; }
 
-        public IdentityUser LastUpdatedByIdentityUser { get; set; }
+        public ApplicationUser LastUpdatedByIdentityUser { get; set; }
 
         public bool IsActive { get; set; }
     }

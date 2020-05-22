@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using SCManager.Data;
+using SCManager.Data.Models;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,10 +13,10 @@ namespace SCManager.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IEmailSenderService _emailService;
 
-        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSenderService emailService)
+        public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, IEmailSenderService emailService)
         {
             _userManager = userManager;
             _emailService = emailService;

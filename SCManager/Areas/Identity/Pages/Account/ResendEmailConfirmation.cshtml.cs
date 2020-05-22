@@ -11,16 +11,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using SCManager.Data;
+using SCManager.Data.Models;
 
 namespace SCManager.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ResendEmailConfirmationModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IEmailSenderService _emailService;
 
-        public ResendEmailConfirmationModel(UserManager<IdentityUser> userManager, IEmailSenderService emailService)
+        public ResendEmailConfirmationModel(UserManager<ApplicationUser> userManager, IEmailSenderService emailService)
         {
             _userManager = userManager;
             _emailService = emailService;

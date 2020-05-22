@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using SCManager.Data;
+using SCManager.Data.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -14,10 +15,10 @@ namespace SCManager.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IEmailSenderService _emailService;
 
-        public ForgotPasswordModel(UserManager<IdentityUser> userManager, IEmailSenderService emailService)
+        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, IEmailSenderService emailService)
         {
             _userManager = userManager;
             _emailService = emailService;

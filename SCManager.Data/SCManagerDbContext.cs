@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SCManager.Data
 {
-    public class SCManagerDbContext : IdentityDbContext
+    public class SCManagerDbContext : IdentityDbContext<ApplicationUser>
     {
         public SCManagerDbContext(DbContextOptions options)
             : base(options)
