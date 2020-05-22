@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace SCManager.Data.Models
 {
@@ -11,6 +9,5 @@ namespace SCManager.Data.Models
         public string ImagePath { get; set; }
 
         public IEnumerable<ComponentTypeDetail> Details { get; set; }
-
     }
 }

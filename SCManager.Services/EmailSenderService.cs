@@ -44,14 +44,9 @@ namespace SCManager.Services
             message.Body = messageContent;
 
             message.To.Add(receiverEmail);
-            try
-            {
+           
                 await smtpClient.SendMailAsync(message);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            };
+          
         }
     }
 }
