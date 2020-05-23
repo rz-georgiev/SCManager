@@ -172,9 +172,6 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml.g.cs
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\bundleconfig.json
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Error.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Profile.cshtml.g.cs
@@ -184,3 +181,10 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWith2fa.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Index.cshtml.g.cs
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Cloudinary.Core.dll
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\Email.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml.g.cs

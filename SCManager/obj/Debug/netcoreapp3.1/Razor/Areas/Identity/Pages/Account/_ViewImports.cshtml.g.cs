@@ -34,6 +34,13 @@ using SCManager.Areas.Identity.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "E:\Development\SCManager\SCManager\Areas\Identity\Pages\_ViewImports.cshtml"
+using SCManager.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "E:\Development\SCManager\SCManager\Areas\Identity\Pages\Account\_ViewImports.cshtml"
 using SCManager.Areas.Identity.Pages.Account;
 
@@ -41,7 +48,7 @@ using SCManager.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"151d421d19e26c32bc07a482d6a5429a66962b8b", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8fc785d9cd19278b79a58859d5ad5d460f823e5d", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b2bb7134d900539461d5a4f0f67ee6146e43862d", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account__ViewImports : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
