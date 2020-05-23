@@ -32,13 +32,13 @@
             </p>
             <div class="row">
                 <div class="col-md-6">
-                    <form id="send-code" method="post">
+                    <form id="send-code" class="user" method="post">
                         <div class="form-group">
                             <label asp-for="Input.Code" class="control-label">Verification Code</label>
-                            <input asp-for="Input.Code" class="form-control" autocomplete="off" />
+                            <input asp-for="Input.Code" class="form-control form-control-user" autocomplete="off" />
                             <span asp-validation-for="Input.Code" class="text-danger"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary">Verify</button>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">Verify</button>
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     </form>
                 </div>
