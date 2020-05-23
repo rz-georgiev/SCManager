@@ -34,6 +34,13 @@ using SCManager.Areas.Identity.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 4 "E:\Development\SCManager\SCManager\Areas\Identity\Pages\_ViewImports.cshtml"
+using SCManager.Data.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "E:\Development\SCManager\SCManager\Areas\Identity\Pages\Account\_ViewImports.cshtml"
 using SCManager.Areas.Identity.Pages.Account;
 
@@ -41,7 +48,7 @@ using SCManager.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"192afcdb6ac0c50647c35693fe07bebbf2153bd9", @"/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8fc785d9cd19278b79a58859d5ad5d460f823e5d", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b2bb7134d900539461d5a4f0f67ee6146e43862d", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"151d421d19e26c32bc07a482d6a5429a66962b8b", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account_ResetPasswordConfirmation : global::Microsoft.AspNetCore.Mvc.RazorPages.Page
     {
@@ -85,7 +92,7 @@ using SCManager.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd95897", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd96083", async() => {
                 WriteLiteral(@"
     <div class=""container"">
         <div class=""card o-hidden border-0 shadow-lg my-5"">
@@ -96,7 +103,7 @@ using SCManager.Areas.Identity.Pages.Account;
                     <div class=""col-lg-7"">
                         <div class=""p-5"">
                             ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd96602", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd96788", async() => {
                     WriteLiteral(@"
                                 <div class=""text-center"">
                                     <br />
@@ -106,7 +113,7 @@ using SCManager.Areas.Identity.Pages.Account;
                                 <hr>
                                 <div class=""text-center"">
                                     ");
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd97371", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "192afcdb6ac0c50647c35693fe07bebbf2153bd97557", async() => {
                         WriteLiteral("Go to login screen");
                     }
                     );

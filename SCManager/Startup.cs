@@ -1,3 +1,4 @@
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -59,6 +60,15 @@ namespace SCManager
             services.AddRazorPages();
             services.AddResponseCompression(options => options.EnableForHttps = true);
             services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
+
+            Account account = new Account(
+                        Configuration["Cloudinary:CloudName"],
+                        Configuration["Cloudinary:ApiKey"],
+                        Configuration["Cloudinary:ApiSecret"]);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
+            services.AddSingleton(cloudinary);
 
             services.Configure<IdentityOptions>(options =>
             {
