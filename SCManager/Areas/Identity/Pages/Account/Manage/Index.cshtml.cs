@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SCManager.Data.Models;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
+using SCManager.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
@@ -17,16 +19,21 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly Cloudinary _cloudinary;
+        private readonly SCManagerDbContext _dbContext;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            Cloudinary cloudinary)
+            Cloudinary cloudinary,
+            SCManagerDbContext dbContext)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _cloudinary = cloudinary;
+            _dbContext = dbContext;
         }
+
+    
 
         public string Username { get; set; }
 
@@ -37,10 +44,10 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         public InputModel Input { get; set; }
 
         public class InputModel
-        {
-            [Phone]
-            [Display(Name = "Phone number")]
-            public string PhoneNumber { get; set; }
+        { 
+            public string ImageUrl { get; set; }
+
+            public IFormFile FormFile { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -51,15 +58,15 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             //    File = new FileDescription(@"C:\Users\RGeorgiev\Desktop\wallpaper.jpg"),  
             //};
             //var uploadResult = await _cloudinary.UploadAsync(uploadParams);
-
+            
             var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
+            var imageUrl = user.ImageUrl;
+            
             Username = userName;
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                ImageUrl = imageUrl
             };
         }
 
@@ -75,9 +82,9 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(IFormFile FormFile)
         {
-            var user = await _userManager.GetUserAsync(User);
+               var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -89,13 +96,19 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-            if (Input.PhoneNumber != phoneNumber)
+            var imageUrl = user.ImageUrl;
+            if (Input.ImageUrl != imageUrl)
             {
-                var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
+                try
                 {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
+                    user.ImageUrl = Input.ImageUrl;
+                    _dbContext.Update(user);
+
+                    await _dbContext.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    StatusMessage = "Unexpected error when trying to set image url.";
                     return RedirectToPage();
                 }
             }
