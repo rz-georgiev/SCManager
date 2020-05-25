@@ -1,4 +1,5 @@
 using CloudinaryDotNet;
+using Ganss.XSS;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -55,6 +56,9 @@ namespace SCManager
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
+            services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
+
+            services.AddSingleton(new HtmlSanitizer());
 
             services.AddControllers(config =>
             {
