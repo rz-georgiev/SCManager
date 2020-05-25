@@ -150,7 +150,6 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Admin\ComponentTypeEditor.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Admin\Index.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -192,3 +191,6 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml.g.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Privacy\Index.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\About\Index.cshtml.g.cs

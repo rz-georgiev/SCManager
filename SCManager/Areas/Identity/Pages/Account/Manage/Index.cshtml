@@ -9,16 +9,11 @@
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">
     <div class="col-md-6">
-        <form id="profile-form" class="user" method="post">
+        <form enctype="multipart/form-data" id="profile-form" class="user" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Username"></label>
                 <input asp-for="Username" class="form-control form-control-user" id="username" disabled />
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ImageUrl"></label>
-                <input asp-for="Input.ImageUrl" class="form-control form-control-user" id="phoneNumber" />
-                <span asp-validation-for="Input.ImageUrl" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">
                 Save
