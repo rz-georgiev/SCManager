@@ -208,6 +208,10 @@
               "target": "Package",
               "version": "[1.31.0, )"
             },
+            "HtmlSanitizer": {
+              "target": "Package",
+              "version": "[5.0.319, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"
