@@ -1,31 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using SCManager.Data.Models;
+using Microsoft.EntityFrameworkCore;
 using SCManager.Data;
+using SCManager.Data.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
     public partial class EmailModel : PageModel
     {
+        private readonly SCManagerDbContext _dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSenderService _emailSender;
 
         public EmailModel(
+            SCManagerDbContext dbContext,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSenderService emailSender)
         {
+            _dbContext = dbContext;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -78,32 +78,36 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
         public async Task<IActionResult> OnPostChangeEmailAsync()
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (user == null)
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
             }
 
             if (!ModelState.IsValid)
             {
-                await LoadAsync(user);
+                await LoadAsync(currentUser);
                 return Page();
             }
 
-            var email = await _userManager.GetEmailAsync(user);
+            var email = await _userManager.GetEmailAsync(currentUser);
             if (Input.NewEmail != email)
             {
-                var userId = await _userManager.GetUserIdAsync(user);
-                var code = await _userManager.GenerateChangeEmailTokenAsync(user, Input.NewEmail);
+                if (await IsEmailUsedByAnotherUserAsync(Input.NewEmail, currentUser))
+                {
+                    StatusMessage = "Email is used by another user.";
+                    return RedirectToPage();
+                }
+
+                var userId = await _userManager.GetUserIdAsync(currentUser);
+                var code = await _userManager.GenerateChangeEmailTokenAsync(currentUser, Input.NewEmail);
                 var callbackUrl = Url.Page(
                     "/Account/ConfirmEmailChange",
                     pageHandler: null,
-                    values: new { userId = userId, email = Input.NewEmail, code = code },
+                    values: new { userId = userId, email = Input.NewEmail, code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code)) },
                     protocol: Request.Scheme);
 
-                var content = HtmlEncoder.Default.Encode(callbackUrl);
-
-                await _emailSender.SendEmailAsync(Input.NewEmail, "Reset password link", content);
+                await _emailSender.SendEmailAsync(Input.NewEmail, "Reset password link", HtmlEncoder.Default.Encode(callbackUrl));
 
                 StatusMessage = "Confirmation link  for email changing was sent. Please check your email.";
                 return RedirectToPage();
@@ -143,6 +147,18 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();
+        }
+
+        private async Task<bool> IsEmailUsedByAnotherUserAsync(string email, ApplicationUser user)
+        {
+            var emailInUse = await _dbContext.ApplicationUsers.AnyAsync
+            (
+                x =>
+                x.Email == Input.NewEmail &&
+                x.Id != user.Id
+            );
+
+            return emailInUse;
         }
     }
 }
