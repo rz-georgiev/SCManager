@@ -45,8 +45,6 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         { 
-            public string ImageUrl { get; set; }
-
             public IFormFile FormFile { get; set; }
         }
 
@@ -66,7 +64,6 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                ImageUrl = imageUrl
             };
         }
 
@@ -82,9 +79,9 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(IFormFile FormFile)
+        public async Task<IActionResult> OnPostAsync()
         {
-               var user = await _userManager.GetUserAsync(User);
+            var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -96,25 +93,25 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            var imageUrl = user.ImageUrl;
-            if (Input.ImageUrl != imageUrl)
-            {
-                try
-                {
-                    user.ImageUrl = Input.ImageUrl;
-                    _dbContext.Update(user);
+            //var imageUrl = user.ImageUrl;
+            //if (Input.ImageUrl != imageUrl)
+            //{
+            //    try
+            //    {
+            //        user.ImageUrl = Input.ImageUrl;
+            //        _dbContext.Update(user);
 
-                    await _dbContext.SaveChangesAsync();
-                }
-                catch (Exception ex)
-                {
-                    StatusMessage = "Unexpected error when trying to set image url.";
-                    return RedirectToPage();
-                }
-            }
+            //        await _dbContext.SaveChangesAsync();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        StatusMessage = "Unexpected error when trying to set image url.";
+            //        return RedirectToPage();
+            //    }
+            //}
 
-            await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            //await _signInManager.RefreshSignInAsync(user);
+            //StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
     }
