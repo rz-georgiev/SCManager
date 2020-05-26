@@ -1,6 +1,6 @@
-﻿using SCManager.Data.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SCManager.Data.Models;
 
 namespace SCManager.Data
 {
@@ -9,7 +9,7 @@ namespace SCManager.Data
         public SCManagerDbContext(DbContextOptions options)
             : base(options)
         {
-            
+            Database.Migrate();
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
@@ -26,6 +26,6 @@ namespace SCManager.Data
 
         public DbSet<UnitMultiplier> UnitMultipliers { get; set; }
 
-        public DbSet<StaticSiteInfo> StaticSiteInfos{ get; set; }
+        public DbSet<StaticSiteInfo> StaticSiteInfos { get; set; }
     }
 }
