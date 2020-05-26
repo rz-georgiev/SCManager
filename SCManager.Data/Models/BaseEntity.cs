@@ -7,7 +7,7 @@ namespace SCManager.Data.Models
     {
         public int Id { get; set; }
 
-        public DateTime CreatedDateTime { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedDateTime { get; set; }
 
         public DateTime? LastUpdatedDateTime { get; set; }
 
