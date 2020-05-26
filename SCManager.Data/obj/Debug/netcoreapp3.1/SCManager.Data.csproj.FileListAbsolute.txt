@@ -3,10 +3,10 @@ E:\Development\SCManager\SCManager.Data\bin\Debug\netcoreapp3.1\SCManager.Data.r
 E:\Development\SCManager\SCManager.Data\bin\Debug\netcoreapp3.1\SCManager.Data.runtimeconfig.dev.json
 E:\Development\SCManager\SCManager.Data\bin\Debug\netcoreapp3.1\SCManager.Data.dll
 E:\Development\SCManager\SCManager.Data\bin\Debug\netcoreapp3.1\SCManager.Data.pdb
-E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.csprojAssemblyReference.cache
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.csproj.CoreCompileInputs.cache
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.AssemblyInfoInputs.cache
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.AssemblyInfo.cs
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.dll
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.pdb
 E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.genruntimeconfig.cache
+E:\Development\SCManager\SCManager.Data\obj\Debug\netcoreapp3.1\SCManager.Data.csprojAssemblyReference.cache
