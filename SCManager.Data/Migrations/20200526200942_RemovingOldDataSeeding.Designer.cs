@@ -10,14 +10,14 @@ using SCManager.Data;
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    [Migration("20200526073737_TempSeededData2Removed")]
-    partial class TempSeededData2Removed
+    [Migration("20200526200942_RemovingOldDataSeeding")]
+    partial class RemovingOldDataSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.3")
+                .HasAnnotation("ProductVersion", "3.1.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
