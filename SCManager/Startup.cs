@@ -33,7 +33,7 @@ namespace SCManager
         {
             services.Configure<CookiePolicyOptions>(options =>
             {
-                // This lambda determines whether user consent for non-essential 
+                // This lambda determines whether user consent for non-essential
                 // cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 // requires using Microsoft.AspNetCore.Http;
@@ -51,6 +51,15 @@ namespace SCManager
                 .AddEntityFrameworkStores<SCManagerDbContext>();
 
             // Register your services here
+            Account account = new Account(
+                      Configuration["Cloudinary:CloudName"],
+                      Configuration["Cloudinary:ApiKey"],
+                      Configuration["Cloudinary:ApiSecret"]);
+
+            Cloudinary cloudinary = new Cloudinary(account);
+
+            services.AddSingleton(cloudinary);
+            services.AddSingleton(new HtmlSanitizer());
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
@@ -58,7 +67,8 @@ namespace SCManager
             services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
 
-            services.AddSingleton(new HtmlSanitizer());
+            services.AddResponseCompression(options => options.EnableForHttps = true);
+            services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
 
             services.AddControllers(config =>
             {
@@ -72,18 +82,6 @@ namespace SCManager
             });
 
             services.AddRazorPages();
-            services.AddResponseCompression(options => options.EnableForHttps = true);
-            services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
-
-            Account account = new Account(
-                        Configuration["Cloudinary:CloudName"],
-                        Configuration["Cloudinary:ApiKey"],
-                        Configuration["Cloudinary:ApiSecret"]);
-
-            Cloudinary cloudinary = new Cloudinary(account);
-
-            services.AddSingleton(cloudinary);
-
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
@@ -114,6 +112,11 @@ namespace SCManager
                 options.LoginPath = "/Identity/Account/Login";
                 options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                 options.SlidingExpiration = true;
+            });
+
+            services.Configure<CookieTempDataProviderOptions>(options =>
+            {
+                options.Cookie.IsEssential = true;
             });
         }
 
