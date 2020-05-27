@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Jre4Yo2k316qgFvZ00XlqtoI5es2IYFXuzgm3Y0pv4uowoeAKdtCepRjdPXuI/cUbCex4r5Gn6Crik2DUXFtoA==",
+  "dgSpecHash": "uJQcN1QBAIQp6eLYKIEPvIgDBGawRjPSZHck2asQLbYmjQp5JnHKFHdgyxd3dAhZcKTc3seY9xJ+e5bucszcjg==",
   "success": true,
   "projectFilePath": "E:\\Development\\SCManager\\SCManager\\SCManager.csproj",
   "expectedPackageFiles": [
@@ -86,6 +86,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\RGeorgiev\\.nuget\\packages\\sendgrid\\9.15.1\\sendgrid.9.15.1.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

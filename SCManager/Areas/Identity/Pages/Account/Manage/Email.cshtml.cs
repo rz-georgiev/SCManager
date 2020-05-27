@@ -107,7 +107,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                     values: new { userId = userId, email = Input.NewEmail, code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code)) },
                     protocol: Request.Scheme);
 
-                await _emailSender.SendEmailAsync(Input.NewEmail, "Reset password link", HtmlEncoder.Default.Encode(callbackUrl));
+                var a = await _emailSender.SendEmailAsync(Input.NewEmail, "Reset password link", HtmlEncoder.Default.Encode(callbackUrl));
 
                 StatusMessage = "Confirmation link  for email changing was sent. Please check your email.";
                 return RedirectToPage();
