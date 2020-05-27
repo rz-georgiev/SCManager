@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SCManager.Data.Models;
-using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
 using SCManager.Data;
-using Microsoft.AspNetCore.Http;
+using SCManager.Data.Interfaces;
+using SCManager.Data.Models;
+using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
@@ -18,22 +14,20 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly Cloudinary _cloudinary;
         private readonly SCManagerDbContext _dbContext;
+        private readonly ICloudinaryService _cloudinaryService;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            Cloudinary cloudinary,
-            SCManagerDbContext dbContext)
+            SCManagerDbContext dbContext,
+            ICloudinaryService cloudinaryService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _cloudinary = cloudinary;
             _dbContext = dbContext;
+            _cloudinaryService = cloudinaryService;
         }
-
-    
 
         public string Username { get; set; }
 
@@ -44,22 +38,16 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         public InputModel Input { get; set; }
 
         public class InputModel
-        { 
+        {
+            [DisplayName("Image path")]
             public IFormFile FormFile { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
-
-            //var uploadParams = new ImageUploadParams()
-            //{
-            //    File = new FileDescription(@"C:\Users\RGeorgiev\Desktop\wallpaper.jpg"),  
-            //};
-            //var uploadResult = await _cloudinary.UploadAsync(uploadParams);
-            
             var userName = await _userManager.GetUserNameAsync(user);
             var imageUrl = user.ImageUrl;
-            
+
             Username = userName;
 
             Input = new InputModel
@@ -83,9 +71,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         {
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
-            {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
 
             if (!ModelState.IsValid)
             {
@@ -93,25 +79,25 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
-            //var imageUrl = user.ImageUrl;
-            //if (Input.ImageUrl != imageUrl)
-            //{
-            //    try
-            //    {
-            //        user.ImageUrl = Input.ImageUrl;
-            //        _dbContext.Update(user);
+            if (Input.FormFile == null)
+                return RedirectToPage();
 
-            //        await _dbContext.SaveChangesAsync();
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        StatusMessage = "Unexpected error when trying to set image url.";
-            //        return RedirectToPage();
-            //    }
-            //}
+            var url = await _cloudinaryService.UploadImageAsync(Input.FormFile);
+            if (string.IsNullOrWhiteSpace(url))
+                return RedirectToPage();
 
-            //await _signInManager.RefreshSignInAsync(user);
-            //StatusMessage = "Your profile has been updated";
+            // Deleting old profile image if any
+            if (!string.IsNullOrWhiteSpace(user.ImageUrl))
+                await _cloudinaryService.DeleteImageAsync(user.ImageUrl);
+
+            // Setting the new profile image
+            user.ImageUrl = url;
+
+            _dbContext.Update(user);
+            await _dbContext.SaveChangesAsync();
+
+            await _signInManager.RefreshSignInAsync(user);
+            StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
     }

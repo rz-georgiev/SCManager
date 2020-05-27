@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
+using SCManager.HelperClasses;
 using SCManager.Services;
 using System;
 
@@ -50,16 +51,20 @@ namespace SCManager
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<SCManagerDbContext>();
 
+            // ---------- Cloudinary region ---------- 
             // Register your services here
             Account account = new Account(
                       Configuration["Cloudinary:CloudName"],
                       Configuration["Cloudinary:ApiKey"],
                       Configuration["Cloudinary:ApiSecret"]);
 
-            Cloudinary cloudinary = new Cloudinary(account);
+            var cloudinary = new Cloudinary(account);
+            // ---------- Cloudinary region ---------- 
 
             services.AddSingleton(cloudinary);
             services.AddSingleton(new HtmlSanitizer());
+            services.AddSingleton<ICloudinaryService, CloudinaryService>();
+
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
