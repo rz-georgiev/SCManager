@@ -29,6 +29,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             _cloudinaryService = cloudinaryService;
         }
 
+        [DisplayName("Profile picture")]
         public string ImageUrl { get; set; }
 
         public string Username { get; set; }
@@ -41,7 +42,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
-            [DisplayName("Image path")]
+            [DisplayName("New profile picture")]
             public IFormFile FormFile { get; set; }
         }
 
