@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SCManager.Data;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 using System;
-using System.Diagnostics;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -17,36 +18,20 @@ namespace SCManager.Services
             _configuration = configuration;
         }
 
-        public async Task SendEmailAsync(string receiverEmail, string subject, string messageContent)
+
+        public async Task<Response> SendEmailAsync(string receiverEmail, string subject, string messageContent)
         {
-            var username = _configuration["MailSenderCredentials:Username"];
-            var key = _configuration["MailSenderCredentials:Key"];
-            var host = _configuration["MailSenderCredentials:Host"];
-            var port = _configuration["MailSenderCredentials:Port"];
+            var apiKey = _configuration["SendGridCredentials:ApiKey"];
+            var senderEmail = _configuration["SendGridCredentials:SenderEmail"];
+            var senderName = _configuration["SendGridCredentials:SenderName"];
 
-            using SmtpClient smtpClient = new SmtpClient();
-            var basicCredential = new NetworkCredential(username, key);
-
-            using MailMessage message = new MailMessage();
-            MailAddress fromAddress = new MailAddress(username);
-
-            smtpClient.Host = host;
-            smtpClient.Port = Convert.ToInt32(port);
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = basicCredential;
-            smtpClient.EnableSsl = false;
-
-            message.From = fromAddress;
-            message.Subject = "Confirmation link";
-            // Set IsBodyHtml to true means you can send HTML email.
-            message.IsBodyHtml = true;
-
-            message.Body = messageContent;
-
-            message.To.Add(receiverEmail);
-           
-                await smtpClient.SendMailAsync(message);
-          
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress(senderEmail, senderName);
+            var to = new EmailAddress(receiverEmail, receiverEmail);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, messageContent, messageContent);
+            
+            var response = await client.SendEmailAsync(msg);
+            return response;
         }
     }
 }

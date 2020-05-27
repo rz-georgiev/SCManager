@@ -66,6 +66,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.4, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.15.1, )"
             }
           },
           "imports": [
