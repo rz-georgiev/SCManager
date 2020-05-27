@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SCManager.Data/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.4",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.4",
           "Microsoft.EntityFrameworkCore": "3.1.4",
           "Microsoft.EntityFrameworkCore.Design": "3.1.4",
@@ -33,6 +34,18 @@
         },
         "runtime": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {
+            "assemblyVersion": "3.1.4.0",
+            "fileVersion": "3.100.420.21604"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Http.Features/3.1.4": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.4",
+          "System.IO.Pipelines": "4.7.1"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll": {
             "assemblyVersion": "3.1.4.0",
             "fileVersion": "3.100.420.21604"
           }
@@ -606,6 +619,14 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.IO.Pipelines/4.7.1": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "4.0.2.1",
+            "fileVersion": "4.700.20.12001"
+          }
+        }
+      },
       "System.Linq/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -1041,6 +1062,13 @@
       "path": "microsoft.aspnetcore.cryptography.keyderivation/3.1.4",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.3.1.4.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Http.Features/3.1.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HroyqnPK+g/GF+W3oLFQ2CfKS7BO/vzKhcgRAz3bovf3F/c3vR5Qw8AJEi0c+UVxyIhbFp00CdNR53Ghj+qckA==",
+      "path": "microsoft.aspnetcore.http.features/3.1.4",
+      "hashPath": "microsoft.aspnetcore.http.features.3.1.4.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/3.1.4": {
       "type": "package",
       "serviceable": true,
@@ -1432,6 +1460,13 @@
       "sha512": "sha512-6QOb2XFLch7bEc4lIcJH49nJN2HV+OC3fHDgsLVsBVBk3Y4hFAnOBGzJ2lUu7CyDDFo9IBWkSsnbkT6IBwwiMw==",
       "path": "system.io.filesystem.primitives/4.3.0",
       "hashPath": "system.io.filesystem.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TyMTasnXQt7U4k13RQ7tA3CrfWEkvWjR635SFfnKVwwMOgClLE5mdHSkG2D13BLIdNwbPTGVQnhQB8Rk7f53Rg==",
+      "path": "system.io.pipelines/4.7.1",
+      "hashPath": "system.io.pipelines.4.7.1.nupkg.sha512"
     },
     "System.Linq/4.3.0": {
       "type": "package",
