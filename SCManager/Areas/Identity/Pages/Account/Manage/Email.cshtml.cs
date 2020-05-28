@@ -17,18 +17,18 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         private readonly SCManagerDbContext _dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IEmailSenderService _emailSender;
+        private readonly ISendGridService _sendGridService;
 
         public EmailModel(
             SCManagerDbContext dbContext,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IEmailSenderService emailSender)
+            ISendGridService sendGridService)
         {
             _dbContext = dbContext;
             _userManager = userManager;
             _signInManager = signInManager;
-            _emailSender = emailSender;
+            _sendGridService = sendGridService;
         }
 
         public string Username { get; set; }
@@ -107,9 +107,12 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                     values: new { userId = userId, email = Input.NewEmail, code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code)) },
                     protocol: Request.Scheme);
 
-                var a = await _emailSender.SendEmailAsync(Input.NewEmail, "Reset password link", HtmlEncoder.Default.Encode(callbackUrl));
+                var message = $"We are sending you a account confirmation link.<br/>" +
+                              $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>";
 
-                StatusMessage = "Confirmation link  for email changing was sent. Please check your email.";
+                await _sendGridService.SendEmailAsync(Input.NewEmail, "Email change", message);
+
+                StatusMessage = "Confirmation link for email changing was sent. Please check your email.";
                 return RedirectToPage();
             }
 
@@ -140,10 +143,11 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 pageHandler: null,
                 values: new { area = "Identity", userId = userId, code = code },
                 protocol: Request.Scheme);
-            await _emailSender.SendEmailAsync(
-                email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+            var message = $"Confirm your email.<br/>" +
+                          $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Clicking here</a>.";
+
+            await _sendGridService.SendEmailAsync(email, "Confirmation link", message);
 
             StatusMessage = "Verification email sent. Please check your email.";
             return RedirectToPage();

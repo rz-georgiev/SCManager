@@ -6,7 +6,10 @@ using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
@@ -51,10 +54,10 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var imageUrl = user.ImageUrl;
 
-            Input = new InputModel { };
+            //Input = new InputModel { };
 
             Username = userName;
-            ImageUrl = $"https://res.cloudinary.com/dffy4iztl/image/upload/v1590249477/{user.ImageUrl}";
+            ImageUrl = $"https://res.cloudinary.com/dffy4iztl/image/upload/v1590249477/{imageUrl}";
         }
 
         public async Task<IActionResult> OnGetAsync()

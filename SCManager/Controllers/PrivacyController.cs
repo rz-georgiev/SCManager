@@ -22,7 +22,7 @@ namespace SCManager.Controllers
         public async Task<IActionResult> Index()
         {
             var info = await _staticSiteInfoService.GetByNameAsync("Privacy");
-            var model = new IndexViewModel { Content = info.Content };
+            var model = new IndexViewModel { Content = info?.Content };
 
             return View(model);
         }
