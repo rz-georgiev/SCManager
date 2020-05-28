@@ -22,18 +22,18 @@ namespace SCManager.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly ISendGridService _emailService;
+        private readonly ISendGridService _sendGridService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            ISendGridService emailService)
+            ISendGridService sendGridService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _emailService = emailService;
+            _sendGridService = sendGridService;
         }
 
         [BindProperty]
@@ -91,7 +91,7 @@ namespace SCManager.Areas.Identity.Pages.Account
                     var message = $"We are sending you an email confirmation link.<br/>" +
                                   $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>";
 
-                    await _emailService.SendEmailAsync(Input.Email, "Confirmation link", message);
+                    await _sendGridService.SendEmailAsync(Input.Email, "Confirmation link", message);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {

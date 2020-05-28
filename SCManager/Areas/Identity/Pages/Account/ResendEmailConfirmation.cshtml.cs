@@ -16,12 +16,12 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class ResendEmailConfirmationModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ISendGridService _emailService;
+        private readonly ISendGridService _sendGridService;
 
-        public ResendEmailConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService emailService)
+        public ResendEmailConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService sendGridService)
         {
             _userManager = userManager;
-            _emailService = emailService;
+            _sendGridService = sendGridService;
         }
 
         [BindProperty]
@@ -64,7 +64,7 @@ namespace SCManager.Areas.Identity.Pages.Account
             var message = $"We are sending you an email confirmation link.<br/>" +
                           $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>";
 
-            await _emailService.SendEmailAsync(Input.Email, "Confirmation link", message);
+            await _sendGridService.SendEmailAsync(Input.Email, "Confirmation link", message);
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();

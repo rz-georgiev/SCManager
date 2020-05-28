@@ -14,12 +14,12 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ISendGridService _emailService;
+        private readonly ISendGridService _sendGridService;
 
-        public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService emailService)
+        public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService sendGridService)
         {
             _userManager = userManager;
-            _emailService = emailService;
+            _sendGridService = sendGridService;
         }
 
         public async Task<IActionResult> OnGetAsync(string receiverEmail, string returnUrl = null)
