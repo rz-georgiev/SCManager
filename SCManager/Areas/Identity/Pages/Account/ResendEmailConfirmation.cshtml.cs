@@ -1,17 +1,14 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using SCManager.Data;
 using SCManager.Data.Models;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading.Tasks;
 
 namespace SCManager.Areas.Identity.Pages.Account
 {
@@ -19,9 +16,9 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class ResendEmailConfirmationModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IEmailSenderService _emailService;
+        private readonly ISendGridService _emailService;
 
-        public ResendEmailConfirmationModel(UserManager<ApplicationUser> userManager, IEmailSenderService emailService)
+        public ResendEmailConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService emailService)
         {
             _userManager = userManager;
             _emailService = emailService;
@@ -64,14 +61,10 @@ namespace SCManager.Areas.Identity.Pages.Account
                 values: new { userId = userId, code = code },
                 protocol: Request.Scheme);
 
-            var content = $"Dear {Input.Email}, <br/>" +
-               $"An confirmation link was send to your email.<br/>" +
-               $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm your account</a><br/>" +
-               $"Have fun using our app!<br/>" +
-               $"Best Regards,<br/>" +
-               $"SCManager<br/>";
+            var message = $"We are sending you an email confirmation link.<br/>" +
+                          $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>";
 
-            await _emailService.SendEmailAsync(Input.Email, "Confirmation link", content);
+            await _emailService.SendEmailAsync(Input.Email, "Confirmation link", message);
 
             ModelState.AddModelError(string.Empty, "Verification email sent. Please check your email.");
             return Page();

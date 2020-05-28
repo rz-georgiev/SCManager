@@ -16,12 +16,12 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IEmailSenderService _emailService;
+        private readonly ISendGridService _sendGridService;
 
-        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, IEmailSenderService emailService)
+        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, ISendGridService sendGridService)
         {
             _userManager = userManager;
-            _emailService = emailService;
+            _sendGridService = sendGridService;
         }
 
         [BindProperty]
@@ -55,14 +55,10 @@ namespace SCManager.Areas.Identity.Pages.Account
                     values: new { area = "Identity", code },
                     protocol: Request.Scheme);
 
-                var content = $"Dear {Input.Email}, <br/>" +
-                   $"We are sending you a reset password link.<br/>" +
-                   $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to reset your password</a><br/>" +
-                   $"Have fun using our app!<br/>" +
-                   $"Best Regards,<br/>" +
-                   $"SCManager<br/>";
+                var message = $"We are sending you a password reset link.<br/>" +
+                              $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to reset your password</a><br/>";
 
-                await _emailService.SendEmailAsync(Input.Email, "Reset password link", content);
+                await _sendGridService.SendEmailAsync(Input.Email, "Password reset link", message);
 
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }

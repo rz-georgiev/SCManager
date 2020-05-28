@@ -69,7 +69,7 @@ namespace SCManager
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
-            services.AddTransient<IEmailSenderService, EmailSenderService>();
+            services.AddTransient<ISendGridService, SendGridService>();
             services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
 
             services.AddResponseCompression(options => options.EnableForHttps = true);

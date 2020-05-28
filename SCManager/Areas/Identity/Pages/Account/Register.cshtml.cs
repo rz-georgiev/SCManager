@@ -22,13 +22,13 @@ namespace SCManager.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly IEmailSenderService _emailService;
+        private readonly ISendGridService _emailService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSenderService emailService)
+            ISendGridService emailService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -88,15 +88,10 @@ namespace SCManager.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code },
                         protocol: Request.Scheme);
 
-                    var content = $"Dear {Input.Email}, <br/>" +
-                       $"Thank you for registering to SCManager 1.0!.Your registration has been received.<br/>" +
-                       $"If you would like to activate your account, click on the following link:<br/>" +
-                       $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>" +
-                       $"Have fun using our app!<br/>" +
-                       $"Best Regards,<br/>" +
-                       $"SCManager<br/>";
+                    var message = $"We are sending you an email confirmation link.<br/>" +
+                                  $"<a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>Click here to confirm</a><br/>";
 
-                    await _emailService.SendEmailAsync(Input.Email, "Confirmation link", content);
+                    await _emailService.SendEmailAsync(Input.Email, "Confirmation link", message);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
