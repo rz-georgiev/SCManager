@@ -64,12 +64,12 @@ namespace SCManager
             services.AddSingleton(cloudinary);
             services.AddSingleton(new HtmlSanitizer());
             services.AddSingleton<ICloudinaryService, CloudinaryService>();
+            services.AddSingleton<ISendGridService, SendGridService>();
 
             services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
-            services.AddTransient<ISendGridService, SendGridService>();
             services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
 
             services.AddResponseCompression(options => options.EnableForHttps = true);
