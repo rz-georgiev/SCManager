@@ -20,6 +20,7 @@ E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\HtmlSanitizer.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
@@ -73,6 +74,7 @@ E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Composition.Ru
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
@@ -200,5 +202,3 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCMan
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
-E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
-E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll

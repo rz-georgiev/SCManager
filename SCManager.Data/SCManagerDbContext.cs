@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SCManager.Data.Models;
+using System.Collections.Generic;
 
 namespace SCManager.Data
 {
@@ -10,6 +12,23 @@ namespace SCManager.Data
             : base(options)
         {
             Database.Migrate();
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            var users = GetDeserializedObjects<ApplicationUser>(SeedingResources.AspNetUsers);
+            var siteInfos = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
+
+            builder.Entity<ApplicationUser>().HasData(users);
+            builder.Entity<StaticSiteInfo>().HasData(siteInfos);
+        }
+
+        private IEnumerable<T> GetDeserializedObjects<T>(string resourceValue) where T : class
+        {
+            var objects = JsonConvert.DeserializeObject<List<T>>(resourceValue);
+            return objects;
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
