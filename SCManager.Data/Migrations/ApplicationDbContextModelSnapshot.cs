@@ -220,6 +220,24 @@ namespace SCManager.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "3aab7018-2979-4572-b055-4669e941539e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "0362063e-dd67-4a62-8373-3571d9c57a8e",
+                            Email = "scmanager_test@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = true,
+                            NormalizedEmail = "SCMANAGER_TEST@MAIL.COM",
+                            NormalizedUserName = "SCMANAGER_TEST@MAIL.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAENVTuxD0CHO58asb1YYHB7BCfrbb28i8QbuIWy0eGcGaqcAk7eZ7l2vhxxFAC588IQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ROXYKWZHZ7G3OCTW6353NH34QHXJ2JMF",
+                            TwoFactorEnabled = false,
+                            UserName = "scmanager_test@mail.com"
+                        });
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.ComponentType", b =>
@@ -376,6 +394,42 @@ namespace SCManager.Data.Migrations
                     b.HasIndex("LastUpdatedByUserId");
 
                     b.ToTable("StaticSiteInfos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 5,
+                            Content = @"<h2>About</h2>
+<p>SCManager is a semiconductors management application,</p>
+<p>which can also be used for a Bayesian analysis.</p>
+<p>&nbsp;</p>
+<h2>Thank your for using our application!</h2>
+<p>This about info is effective as of 28 May 2020.</p>",
+                            CreatedByUserId = "3aab7018-2979-4572-b055-4669e941539e",
+                            CreatedDateTime = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "About"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Content = @"<h2>Privacy Policy</h2>
+<p>Your privacy is important to us. It is SCManager's policy to respect your privacy regarding any information we may collect from you across our website, <a href=""http://www.scmanager.com"">http://www.scmanager.com</a>, and other sites we own and operate.</p>
+<p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.</p>
+<p>We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
+<p>We don’t share any personally identifying information publicly or with third-parties, except when required to by law.</p>
+<p>Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>
+<p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>
+<p>Your continued use of our website will be regarded as acceptance of our practice
+s around privacy and personal information. If you have any questions about how we handle user data and personal information, feel free to contact us.</p>
+<p>This policy is effective as of 28 May 2020.</p>
+<p><a href=""https://getterms.io"" title=""Generate a free privacy policy"">Privacy Policy created with GetTerms.</a></p>
+",
+                            CreatedByUserId = "3aab7018-2979-4572-b055-4669e941539e",
+                            CreatedDateTime = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Privacy"
+                        });
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.UnitMultiplier", b =>
