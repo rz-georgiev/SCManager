@@ -1,8 +1,10 @@
 ﻿@inject Microsoft.AspNetCore.Identity.UserManager<SCManager.Data.Models.ApplicationUser> UserManager
+@using SCManager.Data;
 
 @{
     var applicationUser = await UserManager.GetUserAsync(User);
-    var imageUrl = applicationUser?.ImageUrl;
+    var imageId = applicationUser?.ImageId ?? Constants.DefaultImageId;
+    var imageUrl = $"{Constants.BaseImageUrl}{imageId}";
 }
 
 <!DOCTYPE html>
@@ -175,7 +177,7 @@
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
-                                    <img class="img-profile rounded-circle" src="https://res.cloudinary.com/dffy4iztl/image/upload/v1590249477/@imageUrl">
+                                    <img class="img-profile rounded-circle" src=@imageUrl>
                                 </a>
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

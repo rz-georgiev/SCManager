@@ -52,12 +52,12 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
-            var imageUrl = user.ImageUrl;
-
+            var imageId = user.ImageId ?? Constants.DefaultImageId;
+                
             //Input = new InputModel { };
 
             Username = userName;
-            ImageUrl = $"https://res.cloudinary.com/dffy4iztl/image/upload/v1590249477/{imageUrl}";
+            ImageUrl = $"{Constants.BaseImageUrl}{imageId}";
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -92,11 +92,11 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 return RedirectToPage();
 
             // Deleting old profile image if any
-            if (!string.IsNullOrWhiteSpace(user.ImageUrl))
-                await _cloudinaryService.DeleteImageAsync(user.ImageUrl);
+            if (!string.IsNullOrWhiteSpace(user.ImageId))
+                await _cloudinaryService.DeleteImageAsync(user.ImageId);
 
             // Setting the new profile image
-            user.ImageUrl = url;
+            user.ImageId = url;
 
             _dbContext.Update(user);
             await _dbContext.SaveChangesAsync();
