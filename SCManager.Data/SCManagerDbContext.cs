@@ -18,11 +18,12 @@ namespace SCManager.Data
         {
             base.OnModelCreating(builder);
 
-            var users = GetDeserializedObjects<ApplicationUser>(SeedingResources.AspNetUsers);
-            var siteInfos = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
+            //TODO UNCOMMENT AT THE VERY END
+            //var users = GetDeserializedObjects<ApplicationUser>(SeedingResources.AspNetUsers);
+            //var siteInfos = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
 
-            builder.Entity<ApplicationUser>().HasData(users);
-            builder.Entity<StaticSiteInfo>().HasData(siteInfos);
+            //builder.Entity<ApplicationUser>().HasData(users);
+            //builder.Entity<StaticSiteInfo>().HasData(siteInfos);
         }
 
         private IEnumerable<T> GetDeserializedObjects<T>(string resourceValue) where T : class
