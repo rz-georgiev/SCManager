@@ -14,7 +14,6 @@ using Microsoft.Extensions.Hosting;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using SCManager.HelperClasses;
 using SCManager.Services;
 using System;
 
@@ -51,7 +50,7 @@ namespace SCManager
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<SCManagerDbContext>();
 
-            // ---------- Cloudinary region ---------- 
+            // ---------- Cloudinary region ----------
             // Register your services here
             Account account = new Account(
                       Configuration["Cloudinary:CloudName"],
@@ -59,7 +58,7 @@ namespace SCManager
                       Configuration["Cloudinary:ApiSecret"]);
 
             var cloudinary = new Cloudinary(account);
-            // ---------- Cloudinary region ---------- 
+            // ---------- Cloudinary region ----------
 
             services.AddSingleton(cloudinary);
             services.AddSingleton(new HtmlSanitizer());
@@ -71,6 +70,7 @@ namespace SCManager
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
             services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
+            services.AddTransient<IApplicationUserService, ApplicationUserService>();
 
             services.AddResponseCompression(options => options.EnableForHttps = true);
             services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
