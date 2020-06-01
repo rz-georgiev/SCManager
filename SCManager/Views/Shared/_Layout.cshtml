@@ -24,6 +24,8 @@
 
     <!-- Custom styles for this template-->
     <link rel="stylesheet" href="~/css/site.min.css" />
+    <link rel="stylesheet" href="~/vendor/datatables/dataTables.bootstrap4.js" />
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 <body id="page-top">
     @if (User.Identity.IsAuthenticated)
@@ -35,7 +37,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-area="" asp-controller="Home" asp-action="Index">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -47,7 +49,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -86,7 +88,7 @@
 
                 <!-- Nav Item - Pages Collapse Menu -->
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#">
+                    <a class="nav-link collapsed" asp-area="" asp-controller="Admin" asp-action="Index">
                         <i class="fas fa-hammer"></i>
                         <span>Admin Panel</span>
                     </a>
@@ -269,8 +271,12 @@
     <script src="~/js/demo/chart-area-demo.js"></script>
     <script src="~/js/demo/chart-pie-demo.js"></script>
 
-    @RenderSection("Scripts", required: false)
+    <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/datatables-demo.js"></script>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
-

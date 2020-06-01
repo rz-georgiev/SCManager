@@ -6,8 +6,7 @@ using System.Linq;
 
 namespace SCManager.Controllers
 {
-    // TODO REMOVE
-    [AllowAnonymous]
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly IPostService _postsService;
