@@ -4,6 +4,6 @@
 
     public class ApplicationUser : IdentityUser
     {
-        public string ImageUrl { get; set; }
+        public string ImageId { get; set; }
     }
 }
