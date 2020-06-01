@@ -1,7 +1,4 @@
-﻿@model SCManager.ViewModels.Admin.AdminTotalViewModel
-@using System;
-
-@{
+﻿@{
     ViewData["Title"] = "Admin panel";
 }
 
@@ -12,113 +9,101 @@
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Posts
+                    Users
                 </button>
             </h2>
         </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>
+            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Modify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (var index = 0; index < Model.Posts.Count(); index++)
-                    {
-                        var item = Model.Posts.ElementAtOrDefault(index);
-                    <tr>
-                        <th scope="row">@(index + 1)</th>
-                        <td>@item.Name</td>
-                        <td><img src="@item.ImagePath" class="rounded-circle" alt="@item.Name" width="64" height="64" asp-append-version="true"></td>
-                        <td>@item.DateTime</td>
-                        <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ComponentTypeEditor" asp-route-id="@item.Id">Edit</a></td>
-                    </tr>
-                    }
-                </tbody>
-            </table>
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <td>Kurec1</td>
+                                    <td>Kurec2</td>
+                                    <td>Kurec3</td>
+                                    <td>Kurec4</td>
+                                    <td>Kurec5</td>
+                                    <td>Kurec6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Users
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
+
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td>Kurec1</td>
+                                        <td>Kurec2</td>
+                                        <td>Kurec3</td>
+                                        <td>Kurec4</td>
+                                        <td>Kurec5</td>
+                                        <td>Kurec6</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    @* UNIT MULTIPLIERS EDITOR PANEL *@
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    Unit Multipliers
-                </button>
-            </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new unit multiplier</a>
-
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Unit multiplier</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Modify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (var index = 0; index < Model.UnitMultipliers.Count(); index++)
-                    {
-                        var item = Model.UnitMultipliers.ElementAtOrDefault(index);
-                        <tr>
-                            <th scope="row">@(index + 1)</th>
-                            <td>@item.Name</td>
-                            <td>@item.DateTime</td>
-                            <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ComponentTypeEditor" asp-route-id="@item.Id">Edit</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    @* COMPONENTS EDITOR PANEL *@
-    <div class="card">
-        <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                    Components
-                </button>
-            </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ComponentTypeEditor">Create new component</a>
-
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Component</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Modify</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (var index = 0; index < Model.ComponentTypes.Count(); index++)
-                    {
-                        var item = Model.ComponentTypes.ElementAtOrDefault(index);
-                        <tr>
-                            <th scope="row">@(index + 1)</th>
-                            <td>@item.Name</td>
-                            <td><img src="@item.ImagePath" class="rounded-circle" alt="@item.Name" width="64" height="64" asp-append-version="true"></td>
-                            <td>@item.DateTime</td>
-                            <td><a class="nav-link" asp-area="" asp-controller="Admin" asp-action="ComponentTypeEditor" asp-route-id="@item.Id">Edit</a></td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
