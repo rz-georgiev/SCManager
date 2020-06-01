@@ -10631,6 +10631,12 @@ a:focus {
     background-size: cover;
 }
 
+.bg-locked-out-image {
+    background: url('../img/bg-locked-out-image.png');
+    background-position: center;
+    background-size: cover;
+}
+
 
 form.user .custom-checkbox.small label {
   line-height: 1.5rem;
