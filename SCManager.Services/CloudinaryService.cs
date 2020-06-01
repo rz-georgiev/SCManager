@@ -6,8 +6,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace SCManager.HelperClasses
+namespace SCManager.Services
 {
+
     public class CloudinaryService : ICloudinaryService
     {
         private readonly Cloudinary _cloudinary;

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SCManager.ViewModels.Admin.AdminTotalViewModel
+
+@{
     ViewData["Title"] = "Admin panel";
 }
 
@@ -37,67 +39,32 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>Kurec1</td>
-                                    <td>Kurec2</td>
-                                    <td>Kurec3</td>
-                                    <td>Kurec4</td>
-                                </tr>
+                                @foreach (var item in Model.ApplicationUsers)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.UserName</td>
+                                        <td>@item.CreatedDateTime</td>
+                                        <td>
+                                            @{
+                                                if (item.IsBanned)
+                                                {
+                                                    <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
+
+                                                }
+                                                else
+                                                {
+                                                    <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
+                                                }
+                                            }
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Users
-                    </button>
-                </h2>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
-
-                <div class="card shadow mb-4">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Kurec1</td>
-                                        <td>Kurec2</td>
-                                        <td>Kurec3</td>
-                                        <td>Kurec4</td>
-                                        <td>Kurec5</td>
-                                        <td>Kurec6</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>

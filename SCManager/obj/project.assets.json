@@ -953,6 +953,9 @@
           }
         }
       },
+      "Moment.js/2.26.0": {
+        "type": "package"
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -4377,6 +4380,23 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Moment.js/2.26.0": {
+      "sha512": "3wN1/mgwS3CighoW/WxHspBG9lgKIbJ/BOw7I8P4UNlA6deNiXTOsyylouqQKmFmAxEytm1k/0iVm+QpN1psZA==",
+      "type": "package",
+      "path": "moment.js/2.26.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/moment-with-locales.js",
+        "Content/Scripts/moment-with-locales.min.js",
+        "Content/Scripts/moment-with-locales.min.js.map",
+        "Content/Scripts/moment.js",
+        "Content/Scripts/moment.min.js",
+        "Content/Scripts/moment.min.js.map",
+        "moment.js.2.26.0.nupkg.sha512",
+        "moment.js.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -8835,6 +8855,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.4",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.3",
+      "Moment.js >= 2.26.0",
       "SCManager.Data >= 1.0.0",
       "SCManager.Services >= 1.0.0"
     ]
@@ -8927,6 +8948,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.3, )"
+          },
+          "Moment.js": {
+            "target": "Package",
+            "version": "[2.26.0, )"
           }
         },
         "imports": [
