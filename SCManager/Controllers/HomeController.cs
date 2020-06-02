@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Models;
 using SCManager.ViewModels;
 using System.Diagnostics;
-using System.Threading.Tasks;
 
 namespace SCManager.Controllers
 {
@@ -24,17 +23,8 @@ namespace SCManager.Controllers
             _signInManager = signInManager;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            //var role = new IdentityRole();
-            //role.Name = "Administrator";
-            //await _roleManager.CreateAsync(role);
-
-            //var appUser = await _userManager.GetUserAsync(User);
-            //await _userManager.AddToRoleAsync(appUser, "Administrator");
-
-            
-
             return View();
         }
 
