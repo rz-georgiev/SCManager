@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCManager.Data;
 
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200602160809_RefactoredPrivacytext")]
+    partial class RefactoredPrivacytext
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -414,12 +416,9 @@ namespace SCManager.Data.Migrations
 <p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>
 <p>Your continued use of our website will be regarded as acceptance of our practices around privacy and persona
 l information. If you have any questions about how we handle user data and personal information, feel free to contact us.</p>
-<p>&nbsp;</p>
 <p>This policy is effective as of 2 June 2020.</p>
-<p>&nbsp;</p>
 <p>Best regards,</p>
 <p>The SCManager team</p>
-<p>&nbsp;</p>
 <p><a title=""Generate a free privacy policy"" href=""https://getterms.io"">Privacy Policy created with GetTerms.</a></p>",
                             CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
                             CreatedDateTime = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
