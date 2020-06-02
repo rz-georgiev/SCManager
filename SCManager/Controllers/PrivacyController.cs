@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SCManager.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class PrivacyController : Controller
     {
         private readonly IStaticSiteInfoService _staticSiteInfoService;

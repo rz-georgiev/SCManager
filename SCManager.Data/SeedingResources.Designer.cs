@@ -61,7 +61,25 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;3aab7018-2979-4572-b055-4669e941539e&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAENVTuxD0CHO58asb1YYHB7BCfrbb28i8QbuIWy0eGcGaqcAk7eZ7l2vhxxFAC588IQ==&quot;,&quot;SecurityStamp&quot;:&quot;ROXYKWZHZ7G3OCTW6353NH34QHXJ2JMF&quot;,&quot;ConcurrencyStamp&quot;:&quot;0362063e-dd67-4a62-8373-3571d9c57a8e&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabled&quot;: [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;c5fb4568-51c6-43ab-8050-a5642eb9ac44&quot;,&quot;Name&quot;:&quot;Administrator&quot;,&quot;NormalizedName&quot;:&quot;ADMINISTRATOR&quot;,&quot;ConcurrencyStamp&quot;:&quot;55309049-c467-42fd-9223-e221b7c3b61a&quot;}].
+        /// </summary>
+        internal static string AspNetRoles {
+            get {
+                return ResourceManager.GetString("AspNetRoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;UserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;RoleId&quot;:&quot;c5fb4568-51c6-43ab-8050-a5642eb9ac44&quot;}].
+        /// </summary>
+        internal static string AspNetUserRoles {
+            get {
+                return ResourceManager.GetString("AspNetUserRoles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;ac202f5b-66d9-4989-a1a2-72e632a19e98&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AspNetUsers {
             get {
@@ -70,7 +88,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:5,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;CreatedByUserId&quot;:&quot;3aab7018-2979-4572-b055-4669e941539e&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;About&quot;,&quot;Content&quot;:&quot;&lt;h2&gt;About&lt;\/h2&gt;\r\n&lt;p&gt;SCManager is a semiconductors management application,&lt;\/p&gt;\r\n&lt;p&gt;which can also be used for a Bayesian analysis.&lt;\/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;\/p&gt;\r\n&lt;h2&gt;Thank your for using our application!&lt;\/h2&gt;\r\n&lt;p&gt;This about info is effective as of 28 May 2020.&lt;\/p&gt;&quot;},{&quot;Id&quot;:6,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;CreatedByUserId&quot;:&quot;3aab7018-2979-4572-b055-466 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:5,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;About&quot;,&quot;Content&quot;:&quot;&lt;p&gt;SCManager is semiconductors manager application.&lt;\/p&gt;\r\n&lt;p&gt;Have fun using our product!&lt;\/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;\/p&gt;\r\n&lt;p&gt;Best regards,&lt;\/p&gt;\r\n&lt;p&gt;The SCManager team&lt;\/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;\/p&gt;\r\n&lt;p&gt;This about info is effective as of 2 June 2020.&lt;\/p&gt;&quot;},{&quot;Id&quot;:6,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;IsActive&quot;: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StaticSiteInfos {
             get {

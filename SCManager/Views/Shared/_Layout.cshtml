@@ -27,14 +27,16 @@
     <link rel="stylesheet" href="~/vendor/datatables/dataTables.bootstrap4.min.css">
 
     <link rel="icon" type="image/x-icon" href="~/img/favicon.png">
-
 </head>
 <body id="page-top">
+    <header>
+        <partial name="_CookieConsentPartial" />
+    </header>
     @if (User.Identity.IsAuthenticated)
     {
         <!-- Page Wrapper -->
         <div id="wrapper">
-            @*<partial name="_CookieConsentPartial" />*@
+
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
