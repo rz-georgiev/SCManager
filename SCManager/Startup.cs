@@ -65,7 +65,6 @@ namespace SCManager
             services.AddSingleton<ICloudinaryService, CloudinaryService>();
             services.AddSingleton<ISendGridService, SendGridService>();
 
-            services.AddTransient<IPostService, PostService>();
             services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             services.AddTransient<IComponentTypeService, ComponentTypeService>();
             services.AddTransient<IComponentTypeDetailService, ComponentTypeDetailService>();
