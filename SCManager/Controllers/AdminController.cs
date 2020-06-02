@@ -3,10 +3,11 @@ using SCManager.ViewModels.Admin;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using SCManager.Data;
 
 namespace SCManager.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = UserRights.Administrator)]
     public class AdminController : Controller
     {
         private readonly IUnitMultiplierService _unitMultipliersService;
@@ -60,7 +61,7 @@ namespace SCManager.Controllers
 
         public IActionResult BanUser(string userId)
         {
-            _applicationUserService.SetUserBanStatus(userId, true);
+            _applicationUserService.SetUserBanStatusAsync(userId, true);
             return View();
         }
 
