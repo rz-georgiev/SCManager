@@ -9,19 +9,16 @@ namespace SCManager.Controllers
     [Authorize]
     public class AdminController : Controller
     {
-        private readonly IPostService _postsService;
         private readonly IUnitMultiplierService _unitMultipliersService;
         private readonly IComponentTypeService _componentTypesService;
         private readonly IComponentTypeDetailService _componentTypesDetailsService;
         private readonly IApplicationUserService _applicationUserService;
 
         public AdminController(IComponentTypeService componentsService,
-            IPostService postsService,
             IUnitMultiplierService unitMultipliersService,
             IComponentTypeDetailService detailsService,
             IApplicationUserService applicationUserService)
         {
-            _postsService = postsService;
             _unitMultipliersService = unitMultipliersService;
             _componentTypesService = componentsService;
             _componentTypesDetailsService = detailsService;
@@ -31,15 +28,6 @@ namespace SCManager.Controllers
         public IActionResult Index()
         {
             // TODO USE AUTO-MAPPER!!!
-            var posts = _postsService.GetAll();
-            var postModels = posts.Select(x => new PostListingViewModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                ImagePath = x.ImagePath,
-                DateTime = x.LastUpdatedDateTime?.ToString("dd.MM.yyyy") ?? x.CreatedDateTime.ToString("dd.MM.yyyy")
-            }).OrderByDescending(x => x.Id);
-
             var unitMultipliers = _unitMultipliersService.GetAll();
             var unitMultiplierModels = unitMultipliers.Select(x => new UnitMultiplierListingViewModel
             {
@@ -63,13 +51,23 @@ namespace SCManager.Controllers
             var model = new AdminTotalViewModel
             {
                 ApplicationUsers = applicationUsers,
-                Posts = postModels,
                 UnitMultipliers = unitMultiplierModels,
                 ComponentTypes = componentTypeModels
             };
 
             return View(model);
         }
+
+        public IActionResult BanUser(string userId)
+        {
+            _applicationUserService.SetUserBanStatus(userId, true);
+            return View();
+        }
+
+        //public IActionResult UnbanUser(string userId)
+        //{
+
+        //}
 
         public IActionResult ComponentTypeEditor(int id)
         {

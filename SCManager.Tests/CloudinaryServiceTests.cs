@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SCManager.Data.Interfaces;
-using SCManager.HelperClasses;
 
 namespace SCManager.Tests
 {
