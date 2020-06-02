@@ -8,7 +8,9 @@ namespace SCManager.Data.Interfaces
     {
         IEnumerable<ApplicationUser> GetAllApplicationUsers();
 
-        Task<bool> SetUserBanStatus(string userId, bool setToBanned);
+       
+
+        Task<bool> SetUserBanStatusAsync(string userId, bool setToBanned);
 
     }
 }

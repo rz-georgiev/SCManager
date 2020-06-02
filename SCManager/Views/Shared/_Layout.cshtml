@@ -86,12 +86,18 @@
                 </div>
 
                 <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" asp-area="" asp-controller="Admin" asp-action="Index">
-                        <i class="fas fa-hammer"></i>
-                        <span>Admin Panel</span>
-                    </a>
-                </li>
+
+                @{
+                    if (User.IsInRole(UserRights.Administrator))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link collapsed" asp-area="" asp-controller="Admin" asp-action="Index">
+                                <i class="fas fa-hammer"></i>
+                                <span>Admin Panel</span>
+                            </a>
+                        </li>
+                    }
+                }
 
                 <!-- Nav Item - Charts -->
                 <li class="nav-item">

@@ -16,7 +16,7 @@ namespace SCManager.Services
             _dbContext = dbContext;
         }
 
-        public async Task<bool> SetUserBanStatus(string userId, bool setToBanned)
+        public async Task<bool> SetUserBanStatusAsync(string userId, bool setToBanned)
         {
             var user = await _dbContext.ApplicationUsers.FirstOrDefaultAsync(x => x.Id == userId);
             if (user == null)
