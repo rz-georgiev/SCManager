@@ -1,5 +1,4 @@
-﻿using CloudinaryDotNet.Actions;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using SCManager.Data;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -26,18 +25,11 @@ namespace SCManager.Services
             var from = new EmailAddress(senderEmail, senderName);
             var to = new EmailAddress(receiverEmail, receiverEmail);
 
-            var htmlContent = $"<div class=\"card shadow mb - 4\">" +
-                    $"<div class=\"card-header py-3\">" +
-                    $"<h3 class=\"m-2 font-weight-bold text-primary\">SCManager - {subject}</h3>" +
-                    $"</div>" +
-                    $"<div class=\"card - body\">" +
-                    $"Dear {receiverEmail}, <br/>" +
-                    $"{message} <br/>" +
-                    $"Thank you for using our app!" +
-                    $"</div>" +
-                    $"</div>";
+            var htmlContent = BaseResources.EmailBaseContent;
+            htmlContent = htmlContent.Replace("{{receiverEmail}}", receiverEmail);
+            htmlContent = htmlContent.Replace("{{message}}", message);
 
-             var msg = MailHelper.CreateSingleEmail(from, to, subject, htmlContent, htmlContent);
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, htmlContent, htmlContent);
 
             var response = await client.SendEmailAsync(msg);
             return response;
