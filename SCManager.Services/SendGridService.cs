@@ -28,7 +28,7 @@ namespace SCManager.Services
 
             var htmlContent = $"<div class=\"card shadow mb - 4\">" +
                     $"<div class=\"card-header py-3\">" +
-                    $"<h6 class=\"m-2 font-weight-bold text-primary\">SCManager - {subject}</h6>" +
+                    $"<h3 class=\"m-2 font-weight-bold text-primary\">SCManager - {subject}</h3>" +
                     $"</div>" +
                     $"<div class=\"card - body\">" +
                     $"Dear {receiverEmail}, <br/>" +
