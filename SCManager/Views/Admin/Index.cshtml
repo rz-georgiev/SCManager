@@ -28,6 +28,7 @@
                                     <th>Username</th>
                                     <th>Member since</th>
                                     <th>Ban</th>
+                                    <th>Role</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -36,28 +37,41 @@
                                     <th>Username</th>
                                     <th>Member since</th>
                                     <th>Ban</th>
+                                    <th>Role</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach (var item in Model.ApplicationUsers)
+                                @foreach (var item in Model.Users)
                                 {
-                                    <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.UserName</td>
-                                        <td>@item.CreatedDateTime</td>
-                                        <td>
-                                            @{
-                                                if (item.IsBanned)
-                                                {
-                                                    <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
-                                                }
-                                                else
-                                                {
-                                                    <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
-                                                }
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.CreatedDateTime</td>
+                                    <td>
+                                        @{
+                                            if (item.IsBanned)
+                                            {
+                                                <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
                                             }
-                                        </td>
-                                    </tr>
+                                            else
+                                            {
+                                                <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @{
+                                            if (item.IsBanned)
+                                            {
+                                                <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>

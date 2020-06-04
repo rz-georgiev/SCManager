@@ -1,3 +1,4 @@
+using AutoMapper;
 using CloudinaryDotNet;
 using Ganss.XSS;
 using Microsoft.AspNetCore.Authorization;
@@ -74,6 +75,7 @@ namespace SCManager
             services.AddResponseCompression(options => options.EnableForHttps = true);
             services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
 
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers(config =>
             {
                 // using Microsoft.AspNetCore.Mvc.Authorization;

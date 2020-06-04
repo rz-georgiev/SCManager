@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "tf0l1c83Z6AFiUKpoQFutW65RjVu6kS/VqoXQltgQoTIiBCvrh42GWxYx1IkCbbqncp4r1TbhJAqM2zM8d47RA==",
+  "dgSpecHash": "HruCBTShruSqZ3suJWv5YTLoGWl5V2t+5iZbohem/nsEV8CaTLUjyMI8RT4vEGwjFfCOEmRo7IE0y3uAdk9VMQ==",
   "success": true,
   "projectFilePath": "E:\\Development\\SCManager\\SCManager\\SCManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\anglesharp\\0.14.0\\anglesharp.0.14.0.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\anglesharp.css\\0.14.1\\anglesharp.css.0.14.1.nupkg.sha512",
+    "C:\\Users\\RGeorgiev\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\RGeorgiev\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\buildbundlerminifier\\3.2.447\\buildbundlerminifier.3.2.447.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\cloudinary.core\\1.31.0\\cloudinary.core.1.31.0.nupkg.sha512",
     "C:\\Users\\RGeorgiev\\.nuget\\packages\\htmlsanitizer\\5.0.319\\htmlsanitizer.5.0.319.nupkg.sha512",

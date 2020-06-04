@@ -3,6 +3,7 @@ using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SCManager.Services
@@ -33,6 +34,7 @@ namespace SCManager.Services
         public IEnumerable<ApplicationUser> GetAllApplicationUsers()
         {
             var users = _dbContext.ApplicationUsers;
+
             return users;
         }
     }
