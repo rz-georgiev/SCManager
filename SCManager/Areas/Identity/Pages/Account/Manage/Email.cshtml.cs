@@ -20,12 +20,10 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         private readonly ISendGridService _sendGridService;
 
         public EmailModel(
-            SCManagerDbContext dbContext,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ISendGridService sendGridService)
         {
-            _dbContext = dbContext;
             _userManager = userManager;
             _signInManager = signInManager;
             _sendGridService = sendGridService;
@@ -155,7 +153,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
 
         private async Task<bool> IsEmailUsedByAnotherUserAsync(string email, ApplicationUser user)
         {
-            var emailInUse = await _dbContext.ApplicationUsers.AnyAsync
+            var emailInUse = await _userManager.Users.AnyAsync
             (
                 x =>
                 x.Email == Input.NewEmail &&

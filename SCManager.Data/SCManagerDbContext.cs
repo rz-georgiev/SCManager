@@ -36,8 +36,6 @@ namespace SCManager.Data
             return objects;
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-
         public DbSet<ComponentType> ComponentTypes { get; set; }
 
         public DbSet<ComponentTypeDetail> ComponentTypeDetails { get; set; }
