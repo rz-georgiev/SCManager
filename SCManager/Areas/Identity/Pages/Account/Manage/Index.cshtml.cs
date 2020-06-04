@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
@@ -54,8 +55,6 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             var userName = await _userManager.GetUserNameAsync(user);
             var imageId = user.ImageId ?? Constants.DefaultImageId;
                 
-            //Input = new InputModel { };
-
             Username = userName;
             ImageUrl = $"{Constants.BaseImageUrl}{imageId}";
         }
