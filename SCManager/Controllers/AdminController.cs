@@ -8,34 +8,33 @@ using SCManager.Data.Models;
 using SCManager.ViewModels.Admin;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SCManager.Controllers
 {
     [Authorize(Roles = UserRights.Administrator)]
     public class AdminController : Controller
     {
-        private readonly IApplicationUserService _applicationUserService;
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AdminController
         (
-            IApplicationUserService applicationUserService,
             IMapper mapper,
-            UserManager<ApplicationUser> userManager
+            UserManager<ApplicationUser> userManager,
+            RoleManager<IdentityRole> roleManager
         )
         {
-            _applicationUserService = applicationUserService;
             _mapper = mapper;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var users = _applicationUserService.GetAllApplicationUsers();
-            var usersIds = users.Select(x => x.Id).ToList();
-
-            var a = _userManager.Users.ToList();
+            var users = _mapper.Map<IEnumerable<UserViewModel>>(_userManager.Users);
+            var a = await _userManager.GetUsersInRoleAsync("Administrator");
 
             var model = new IndexViewModel
             {
