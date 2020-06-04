@@ -1,4 +1,4 @@
-﻿@model SCManager.ViewModels.Admin.AdminTotalViewModel
+﻿@model SCManager.ViewModels.Admin.IndexViewModel
 
 @{
     ViewData["Title"] = "Admin panel";
@@ -24,54 +24,34 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Username</th>
-                                    <th>Member since</th>
-                                    <th>Ban</th>
                                     <th>Role</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Username</th>
-                                    <th>Member since</th>
-                                    <th>Ban</th>
                                     <th>Role</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 @foreach (var item in Model.Users)
                                 {
-                                <tr>
-                                    <td>@item.Id</td>
-                                    <td>@item.UserName</td>
-                                    <td>@item.CreatedDateTime</td>
-                                    <td>
-                                        @{
-                                            if (item.IsBanned)
-                                            {
-                                                <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
+                                    <tr>
+                                        <td>@item.UserName</td>
+                                        <td>
+                                            @{
+                                                if (item.IsAdmin)
+                                                {
+                                                    <a href="#" onclick="setUserRole(@item.Id, 'Admin')">Set as User</a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="#" onclick="setUserRole(@item.Id, 'User')">Set as Admin</a>
+                                                }
                                             }
-                                            else
-                                            {
-                                                <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
-                                            }
-                                        }
-                                    </td>
-                                    <td>
-                                        @{
-                                            if (item.IsBanned)
-                                            {
-                                                <a asp-area="" asp-controller="Admin" asp-action="UnbanUser" asp-route-id=@item.Id>Unban</a>
-                                            }
-                                            else
-                                            {
-                                                <a asp-area="" asp-controller="Admin" asp-action="BanUser" asp-route-id=@item.Id>Ban</a>
-                                            }
-                                        }
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
                                 }
                             </tbody>
                         </table>
@@ -82,3 +62,30 @@
     </div>
 </div>
 
+@section Scripts
+{
+    <script>
+        function setUserRole(userId, role) {
+            $.ajax({
+                type: 'POST',
+                url: '/Admin/SetUserRole',
+                data: { "userId": userId, "role": role },
+                dataType: 'json',
+                success: function (result) {
+                    if (result) {
+
+                    }
+                    else {
+
+                    }
+                },
+                beforeSend: function () {
+                },
+                complete: function () {
+                },
+                error: function () {
+                }
+            });
+        }
+    </script>
+}
