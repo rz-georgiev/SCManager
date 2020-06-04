@@ -34,7 +34,7 @@ namespace SCManager.Services
             return uploadResult.PublicId;
         }
 
-        public async IAsyncEnumerable<string> UploadImagesAsync(ICollection<IFormFile> formFiles)
+        public async IAsyncEnumerable<string> UploadImagesAsync(IEnumerable<IFormFile> formFiles)
         {
             foreach (var file in formFiles)
                 yield return await UploadImageAsync(file);

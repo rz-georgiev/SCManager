@@ -9,7 +9,7 @@ namespace SCManager.Data.Interfaces
     {
         Task<string> UploadImageAsync(IFormFile formFile);
 
-        IAsyncEnumerable<string> UploadImagesAsync(ICollection<IFormFile> formFiles);
+        IAsyncEnumerable<string> UploadImagesAsync(IEnumerable<IFormFile> formFiles);
 
         Task DeleteImageAsync(string url);
     }

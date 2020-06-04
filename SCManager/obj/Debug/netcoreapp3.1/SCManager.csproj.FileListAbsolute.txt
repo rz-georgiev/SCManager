@@ -200,7 +200,9 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\Lockout.cshtml.g.cs
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Error\Index.cshtml.g.cs
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Development\SCManager\SCManager\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.CoreCompileInputs.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cs
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.MvcApplicationPartsAssemblyInfo.cache
-E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\Error\Index.cshtml.g.cs
