@@ -9,10 +9,6 @@ namespace SCManager.ViewModels.Admin
 
         public string UserName { get; set; }
 
-        public DateTime CreatedDateTime { get; set; }
-
-        public bool IsBanned { get; set; }
-
         public bool IsAdmin { get; set; }
     }
 }
