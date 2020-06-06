@@ -203,3 +203,4 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.csproj.Copy
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCManager.StaticWebAssets.Manifest.cache
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCManager.StaticWebAssets.xml
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\MyComponents\Index.cshtml.g.cs
