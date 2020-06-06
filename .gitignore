@@ -1,9 +1,3 @@
 SCManager/appsettings.Production.json
-SCManager/appsettings.Development.json
 SCManager/bin
 SCManager/obj
-*.pdb
-*.dll
-*.v2
-*.txt
-.vs/SCManager/v16/.suo
