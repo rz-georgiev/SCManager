@@ -1,6 +1,4 @@
-﻿
-
-@model SCManager.ViewModels.Admin.IndexViewModel
+﻿@model SCManager.ViewModels.Admin.IndexViewModel
 
 @{
     ViewData["Title"] = "Admin panel";
@@ -17,13 +15,21 @@
                 </button>
             </h2>
         </div>
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Component types
+                </button>
+            </h2>
+        </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
 
             <div class="card shadow mb-4">
                 <div class="card-body">
+                    <!-- USERS TABLE -->
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable_Users" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Username</th>
@@ -58,6 +64,43 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- USERS TABLE -->
+                </div>
+            </div>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <!-- COMPONENT TYPES TABLE -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable_ComponentTypes" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var type in Model.ComponentTypes)
+                                {
+                                    <tr>
+
+                                        <td><img src=@type.ImageUrl class="rounded-circle" alt="@type.Name"></td>
+                                        <td>@type.Name</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- COMPONENT TYPES TABLE -->
                 </div>
             </div>
         </div>

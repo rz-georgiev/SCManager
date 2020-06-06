@@ -9,6 +9,8 @@ namespace SCManager
         public UserProfile()
         {
             CreateMap<ApplicationUser, UserViewModel>();
+            CreateMap<ComponentType, ComponentTypeViewModel>();
+            CreateMap<UnitMultiplier, UnitMultiplierViewModel>();
         }
     }
 }
