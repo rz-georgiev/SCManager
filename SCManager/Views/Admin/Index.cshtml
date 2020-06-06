@@ -22,6 +22,13 @@
                 </button>
             </h2>
         </div>
+        <div class="card-header" id="headingThree">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Unit multipliers
+                </button>
+            </h2>
+        </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
 
@@ -46,7 +53,9 @@
                                 @foreach (var user in Model.Users)
                                 {
                                     <tr>
-                                        <td>@user.UserName</td>
+                                        <td>
+                                            <a>@user.UserName</a>
+                                        </td>
                                         <td>
                                             @{
                                                 if (user.IsAdmin)
@@ -93,14 +102,53 @@
                                 {
                                     <tr>
 
-                                        <td><img src=@type.ImageUrl class="rounded-circle" alt="@type.Name" width="128" height="128"></td>
-                                        <td>@type.Name</td>
+                                        <td>
+                                            <a><img src=@type.ImageUrl class="rounded-circle" alt="@type.Name" width="128" height="128"></a>
+                                        </td>
+                                        <td>
+                                            <a>@type.Name</a>
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
                     <!-- COMPONENT TYPES TABLE -->
+                </div>
+            </div>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <!-- UNIT MULTIPLIERS TABLE -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable_UnitMultipliers" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Name</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                @foreach (var type in Model.UnitMultipliers)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            <a>@type.Name</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- UNIT MULTIPLIERS TABLE -->
                 </div>
             </div>
         </div>
