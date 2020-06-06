@@ -1,4 +1,6 @@
-﻿@model SCManager.ViewModels.Admin.IndexViewModel
+﻿
+
+@model SCManager.ViewModels.Admin.IndexViewModel
 
 @{
     ViewData["Title"] = "Admin panel";
@@ -35,19 +37,19 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach (var item in Model.Users)
+                                @foreach (var user in Model.Users)
                                 {
                                     <tr>
-                                        <td>@item.UserName</td>
+                                        <td>@user.UserName</td>
                                         <td>
                                             @{
-                                                if (item.IsAdmin)
+                                                if (user.IsAdmin)
                                                 {
-                                                    <a href="#" onclick="setUserRole(@item.Id, 'Admin')">Set as User</a>
+                                                    <a href="#" onclick="setUserRole('@user.Id', 'Admin')">Set as User</a>
                                                 }
                                                 else
                                                 {
-                                                    <a href="#" onclick="setUserRole(@item.Id, 'User')">Set as Admin</a>
+                                                    <a href="#" onclick="setUserRole('@user.Id', 'User')">Set as Admin</a>
                                                 }
                                             }
                                         </td>
@@ -62,30 +64,20 @@
     </div>
 </div>
 
-@section Scripts
-{
-    <script>
-        function setUserRole(userId, role) {
-            $.ajax({
-                type: 'POST',
-                url: '/Admin/SetUserRole',
-                data: { "userId": userId, "role": role },
-                dataType: 'json',
-                success: function (result) {
-                    if (result) {
-
-                    }
-                    else {
-
-                    }
-                },
-                beforeSend: function () {
-                },
-                complete: function () {
-                },
-                error: function () {
-                }
+<script>
+    function setUserRole(userId, role) {
+        $.ajax({
+            url: '/Admin/SetUserRole',
+            type = 'POST',
+            contentType = 'application/json; charset=utf-8',
+            headers = {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            data: { "userId": userId, "role": role }
+        })
+            .done(function (result) {
             });
-        }
-    </script>
-}
+
+    }
+</script>

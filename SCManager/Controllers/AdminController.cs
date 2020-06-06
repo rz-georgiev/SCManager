@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data;
-using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.ViewModels.Admin;
 using System.Collections.Generic;
@@ -17,31 +16,34 @@ namespace SCManager.Controllers
     {
         private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AdminController
         (
             IMapper mapper,
-            UserManager<ApplicationUser> userManager,
-            RoleManager<IdentityRole> roleManager
+            UserManager<ApplicationUser> userManager
         )
         {
             _mapper = mapper;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
 
         public async Task<IActionResult> Index()
         {
             var users = _mapper.Map<IEnumerable<UserViewModel>>(_userManager.Users);
-            var a = await _userManager.GetUsersInRoleAsync("Administrator");
+            var administrators = await _userManager.GetUsersInRoleAsync("Administrator");
+            var administratorsIds = administrators.Select(x => x.Id).ToList();
 
-            var model = new IndexViewModel
-            {
-                Users = _mapper.Map<IEnumerable<UserViewModel>>(users),
-            };
+            var model = new IndexViewModel { Users = _mapper.Map<IEnumerable<UserViewModel>>(users) };
+
+            foreach (var user in model.Users)
+                user.IsAdmin = administratorsIds.Contains(user.Id);
 
             return View(model);
+        }
+
+        public IActionResult SetUserRole(string userId, string role)
+        {
+            return Ok();
         }
     }
 }
