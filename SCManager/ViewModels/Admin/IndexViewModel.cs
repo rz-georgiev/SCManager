@@ -6,5 +6,8 @@ namespace SCManager.ViewModels.Admin
     {
         public IEnumerable<UserViewModel> Users { get; set; }
 
+        public IEnumerable<ComponentTypeViewModel> ComponentTypes { get; set; }
+
+        public IEnumerable<UnitMultiplierViewModel> UnitMultipliers { get; set; }
     }
 }

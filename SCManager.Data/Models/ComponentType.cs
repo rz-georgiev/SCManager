@@ -6,7 +6,7 @@ namespace SCManager.Data.Models
     {
         public string Name { get; set; }
 
-        public string ImagePath { get; set; }
+        public string ImageId { get; set; }
 
         public IEnumerable<ComponentTypeDetail> Details { get; set; }
     }
