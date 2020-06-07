@@ -4,16 +4,44 @@
     ViewData["Title"] = "My components";
 }
 
-<div class="card border-left-success shadow h-100 py-2">
-    <div class="card-body">
-        <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacitor</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">Value: 100 pf</div>
-            </div>
-            <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+<input type="email" class="form-control" id="filterInput" aria-describedby="emailHelp" placeholder="Search for element name..." onkeyup="filterElements()">
+
+<br />
+
+<div id="cardsContainer">
+    <div class="card border-left-success shadow h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Capacitor</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">Value: 100 pf</div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    function filterElements() {
+        // Declare variables
+        var input = document.getElementById('filterInput');
+        var filter = input.value.toUpperCase();
+
+        var container = document.getElementById("cardsContainer");
+        var elements = container.getElementsByClassName("card border-left-success shadow h-100 py-2");
+
+        for (var index = 0; index < elements.length; index++) {
+            var textElements = elements[index].getElementsByClassName("text-xs font-weight-bold text-success text-uppercase mb-1");
+            var textValue = textElements[0].textContent || textElements[0].textContent;
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                elements[index].style.display = "";
+            }
+            else {
+                elements[index].style.display = "none";
+            }
+        }
+    }
+</script>
