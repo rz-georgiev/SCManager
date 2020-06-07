@@ -154,21 +154,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function setUserRole(userId, role) {
-        $.ajax({
-            url: '/Admin/SetUserRole',
-            type = 'POST',
-            contentType = 'application/json; charset=utf-8',
-            headers = {
-                RequestVerificationToken:
-                    $('input:hidden[name="__RequestVerificationToken"]').val()
-            },
-            data: { "userId": userId, "role": role }
-        })
-            .done(function (result) {
-            });
-
-    }
-</script>
