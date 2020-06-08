@@ -157,13 +157,24 @@
 
 <script>
     function setUserRole(userId, role) {
+
+        var model = { UserId: userId, Role: role };
+
         $.ajax({
-            type: 'GET',
-            url: '/Admin/SetUserRole?userId=' + userId + '&role=' + role,
-            contentType: 'json',
+            type: 'POST',
+            url: '/Admin/SetUserRole',
+            contentType: 'application/json; charset=utf8',
+            data: JSON.stringify(model),
+            headers: {
+                RequestVerificationToken:
+                    $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
             success: function (result) {
                 console.log('Data received: ');
                 console.log(result);
+            },
+            error: function (result) {
+
             }
         });
     }
