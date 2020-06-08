@@ -60,11 +60,11 @@
                                             @{
                                                 if (user.IsAdmin)
                                                 {
-                                                    <a href="#" onclick="setUserRole('@user.Id', 'Admin')">Set as User</a>
+                                                    <button type="button" class="btn btn-link" onclick="setUserRole('@user.Id', 'user')">Set as User</button>
                                                 }
                                                 else
                                                 {
-                                                    <a href="#" onclick="setUserRole('@user.Id', 'User')">Set as Admin</a>
+                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'admin')">Set as Admin</button>
                                                 }
                                             }
                                         </td>
@@ -154,3 +154,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    function setUserRole(userId, role) {
+        $.ajax({
+            type: 'GET',
+            url: '/Admin/SetUserRole?userId=' + userId + '&role=' + role,
+            contentType: 'json',
+            success: function (result) {
+                console.log('Data received: ');
+                console.log(result);
+            }
+        });
+    }
+</script>
