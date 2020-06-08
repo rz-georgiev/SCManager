@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
+using SCManager.RequestModels;
 using SCManager.ViewModels.Admin;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,9 +63,9 @@ namespace SCManager.Controllers
 
             return View(model);
         }
-
-
-        public IActionResult SetUserRole(string userId, string role)
+   
+        [HttpPost]
+        public IActionResult SetUserRole([FromBody] UserRequestModel model)
         {
             return Ok();
         }
