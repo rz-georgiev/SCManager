@@ -60,11 +60,11 @@
                                             @{
                                                 if (user.IsAdmin)
                                                 {
-                                                    <button type="button" class="btn btn-link" onclick="setUserRole('@user.Id', 'user')">Set as User</button>
+                                                    <button type="button" class="btn btn-link" id="button_@user.Id"  onclick="setUserRole('@user.Id', 'User')">Set as User</button>
                                                 }
                                                 else
                                                 {
-                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'admin')">Set as Admin</button>
+                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'Administrator')">Set as Admin</button>
                                                 }
                                             }
                                         </td>
@@ -170,8 +170,16 @@
                     $('input:hidden[name="__RequestVerificationToken"]').val()
             },
             success: function (result) {
-                console.log('Data received: ');
-                console.log(result);
+                if (result) {
+                    if (role == "Administrator") {
+                        $("#button_" + userId).html("Set as User");
+                        $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'User\')');
+                    }
+                    else {
+                        $("#button_" + userId).html("Set as Admin");
+                        $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'Administrator\')');
+                    }
+                }
             },
             error: function (result) {
 
