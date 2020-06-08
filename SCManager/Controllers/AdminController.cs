@@ -63,6 +63,7 @@ namespace SCManager.Controllers
             return View(model);
         }
 
+
         public IActionResult SetUserRole(string userId, string role)
         {
             return Ok();
