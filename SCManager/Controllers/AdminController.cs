@@ -7,6 +7,7 @@ using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.RequestModels;
 using SCManager.ViewModels.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -65,9 +66,27 @@ namespace SCManager.Controllers
         }
    
         [HttpPost]
-        public IActionResult SetUserRole([FromBody] UserRequestModel model)
+        public async Task<bool> SetUserRole([FromBody] UserRequestModel model)
         {
-            return Ok();
+            try
+            {
+                var user = await _userManager.FindByIdAsync(model.UserId);
+                if (model.Role == "Administrator")
+                {
+                    await _userManager.AddToRoleAsync(user, "Administrator");
+                }
+                else
+                {
+                    await _userManager.RemoveFromRoleAsync(user, "Administrator");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
