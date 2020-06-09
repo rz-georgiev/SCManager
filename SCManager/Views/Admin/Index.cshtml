@@ -60,11 +60,11 @@
                                             @{
                                                 if (user.IsAdmin)
                                                 {
-                                                    <button type="button" class="btn btn-link" id="button_@user.Id"  onclick="setUserRole('@user.Id', 'User')">Set as User</button>
+                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'User')">Currently: Admin</button>
                                                 }
                                                 else
                                                 {
-                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'Administrator')">Set as Admin</button>
+                                                    <button type="button" class="btn btn-link" id="button_@user.Id" onclick="setUserRole('@user.Id', 'Administrator')">Currently: User</button>
                                                 }
                                             }
                                         </td>
@@ -78,9 +78,8 @@
             </div>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
-
             <div class="card shadow mb-4">
+                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="ComponentType" asp-action="Index">Add type</a>
                 <div class="card-body">
                     <!-- COMPONENT TYPES TABLE -->
                     <div class="table-responsive">
@@ -103,10 +102,14 @@
                                     <tr>
 
                                         <td>
-                                            <a><img src=@type.ImageUrl class="rounded-circle" alt="@type.Name" width="128" height="128"></a>
+                                            <a asp-area="" asp-controller="ComponentType" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                                <img src=@type.ImageUrl class="rounded-circle" alt="@type.Name" width="64" height="64">
+                                            </a>
                                         </td>
                                         <td>
-                                            <a>@type.Name</a>
+                                            <a asp-area="" asp-controller="ComponentType" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                                @type.Name
+                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -121,6 +124,7 @@
             @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
 
             <div class="card shadow mb-4">
+                <button type="button" class="btn btn-outline-primary">Add multiplier</button>
                 <div class="card-body">
                     <!-- UNIT MULTIPLIERS TABLE -->
                     <div class="table-responsive">
@@ -172,11 +176,11 @@
             success: function (result) {
                 if (result) {
                     if (role == "Administrator") {
-                        $("#button_" + userId).html("Set as User");
+                        $("#button_" + userId).html("Currently: Admin");
                         $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'User\')');
                     }
                     else {
-                        $("#button_" + userId).html("Set as Admin");
+                        $("#button_" + userId).html("Currently: User");
                         $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'Administrator\')');
                     }
                 }

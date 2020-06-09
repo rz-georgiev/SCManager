@@ -1,6 +1,6 @@
 ﻿using SCManager.Data.Models;
-using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SCManager.Data.Interfaces
 {
@@ -8,6 +8,8 @@ namespace SCManager.Data.Interfaces
     {
         IEnumerable<ComponentType> GetAll();
 
-        ComponentType GetById(int id);
+        ComponentType GetById(int? id);
+
+        Task<bool> SaveChangesAsync(ComponentType type, bool isNew);
     }
 }
