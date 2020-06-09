@@ -121,10 +121,8 @@
             </div>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
-
             <div class="card shadow mb-4">
-                <button type="button" class="btn btn-outline-primary">Add multiplier</button>
+                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="UnitMultiplier" asp-action="Index">Add multiplier</a>
                 <div class="card-body">
                     <!-- UNIT MULTIPLIERS TABLE -->
                     <div class="table-responsive">
@@ -145,7 +143,9 @@
                                     <tr>
 
                                         <td>
-                                            <a>@type.Name</a>
+                                            <a asp-area="" asp-controller="UnitMultiplier" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                                @type.Name
+                                            </a>
                                         </td>
                                     </tr>
                                 }
