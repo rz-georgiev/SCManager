@@ -1,1 +1,9 @@
 SCManager/appsettings.Production.json
+SCManager/bin
+SCManager/obj
+SCManager.Data/bin
+SCManager.Data/obj
+SCManager.Services/bin
+SCManager.Services/obj
+SCManager.Tests/bin
+SCManager.Tests/obj
