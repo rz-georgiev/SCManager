@@ -86,8 +86,8 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
             if (Input.FormFile == null)
                 return RedirectToPage();
 
-            var url = await _cloudinaryService.UploadImageAsync(Input.FormFile);
-            if (string.IsNullOrWhiteSpace(url))
+            var imageId = await _cloudinaryService.UploadImageAsync(Input.FormFile);
+            if (string.IsNullOrWhiteSpace(imageId))
                 return RedirectToPage();
 
             // Deleting old profile image if any
@@ -95,7 +95,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 await _cloudinaryService.DeleteImageAsync(user.ImageId);
 
             // Setting the new profile image
-            user.ImageId = url;
+            user.ImageId = imageId;
 
             _dbContext.Update(user);
             await _dbContext.SaveChangesAsync();

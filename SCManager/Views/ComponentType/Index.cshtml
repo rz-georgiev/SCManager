@@ -1,0 +1,27 @@
+﻿@model SCManager.InputModels.ComponentTypeInputModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form enctype="multipart/form-data" id="profile-form" class="user" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control form-control-user" id="username" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image"></label>
+        <br />
+        <input asp-for="Image" id="formFile" type="file" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-user btn-block">
+        Save
+    </button>
+</form>

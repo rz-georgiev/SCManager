@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using SCManager.Data.Models;
+using SCManager.InputModels;
 using SCManager.ViewModels.Admin;
 
 namespace SCManager
@@ -11,6 +12,7 @@ namespace SCManager
             CreateMap<ApplicationUser, UserViewModel>();
             CreateMap<ComponentType, ComponentTypeViewModel>();
             CreateMap<UnitMultiplier, UnitMultiplierViewModel>();
+            CreateMap<ComponentType, ComponentTypeInputModel>();
         }
     }
 }

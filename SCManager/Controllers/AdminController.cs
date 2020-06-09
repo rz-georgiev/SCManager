@@ -64,7 +64,7 @@ namespace SCManager.Controllers
 
             return View(model);
         }
-   
+
         [HttpPost]
         public async Task<bool> SetUserRole([FromBody] UserRequestModel model)
         {

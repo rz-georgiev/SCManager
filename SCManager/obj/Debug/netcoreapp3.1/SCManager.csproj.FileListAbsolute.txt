@@ -204,3 +204,4 @@ E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\staticwebassets\SCMan
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.dll
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.pdb
 E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\SCManager.genruntimeconfig.cache
+E:\Development\SCManager\SCManager\obj\Debug\netcoreapp3.1\Razor\Views\ComponentType\Index.cshtml.g.cs
