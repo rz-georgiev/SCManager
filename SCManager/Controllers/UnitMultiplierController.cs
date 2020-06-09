@@ -43,23 +43,21 @@ namespace SCManager.Controllers
                 return View(model);
             }
 
+            var multiplier = await _unitMultiplierService.GetByIdAsync(model.Id);
 
-            if (model.Id == null)
+            if (multiplier == null)
             {
-                var type = new UnitMultiplier
+                multiplier = new UnitMultiplier
                 {
                     Name = model.Name
                 };
-
-                await _unitMultiplierService.SaveChangesAsync(type, true);
             }
             else
             {
-                var type = await _unitMultiplierService.GetByIdAsync(model.Id);
-                type.Name = model.Name;
-
-                await _unitMultiplierService.SaveChangesAsync(type, false);
+                multiplier.Name = model.Name;
             }
+
+            await _unitMultiplierService.SaveChangesAsync(multiplier);
 
             return RedirectToAction("Index", "Admin");
         }

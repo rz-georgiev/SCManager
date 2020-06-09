@@ -29,17 +29,17 @@ namespace SCManager.Services
                 .SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<bool> SaveChangesAsync(UnitMultiplier type, bool isNew)
+        public async Task<bool> SaveChangesAsync(UnitMultiplier multiplier)
         {
             try
             {
-                if (isNew)
+                if (multiplier == null)
                 {
-                    await _context.AddAsync(type);
+                    await _context.AddAsync(multiplier);
                 }
                 else
                 {
-                    _context.Update(type);
+                    _context.Update(multiplier);
                 }
 
                 await _context.SaveChangesAsync();

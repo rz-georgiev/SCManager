@@ -50,19 +50,17 @@ namespace SCManager.Controllers
                    ? await _cloudinaryService.UploadImageAsync(model.Image)
                    : null;
 
-            if (model.Id == null)
+            var type = await _componentTypeService.GetByIdAsync(model.Id);
+            if (type == null)
             {
-                var type = new ComponentType
+                type = new ComponentType
                 {
                     Name = model.Name,
                     ImageId = newImageId
                 };
-
-                await _componentTypeService.SaveChangesAsync(type, true);
             }
             else
             {
-                var type = await _componentTypeService.GetByIdAsync(model.Id);
                 type.Name = model.Name;
 
                 if (type.ImageId != null && newImageId != null)
@@ -74,9 +72,9 @@ namespace SCManager.Controllers
                 {
                     type.ImageId = newImageId ?? type.ImageId;
                 }
-
-                await _componentTypeService.SaveChangesAsync(type, false);
             }
+
+            await _componentTypeService.SaveChangesAsync(type);
 
             return RedirectToAction("Index", "Admin");
         }
