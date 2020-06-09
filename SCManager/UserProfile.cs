@@ -13,6 +13,7 @@ namespace SCManager
             CreateMap<ComponentType, ComponentTypeViewModel>();
             CreateMap<UnitMultiplier, UnitMultiplierViewModel>();
             CreateMap<ComponentType, ComponentTypeInputModel>();
+            CreateMap<UnitMultiplier, UnitMultiplierInputModel>();
         }
     }
 }
