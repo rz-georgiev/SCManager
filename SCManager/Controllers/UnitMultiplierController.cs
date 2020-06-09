@@ -21,9 +21,9 @@ namespace SCManager.Controllers
             _unitMultiplierService = unitMultiplierService;
         }
 
-        public IActionResult Index(int? componentTypeId)
+        public async Task<IActionResult> Index(int? componentTypeId)
         {
-            var type = _unitMultiplierService.GetById(componentTypeId);
+            var type = await _unitMultiplierService.GetByIdAsync(componentTypeId);
             if (type == null)
             {
                 return View();
@@ -55,7 +55,7 @@ namespace SCManager.Controllers
             }
             else
             {
-                var type = _unitMultiplierService.GetById(model.Id);
+                var type = await _unitMultiplierService.GetByIdAsync(model.Id);
                 type.Name = model.Name;
 
                 await _unitMultiplierService.SaveChangesAsync(type, false);
