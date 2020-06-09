@@ -11,6 +11,6 @@ namespace SCManager.Data.Interfaces
 
         Task<UnitMultiplier> GetByIdAsync(int? id);
 
-        Task<bool> SaveChangesAsync(UnitMultiplier type, bool isNew);
+        Task<bool> SaveChangesAsync(UnitMultiplier multiplier);
     }
 }
