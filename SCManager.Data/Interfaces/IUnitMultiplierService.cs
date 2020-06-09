@@ -9,7 +9,7 @@ namespace SCManager.Data.Interfaces
     {
         IEnumerable<UnitMultiplier> GetAll();
 
-        UnitMultiplier GetById(int? id);
+        Task<UnitMultiplier> GetByIdAsync(int? id);
 
         Task<bool> SaveChangesAsync(UnitMultiplier type, bool isNew);
     }

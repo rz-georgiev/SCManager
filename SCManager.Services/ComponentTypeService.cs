@@ -1,4 +1,5 @@
-﻿using SCManager.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using System;
@@ -22,10 +23,10 @@ namespace SCManager.Services
             return _context.ComponentTypes;
         }
 
-        public ComponentType GetById(int? id)
+        public async Task<ComponentType> GetByIdAsync(int? id)
         {
-            return _context.ComponentTypes
-                .SingleOrDefault(x => x.Id == id);
+            return await _context.ComponentTypes
+                .SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<bool> SaveChangesAsync(ComponentType type, bool isNew)

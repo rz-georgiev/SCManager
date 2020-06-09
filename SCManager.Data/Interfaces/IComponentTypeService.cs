@@ -8,7 +8,7 @@ namespace SCManager.Data.Interfaces
     {
         IEnumerable<ComponentType> GetAll();
 
-        ComponentType GetById(int? id);
+        Task<ComponentType> GetByIdAsync(int? id);
 
         Task<bool> SaveChangesAsync(ComponentType type, bool isNew);
     }

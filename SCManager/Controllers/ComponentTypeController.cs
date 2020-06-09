@@ -24,9 +24,9 @@ namespace SCManager.Controllers
             _cloudinaryService = cloudinaryService;
         }
 
-        public IActionResult Index(int? componentTypeId)
+        public async Task<IActionResult> Index(int? componentTypeId)
         {
-            var type = _componentTypeService.GetById(componentTypeId);
+            var type = await _componentTypeService.GetByIdAsync(componentTypeId);
             if (type == null)
             {
                 return View();
@@ -62,7 +62,7 @@ namespace SCManager.Controllers
             }
             else
             {
-                var type = _componentTypeService.GetById(model.Id);
+                var type = await _componentTypeService.GetByIdAsync(model.Id);
                 type.Name = model.Name;
 
                 if (type.ImageId != null && newImageId != null)
