@@ -6,7 +6,7 @@ namespace SCManager.Data.Models
     {
         public int Id { get; set; }
 
-        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+        public DateTime CreatedDateTime { get; set; }
 
         public string CreatedByUserId { get; set; }
 
@@ -14,7 +14,7 @@ namespace SCManager.Data.Models
 
         public string LastUpdatedByUserId { get; set; }
 
-        public bool IsActive { get; set; } = true;
+        public bool IsActive { get; set; }
 
         public ApplicationUser CreatedByUser { get; set; }
 

@@ -14,7 +14,5 @@ namespace SCManager.ViewModels.Admin
 
         public IEnumerable<StaticSiteInfoViewModel> StaticSiteInfos { get; set; }
 
-
-        public string AdministratorRole = AppUserRoles.Administrator;
     }
 }

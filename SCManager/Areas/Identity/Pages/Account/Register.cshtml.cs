@@ -78,7 +78,9 @@ namespace SCManager.Areas.Identity.Pages.Account
                 var user = new ApplicationUser 
                 { 
                     UserName = Input.Email,
-                    Email = Input.Email
+                    Email = Input.Email,
+                    CreatedDateTime = DateTime.UtcNow,
+                    IsBanned = false
                 };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);

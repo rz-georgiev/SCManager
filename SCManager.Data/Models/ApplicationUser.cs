@@ -7,13 +7,13 @@
     {
         public string ImageId { get; set; }
 
-        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+        public DateTime CreatedDateTime { get; set; }
 
         public DateTime? LastUpdatedDateTime { get; set; }
 
         public string LastUpdatedByUserId { get; set; }
 
-        public bool IsBanned { get; set; } = false;
+        public bool IsBanned { get; set; }
 
         public ApplicationUser LastUpdatedByUser { get; set; }
     }

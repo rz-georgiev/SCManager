@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.InputModels;
+using System;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -13,12 +15,15 @@ namespace SCManager.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IUnitMultiplierService _unitMultiplierService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public UnitMultiplierController(IMapper mapper,
-            IUnitMultiplierService unitMultiplierService)
+            IUnitMultiplierService unitMultiplierService,
+            UserManager<ApplicationUser> userManager)
         {
             _mapper = mapper;
             _unitMultiplierService = unitMultiplierService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(int? componentTypeId)
@@ -49,12 +54,18 @@ namespace SCManager.Controllers
             {
                 multiplier = new UnitMultiplier
                 {
-                    Name = model.Name
+                    Name = model.Name,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedByUserId = _userManager.GetUserId(User),
+                    IsActive = true
                 };
             }
             else
             {
                 multiplier.Name = model.Name;
+                multiplier.LastUpdatedDateTime = DateTime.UtcNow;
+                multiplier.LastUpdatedByUserId = _userManager.GetUserId(User);
+
             }
 
             await _unitMultiplierService.SaveChangesAsync(multiplier);

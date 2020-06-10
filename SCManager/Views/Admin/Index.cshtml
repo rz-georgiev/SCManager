@@ -219,7 +219,7 @@
             },
             success: function (result) {
                 if (result) {
-                    if (role == @Model.AdministratorRole) {
+                    if (role == "Administrator") {
                         $("#button_" + userId).html("Currently: Admin");
                         $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'User\')');
                     }
