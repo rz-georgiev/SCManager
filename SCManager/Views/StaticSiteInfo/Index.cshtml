@@ -1,4 +1,4 @@
-﻿@model SCManager.InputModels.ComponentTypeInputModel
+﻿@model SCManager.InputModels.StaticSiteInfoInputModel
 
 @{
     ViewData["Title"] = "Index";
@@ -15,10 +15,8 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Image"></label>
-        <br />
-        <input asp-for="Image" id="formFile" type="file" />
-        <span asp-validation-for="Image" class="text-danger"></span>
+        <label asp-for="Content"></label>
+        <input asp-for="Content" class="form-control form-control-user" id="Content" />
     </div>
 
     <button type="submit" class="btn btn-primary btn-user btn-block">

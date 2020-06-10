@@ -17,23 +17,26 @@ namespace SCManager.Controllers
     [Authorize(Roles = AppUserRoles.Administrator)]
     public class AdminController : Controller
     {
-        private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IMapper _mapper;
         private readonly IComponentTypeService _componentTypeService;
         private readonly IUnitMultiplierService _unitMultiplierService;
+        private readonly IStaticSiteInfoService _staticSiteInfoService;
 
         public AdminController
         (
-            IMapper mapper,
             UserManager<ApplicationUser> userManager,
+            IMapper mapper,
             IComponentTypeService componentTypeService,
-            IUnitMultiplierService unitMultiplierService
+            IUnitMultiplierService unitMultiplierService,
+            IStaticSiteInfoService staticSiteInfoService
         )
         {
-            _mapper = mapper;
             _userManager = userManager;
+            _mapper = mapper;
             _componentTypeService = componentTypeService;
             _unitMultiplierService = unitMultiplierService;
+            _staticSiteInfoService = staticSiteInfoService;
         }
 
         public async Task<IActionResult> Index()
@@ -46,6 +49,8 @@ namespace SCManager.Controllers
             var componentTypeModels = _mapper.Map<IEnumerable<ComponentTypeViewModel>>(componentTypes);
             var unitMultipliers = _mapper.Map<IEnumerable<UnitMultiplierViewModel>>(_unitMultiplierService.GetAll());
 
+            var staticSiteInfos = _mapper.Map<IEnumerable<StaticSiteInfoViewModel>>(_staticSiteInfoService.GetAll());
+
             foreach (var user in users)
                 user.IsAdmin = administratorsIds.Contains(user.Id);
 
@@ -55,11 +60,15 @@ namespace SCManager.Controllers
                 componentTypeModel.ImageUrl = $"{Constants.BaseImageUrl}{imageId}";
             }
 
+            foreach (var info in staticSiteInfos)
+                info.Content = info.Content.Length > 100 ? $"{info.Content.Substring(0, 100)}...." : info.Content;
+
             var model = new IndexViewModel
             {
                 Users = users,
                 ComponentTypes = componentTypeModels,
-                UnitMultipliers = unitMultipliers
+                UnitMultipliers = unitMultipliers,
+                StaticSiteInfos = staticSiteInfos
             };
 
             return View(model);
@@ -79,7 +88,6 @@ namespace SCManager.Controllers
                 {
                     await _userManager.RemoveFromRoleAsync(user, AppUserRoles.Administrator);
                 }
-
             }
             catch (Exception ex)
             {
