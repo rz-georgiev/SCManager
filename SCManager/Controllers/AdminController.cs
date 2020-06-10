@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace SCManager.Controllers
 {
-    [Authorize(Roles = UserRights.Administrator)]
+    [Authorize(Roles = AppUserRoles.Administrator)]
     public class AdminController : Controller
     {
         private readonly IMapper _mapper;
@@ -39,7 +39,7 @@ namespace SCManager.Controllers
         public async Task<IActionResult> Index()
         {
             var users = _mapper.Map<IEnumerable<UserViewModel>>(_userManager.Users);
-            var administrators = await _userManager.GetUsersInRoleAsync("Administrator");
+            var administrators = await _userManager.GetUsersInRoleAsync(AppUserRoles.Administrator);
             var administratorsIds = administrators.Select(x => x.Id).ToList();
 
             var componentTypes = _componentTypeService.GetAll();
@@ -71,13 +71,13 @@ namespace SCManager.Controllers
             try
             {
                 var user = await _userManager.FindByIdAsync(model.UserId);
-                if (model.Role == "Administrator")
+                if (model.Role == AppUserRoles.Administrator)
                 {
-                    await _userManager.AddToRoleAsync(user, "Administrator");
+                    await _userManager.AddToRoleAsync(user, AppUserRoles.Administrator);
                 }
                 else
                 {
-                    await _userManager.RemoveFromRoleAsync(user, "Administrator");
+                    await _userManager.RemoveFromRoleAsync(user, AppUserRoles.Administrator);
                 }
 
             }

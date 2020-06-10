@@ -7,6 +7,8 @@ namespace SCManager.Data.Interfaces
     {
         Task<StaticSiteInfo> GetByNameAsync(string name);
 
-        Task CreateAsync(string name, string content);
+        Task<StaticSiteInfo> GetByIdAsync(int? id);
+
+        Task<bool> SaveChangesAsync(StaticSiteInfo info);
     }
 }

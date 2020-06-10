@@ -37,7 +37,6 @@
             </h2>
         </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            @*<a class="nav-link" asp-area="" asp-controller="Admin" asp-action="PostEditor">Create new post</a>*@
 
             <div class="card shadow mb-4">
                 <div class="card-body">
@@ -218,7 +217,7 @@
             },
             success: function (result) {
                 if (result) {
-                    if (role == "Administrator") {
+                    if (role == @Model.AdministratorRole) {
                         $("#button_" + userId).html("Currently: Admin");
                         $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'User\')');
                     }

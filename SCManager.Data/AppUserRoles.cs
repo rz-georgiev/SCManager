@@ -1,6 +1,6 @@
 ﻿namespace SCManager.Data
 {
-    public static class UserRights
+    public static class AppUserRoles
     {
         public const string Administrator = "Administrator";
 
