@@ -31,7 +31,7 @@
         </div>
         <div class="card-header" id="headingFour">
             <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseFour">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
                     Optional settings
                 </button>
             </h2>
@@ -162,32 +162,35 @@
                 </div>
             </div>
         </div>
-        <div id="coillapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
             <div class="card shadow mb-4">
-                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="UnitMultiplier" asp-action="Index">Add multiplier</a>
+                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="StaticSiteInfo" asp-action="Index">Add static site info</a>
                 <div class="card-body">
                     <!-- OPTIONAL SETTINGS TABLE -->
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable_UnitMultipliers" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable_StaticSiteInfos" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Name</th>
+                                    <th>Content</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Content</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach (var type in Model.UnitMultipliers)
+                                @foreach (var info in Model.StaticSiteInfos)
                                 {
                                     <tr>
-
                                         <td>
-                                            <a asp-area="" asp-controller="UnitMultiplier" asp-action="Index" asp-route-componentTypeId="@type.Id">
-                                                @type.Name
+                                            <a asp-area="" asp-controller="StaticSiteInfo" asp-action="Index" asp-route-componentTypeId="@info.Id">
+                                                @info.Name
                                             </a>
+                                        </td>
+                                        <td>
+                                            <p>@info.Content</p>
                                         </td>
                                     </tr>
                                 }

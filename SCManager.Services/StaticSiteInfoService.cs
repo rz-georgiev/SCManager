@@ -3,6 +3,7 @@ using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SCManager.Services
@@ -14,6 +15,11 @@ namespace SCManager.Services
         public StaticSiteInfoService(SCManagerDbContext context)
         {
             _context = context;
+        }
+
+        public IEnumerable<StaticSiteInfo> GetAll()
+        {
+            return _context.StaticSiteInfos;
         }
 
         public async Task<StaticSiteInfo> GetByIdAsync(int? id)

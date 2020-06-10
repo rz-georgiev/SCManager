@@ -12,8 +12,11 @@ namespace SCManager
             CreateMap<ApplicationUser, UserViewModel>();
             CreateMap<ComponentType, ComponentTypeViewModel>();
             CreateMap<UnitMultiplier, UnitMultiplierViewModel>();
+            CreateMap<StaticSiteInfo, StaticSiteInfoViewModel>();
+
             CreateMap<ComponentType, ComponentTypeInputModel>();
             CreateMap<UnitMultiplier, UnitMultiplierInputModel>();
+            CreateMap<StaticSiteInfo, StaticSiteInfoInputModel>();
         }
     }
 }
