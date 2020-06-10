@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.InputModels;
+using System;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -14,14 +16,17 @@ namespace SCManager.Controllers
         private readonly IComponentTypeService _componentTypeService;
         private readonly IMapper _mapper;
         private readonly ICloudinaryService _cloudinaryService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public ComponentTypeController(IComponentTypeService componentTypeService,
             IMapper mapper,
-            ICloudinaryService cloudinaryService)
+            ICloudinaryService cloudinaryService,
+            UserManager<ApplicationUser> userManager)
         {
             _componentTypeService = componentTypeService;
             _mapper = mapper;
             _cloudinaryService = cloudinaryService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(int? componentTypeId)
@@ -56,7 +61,10 @@ namespace SCManager.Controllers
                 type = new ComponentType
                 {
                     Name = model.Name,
-                    ImageId = newImageId
+                    ImageId = newImageId,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedByUserId = _userManager.GetUserId(User),
+                    IsActive = true
                 };
             }
             else
@@ -72,6 +80,9 @@ namespace SCManager.Controllers
                 {
                     type.ImageId = newImageId ?? type.ImageId;
                 }
+
+                type.LastUpdatedDateTime = DateTime.UtcNow;
+                type.LastUpdatedByUserId = _userManager.GetUserId(User);
             }
 
             await _componentTypeService.SaveChangesAsync(type);
