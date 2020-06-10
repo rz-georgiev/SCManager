@@ -3,7 +3,6 @@ using Ganss.XSS;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
-using SCManager.Data.Models;
 using SCManager.InputModels;
 using System.Threading.Tasks;
 
@@ -50,23 +49,9 @@ namespace SCManager.Controllers
             }
 
             var info = await _staticSiteInfoService.GetByIdAsync(model.Id);
-
-            if (info == null)
-            {
-                info = new StaticSiteInfo
-                {
-                    Name = model.Name,
-                    Content = model.Content
-                };
-            }
-            else
-            {
-                info.Name = model.Name;
-                info.Content = model.Content;
-            }
+            info.Content = model.Content;
 
             await _staticSiteInfoService.SaveChangesAsync(info);
-
             return RedirectToAction("Index", "Admin");
         }
     }

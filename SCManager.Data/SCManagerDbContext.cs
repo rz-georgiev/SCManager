@@ -13,6 +13,7 @@ namespace SCManager.Data
             : base(options)
         {
             Database.Migrate();
+            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
