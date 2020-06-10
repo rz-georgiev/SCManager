@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SCManager.Data;
+using System.Collections.Generic;
 
 namespace SCManager.ViewModels.Admin
 {
@@ -9,5 +10,7 @@ namespace SCManager.ViewModels.Admin
         public IEnumerable<ComponentTypeViewModel> ComponentTypes { get; set; }
 
         public IEnumerable<UnitMultiplierViewModel> UnitMultipliers { get; set; }
+
+        public string AdministratorRole = AppUserRoles.Administrator;
     }
 }

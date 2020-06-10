@@ -93,7 +93,7 @@
                 <!-- Nav Item - Pages Collapse Menu -->
 
                 @{
-                    if (User.IsInRole(UserRights.Administrator))
+                    if (User.IsInRole(AppUserRoles.Administrator))
                     {
                         <li class="nav-item">
                             <a class="nav-link collapsed" asp-area="" asp-controller="Admin" asp-action="Index">
