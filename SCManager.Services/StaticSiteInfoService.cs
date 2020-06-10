@@ -38,16 +38,9 @@ namespace SCManager.Services
         {
             try
             {
-                if (info == null)
-                {
-                    await _context.AddAsync(info);
-                }
-                else
-                {
-                    _context.Update(info);
-                }
-
+                _context.Update(info);
                 await _context.SaveChangesAsync();
+
                 return true;
             }
             catch (Exception ex)
