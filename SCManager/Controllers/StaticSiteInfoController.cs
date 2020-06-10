@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Ganss.XSS;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
@@ -13,12 +14,15 @@ namespace SCManager.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IStaticSiteInfoService _staticSiteInfoService;
+        private readonly HtmlSanitizer _htmlSanitizer;
 
         public StaticSiteInfoController(IMapper mapper,
-            IStaticSiteInfoService staticSiteInfoService)
+            IStaticSiteInfoService staticSiteInfoService,
+            HtmlSanitizer htmlSanitizer)
         {
             _mapper = mapper;
             _staticSiteInfoService = staticSiteInfoService;
+            _htmlSanitizer = htmlSanitizer;
         }
 
         public async Task<IActionResult> Index(int? componentTypeId)
@@ -38,6 +42,8 @@ namespace SCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(StaticSiteInfoInputModel model)
         {
+            model.Content = _htmlSanitizer.Sanitize(model.Content);
+
             if (!ModelState.IsValid)
             {
                 return View(model);

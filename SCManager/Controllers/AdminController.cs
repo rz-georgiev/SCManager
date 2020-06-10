@@ -48,7 +48,6 @@ namespace SCManager.Controllers
             var componentTypes = _componentTypeService.GetAll();
             var componentTypeModels = _mapper.Map<IEnumerable<ComponentTypeViewModel>>(componentTypes);
             var unitMultipliers = _mapper.Map<IEnumerable<UnitMultiplierViewModel>>(_unitMultiplierService.GetAll());
-
             var staticSiteInfos = _mapper.Map<IEnumerable<StaticSiteInfoViewModel>>(_staticSiteInfoService.GetAll());
 
             foreach (var user in users)

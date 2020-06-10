@@ -4,6 +4,17 @@
     ViewData["Title"] = "Index";
 }
 
+<head>
+    <!-- TinyMCE -->
+    <script src="https://cdn.tiny.cloud/1/gzoj5y969hphw85vyz62g7cvbf01guoublvywfjtxabxajkn/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#Content',
+            height: 500
+        });
+    </script>
+</head>
+
 <form enctype="multipart/form-data" id="profile-form" class="user" method="post">
 
     <input type="hidden" asp-for="Id" />
@@ -16,7 +27,7 @@
 
     <div class="form-group">
         <label asp-for="Content"></label>
-        <input asp-for="Content" class="form-control form-control-user" id="Content" />
+        <textarea  asp-for="Content"></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary btn-user btn-block">
