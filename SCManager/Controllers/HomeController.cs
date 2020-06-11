@@ -32,6 +32,7 @@ namespace SCManager.Controllers
             var userId = _userManager.GetUserId(User);
             var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId);
             var types = userComponentTypes.Select(x => x.ComponentType);
+            types = types.GroupBy(x => x.Id).Select(x => x.FirstOrDefault());
 
             var componentTypesModels = new List<UserComponentTypeViewModel>();
             foreach (var type in types)
