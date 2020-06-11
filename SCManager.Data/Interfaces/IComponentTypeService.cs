@@ -10,6 +10,7 @@ namespace SCManager.Data.Interfaces
 
         Task<ComponentType> GetByIdAsync(int? id);
 
+      
         Task<bool> SaveChangesAsync(ComponentType type);
     }
 }
