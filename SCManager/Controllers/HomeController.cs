@@ -53,7 +53,7 @@ namespace SCManager.Controllers
                     TotalPrice = totalPrice
                 });
             }
-            var maxQuantity = componentTypesModels.Max(x => x.Quantity);
+            var maxQuantity = componentTypesModels.Count > 0 ? componentTypesModels.Max(x => x.Quantity) : 0;
 
             foreach (var model in componentTypesModels)
                 model.QuantityPercentage = (100 * model.Quantity) / maxQuantity;
