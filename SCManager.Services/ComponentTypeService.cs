@@ -29,6 +29,7 @@ namespace SCManager.Services
                 .SingleOrDefaultAsync(x => x.Id == id);
         }
 
+ 
         public async Task<bool> SaveChangesAsync(ComponentType type)
         {
             try
