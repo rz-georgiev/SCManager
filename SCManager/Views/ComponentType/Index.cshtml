@@ -21,7 +21,49 @@
         <span asp-validation-for="Image" class="text-danger"></span>
     </div>
 
+    <br />
+    <hr />
+    <h1>Details</h1>
+    <br />
+
+    <div class="card shadow mb-4">
+        <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="ComponentType" asp-action="Index">Add detail</a>
+        <div class="card-body">
+            <!-- COMPONENT TYPES TABLE -->
+            <div class="table-responsive">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Unit</th>
+                            <th>Symbol</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var detail in Model.Details)
+                        {
+                            <tr>
+                                <td>@detail.Name</td>
+                                <td>@detail.Unit</td>
+                                <td>@detail.Symbol</td>
+                                <td><a href="#">Remove</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- COMPONENT TYPES TABLE -->
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Save
     </button>
 </form>
+
+<script>
+    function addDetail() {
+
+    }
+</script>

@@ -6,6 +6,8 @@
 
         public string Unit { get; set; }
 
+        public string Symbol { get; set; }
+
         public ComponentType ComponentType { get; set; }
     }
 }
