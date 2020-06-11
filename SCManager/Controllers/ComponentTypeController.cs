@@ -6,6 +6,7 @@ using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.InputModels;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -14,16 +15,19 @@ namespace SCManager.Controllers
     public class ComponentTypeController : Controller
     {
         private readonly IComponentTypeService _componentTypeService;
+        private readonly IComponentTypeDetailService _componentTypeDetailService;
         private readonly IMapper _mapper;
         private readonly ICloudinaryService _cloudinaryService;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public ComponentTypeController(IComponentTypeService componentTypeService,
+            IComponentTypeDetailService componentTypeDetailService,
             IMapper mapper,
             ICloudinaryService cloudinaryService,
             UserManager<ApplicationUser> userManager)
         {
             _componentTypeService = componentTypeService;
+            _componentTypeDetailService = componentTypeDetailService;
             _mapper = mapper;
             _cloudinaryService = cloudinaryService;
             _userManager = userManager;
@@ -38,7 +42,12 @@ namespace SCManager.Controllers
             }
             else
             {
+                var details = _componentTypeDetailService.GetByComponentTypeId(type.Id);
+                var inputDetails = _mapper.Map<IEnumerable<ComponentTypeDetailInputModel>>(details);
+
                 var model = _mapper.Map<ComponentTypeInputModel>(type);
+                model.Details = inputDetails;
+
                 return View(model);
             }
         }

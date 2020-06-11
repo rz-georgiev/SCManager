@@ -17,6 +17,7 @@ namespace SCManager
             CreateMap<ComponentType, ComponentTypeInputModel>();
             CreateMap<UnitMultiplier, UnitMultiplierInputModel>();
             CreateMap<StaticSiteInfo, StaticSiteInfoInputModel>();
+            CreateMap<ComponentTypeDetail, ComponentTypeDetailInputModel>();
         }
     }
 }
