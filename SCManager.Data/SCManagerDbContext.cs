@@ -43,8 +43,6 @@ namespace SCManager.Data
 
         public DbSet<UserComponentType> UserComponentTypes { get; set; }
 
-        public DbSet<UserComponentTypeDetail> UserComponentTypeDetails { get; set; }
-
         public DbSet<UnitMultiplier> UnitMultipliers { get; set; }
 
         public DbSet<StaticSiteInfo> StaticSiteInfos { get; set; }

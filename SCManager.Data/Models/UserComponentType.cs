@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SCManager.Data.Models
 {
@@ -11,10 +8,13 @@ namespace SCManager.Data.Models
 
         public int Quantity { get; set; }
 
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal UnitPrice { get; set; }
+
+        public float Value { get; set; }
 
         public ComponentType ComponentType { get; set; }
 
-        public IEnumerable<UserComponentTypeDetail> Details { get; set; }
+        public UnitMultiplier UnitMultiplier { get; set; }
     }
 }

@@ -47,8 +47,7 @@ namespace SCManager.Controllers
             var userId = _userManager.GetUserId(User);
 
             var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId)
-                .Include(x => x.Details)
-                    .ThenInclude(x => x.UnitMultiplier)
+                .Include(x => x.UnitMultiplier)
                 .Include(x => x.ComponentType)
                     .ThenInclude(x => x.Details)
                 .ToList();
@@ -57,8 +56,7 @@ namespace SCManager.Controllers
             userComponentTypes.ForEach(x =>
             {
                 var type = x.ComponentType;
-                var detail = x.Details.FirstOrDefault();
-                var multiplier = detail.UnitMultiplier;
+                var multiplier = x.UnitMultiplier;
                 var typeDetail = type.Details.FirstOrDefault(x => x.IsPrimary);
 
                 componentModels.Add(new ComponentViewModel
@@ -67,7 +65,7 @@ namespace SCManager.Controllers
                      Quantity = x.Quantity,
                      TotalPrice = x.Quantity * x.UnitPrice,
                      Name = type.Name,
-                     Value = detail.Value,
+                     Value = x.Value,
                      Unit = $"{multiplier.Name}{typeDetail.Symbol}"
                 });
             });
