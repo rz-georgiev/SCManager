@@ -18,7 +18,7 @@ namespace SCManager.Services
             _context = context;
         }
 
-        public IEnumerable<ComponentType> GetAll()
+        public IQueryable<ComponentType> GetAll()
         {
             return _context.ComponentTypes;
         }
