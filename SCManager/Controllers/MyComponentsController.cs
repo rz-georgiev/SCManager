@@ -7,6 +7,7 @@ using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.InputModels;
 using SCManager.ViewModels.MyComponents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,6 +58,8 @@ namespace SCManager.Controllers
                     .ThenInclude(x => x.Details)
                 .ToList();
 
+            userComponentTypes = userComponentTypes.OrderByDescending(x => x.Id).ToList();
+
             var componentModels = new List<ComponentViewModel>();
             userComponentTypes.ForEach(x =>
             {
@@ -90,8 +93,8 @@ namespace SCManager.Controllers
 
             var multipliers = _unitMultiplierService.GetAll();
 
-            var userComponent = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
-            if (userComponent == null)
+            var component = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
+            if (component == null)
             {
                 var defaultModel = new MyComponentInputModel
                 {
@@ -103,12 +106,19 @@ namespace SCManager.Controllers
             }
             else
             {
-                //var details = _componentTypeDetailService.GetByComponentTypeId(type.Id);
-                //var inputDetails = _mapper.Map<IEnumerable<ComponentTypeDetailInputModel>>(details);
+                var model = new MyComponentInputModel
+                {
+                    Id = component.Id,
+                    ComponentTypeId = component.ComponentTypeId,
+                    Quantity = component.Quantity,
+                    UnitMultiplierId = component.UnitMultiplierId,
+                    UnitPrice = component.UnitPrice,
+                    Value = component.Value,
+                    ComponentTypes = componentTypes,
+                    UnitMultipliers = multipliers
+                };
 
-                //var model = _mapper.Map<ComponentTypeInputModel>(type);
-                //model.Details = inputDetails;
-                return View();
+                return View(model);
             }
         }
 
@@ -126,44 +136,36 @@ namespace SCManager.Controllers
                 return View(model);
             }
 
-            //var newImageId = model.Image != null
-            //       ? await _cloudinaryService.UploadImageAsync(model.Image)
-            //       : null;
+            var component = await _userComponentTypeService.GetByIdAsync(model.Id);
+            var userId = _userManager.GetUserId(User);
+            if (component == null)
+            {
+                component = new UserComponentType
+                {
+                    ComponentTypeId = model.ComponentTypeId,
+                    Quantity = model.Quantity,
+                    UnitMultiplierId = model.UnitMultiplierId,
+                    UnitPrice = model.UnitPrice,
+                    Value = model.Value,
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.UtcNow,
+                    IsActive = true
+                };
+            }
+            else
+            {
+                component.ComponentTypeId = model.ComponentTypeId;
+                component.Quantity = model.Quantity;
+                component.UnitMultiplierId = model.UnitMultiplierId;
+                component.UnitPrice = model.UnitPrice;
+                component.Value = model.Value;
+                component.LastUpdatedByUserId = userId;
+                component.LastUpdatedDateTime = DateTime.UtcNow;
+            }
 
-            //var type = await _componentTypeService.GetByIdAsync(model.Id);
-            //if (type == null)
-            //{
-            //    type = new ComponentType
-            //    {
-            //        Name = model.Name,
-            //        ImageId = newImageId,
-            //        CreatedDateTime = DateTime.UtcNow,
-            //        CreatedByUserId = _userManager.GetUserId(User),
-            //        IsActive = true
-            //    };
-            //}
-            //else
-            //{
-            //    type.Name = model.Name;
+            await _userComponentTypeService.SaveChangesAsync(component);
 
-            //    if (type.ImageId != null && newImageId != null)
-            //    {
-            //        await _cloudinaryService.DeleteImageAsync(type.ImageId);
-            //        type.ImageId = newImageId;
-            //    }
-            //    else
-            //    {
-            //        type.ImageId = newImageId ?? type.ImageId;
-            //    }
-
-            //    type.LastUpdatedDateTime = DateTime.UtcNow;
-            //    type.LastUpdatedByUserId = _userManager.GetUserId(User);
-            //}
-
-            //await _componentTypeService.SaveChangesAsync(type);
-
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index", "MyComponents");
         }
-
     }
 }
