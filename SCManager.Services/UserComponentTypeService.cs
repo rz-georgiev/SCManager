@@ -2,10 +2,8 @@
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SCManager.Services
 {
@@ -18,11 +16,10 @@ namespace SCManager.Services
             _context = context;
         }
 
-        public IEnumerable<UserComponentType> GetAllForUserId(string userId)
+        public IQueryable<UserComponentType> GetAllForUserId(string userId)
         {
             var types = _context.UserComponentTypes
-                .Where(x => x.CreatedByUserId == userId)
-                .Include(x => x.ComponentType);
+                .Where(x => x.CreatedByUserId == userId);
 
             return types;
         }

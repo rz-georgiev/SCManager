@@ -8,6 +8,8 @@
 
         public string Symbol { get; set; }
 
+        public bool IsPrimary { get; set; }
+
         public ComponentType ComponentType { get; set; }
     }
 }
