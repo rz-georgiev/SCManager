@@ -11,12 +11,10 @@ namespace SCManager.Controllers
     public class AboutController : Controller
     {
         private readonly IStaticSiteInfoService _staticSiteInfoService;
-        private readonly HtmlSanitizer _htmlSanitizer;
 
-        public AboutController(IStaticSiteInfoService staticSiteInfoService, HtmlSanitizer htmlSanitizer)
+        public AboutController(IStaticSiteInfoService staticSiteInfoService)
         {
             _staticSiteInfoService = staticSiteInfoService;
-            _htmlSanitizer = htmlSanitizer;
         }
 
         public async Task<IActionResult> Index()

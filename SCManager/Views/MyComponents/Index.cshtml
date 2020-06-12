@@ -9,7 +9,7 @@
 <br />
 
 <div class="card">
-    <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="ComponentType" asp-action="Index">Add component</a>
+    <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="MyComponents" asp-action="MyComponent">Add component</a>
 </div>
 <br />
 
@@ -22,7 +22,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            <a asp-area="" asp-controller="ComponentEditor" asp-action="Index" asp-route-userComponentTypeId="@component.Id">
+                            <a asp-area="" asp-controller="MyComponents" asp-action="MyComponent" asp-route-userComponentTypeId="@component.Id">
                                 @component.Name x @component.Quantity
                             </a>
                         </div>

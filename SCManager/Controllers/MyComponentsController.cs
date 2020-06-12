@@ -5,11 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
+using SCManager.InputModels;
 using SCManager.ViewModels.MyComponents;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -23,6 +22,8 @@ namespace SCManager.Controllers
         private readonly IUnitMultiplierService _unitMultiplierService;
         private readonly IStaticSiteInfoService _staticSiteInfoService;
         private readonly IUserComponentTypeService _userComponentTypeService;
+        private readonly IComponentTypeDetailService _componentTypeDetailService;
+        private readonly ICloudinaryService _cloudinaryService;
 
         public MyComponentsController
         (
@@ -31,7 +32,9 @@ namespace SCManager.Controllers
             IComponentTypeService componentTypeService,
             IUnitMultiplierService unitMultiplierService,
             IStaticSiteInfoService staticSiteInfoService,
-            IUserComponentTypeService userComponentTypeService
+            IUserComponentTypeService userComponentTypeService,
+            IComponentTypeDetailService componentTypeDetailService,
+            ICloudinaryService cloudinaryService
         )
         {
             _userManager = userManager;
@@ -40,6 +43,8 @@ namespace SCManager.Controllers
             _unitMultiplierService = unitMultiplierService;
             _staticSiteInfoService = staticSiteInfoService;
             _userComponentTypeService = userComponentTypeService;
+            _componentTypeDetailService = componentTypeDetailService;
+            _cloudinaryService = cloudinaryService;
         }
 
         public IActionResult Index()
@@ -61,12 +66,12 @@ namespace SCManager.Controllers
 
                 componentModels.Add(new ComponentViewModel
                 {
-                     Id = x.Id,
-                     Quantity = x.Quantity,
-                     TotalPrice = x.Quantity * x.UnitPrice,
-                     Name = type.Name,
-                     Value = x.Value,
-                     Unit = $"{multiplier.Name}{typeDetail.Symbol}"
+                    Id = x.Id,
+                    Quantity = x.Quantity,
+                    TotalPrice = x.Quantity * x.UnitPrice,
+                    Name = type.Name,
+                    Value = x.Value,
+                    Unit = $"{multiplier.Name}{typeDetail.Symbol}"
                 });
             });
 
@@ -77,5 +82,88 @@ namespace SCManager.Controllers
 
             return View(model);
         }
+
+        public async Task<IActionResult> MyComponent(int? userComponentTypeId)
+        {
+            var componentTypes = _componentTypeService.GetAll()
+                .Include(x => x.Details);
+
+            var multipliers = _unitMultiplierService.GetAll();
+
+            var userComponent = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
+            if (userComponent == null)
+            {
+                var defaultModel = new MyComponentInputModel
+                {
+                    ComponentTypes = componentTypes,
+                    UnitMultipliers = multipliers
+                };
+
+                return View(defaultModel);
+            }
+            else
+            {
+                //var details = _componentTypeDetailService.GetByComponentTypeId(type.Id);
+                //var inputDetails = _mapper.Map<IEnumerable<ComponentTypeDetailInputModel>>(details);
+
+                //var model = _mapper.Map<ComponentTypeInputModel>(type);
+                //model.Details = inputDetails;
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MyComponent(MyComponentInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                var componentTypes = _componentTypeService.GetAll().Include(x => x.Details);
+                var multipliers = _unitMultiplierService.GetAll();
+
+                model.ComponentTypes = componentTypes;
+                model.UnitMultipliers = multipliers;
+
+                return View(model);
+            }
+
+            //var newImageId = model.Image != null
+            //       ? await _cloudinaryService.UploadImageAsync(model.Image)
+            //       : null;
+
+            //var type = await _componentTypeService.GetByIdAsync(model.Id);
+            //if (type == null)
+            //{
+            //    type = new ComponentType
+            //    {
+            //        Name = model.Name,
+            //        ImageId = newImageId,
+            //        CreatedDateTime = DateTime.UtcNow,
+            //        CreatedByUserId = _userManager.GetUserId(User),
+            //        IsActive = true
+            //    };
+            //}
+            //else
+            //{
+            //    type.Name = model.Name;
+
+            //    if (type.ImageId != null && newImageId != null)
+            //    {
+            //        await _cloudinaryService.DeleteImageAsync(type.ImageId);
+            //        type.ImageId = newImageId;
+            //    }
+            //    else
+            //    {
+            //        type.ImageId = newImageId ?? type.ImageId;
+            //    }
+
+            //    type.LastUpdatedDateTime = DateTime.UtcNow;
+            //    type.LastUpdatedByUserId = _userManager.GetUserId(User);
+            //}
+
+            //await _componentTypeService.SaveChangesAsync(type);
+
+            return RedirectToAction("Index", "Admin");
+        }
+
     }
 }
