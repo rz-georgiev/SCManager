@@ -10,5 +10,7 @@ namespace SCManager.Data.Interfaces
         IQueryable<UserComponentType> GetAllForUserId(string userId);
        
         Task<UserComponentType> GetByIdAsync(int? typeId);
+
+        Task<bool> SaveChangesAsync(UserComponentType type);
     }
 }

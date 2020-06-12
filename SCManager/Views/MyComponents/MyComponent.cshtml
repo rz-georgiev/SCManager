@@ -10,11 +10,9 @@
     <input type="hidden" id="hiddenSymbol_@type.Id" name="hiddenSymbol_@type.Id" value=@symbol>
 }
 
-
 <form id="profile-form" class="user" method="post">
 
     <input type="hidden" asp-for="Id" />
-
 
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
@@ -36,13 +34,13 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Value" id="Value">Value: [Ω]</label>
+        <label asp-for="Value" id="Value"></label>
         <input asp-for="Value" class="form-control form-control-user" />
         <span asp-validation-for="Value" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="UnitMultiplierId" id="UnitMultiplierId">Unit multiplier: [Ω]</label>
+        <label asp-for="UnitMultiplierId" id="UnitMultiplierId"></label>
         <select class="custom-select" asp-for="UnitMultiplierId" asp-items="@(new SelectList(Model.UnitMultipliers, "Id", "Name"))"></select>
         <span asp-validation-for="UnitMultiplierId" class="text-danger"></span>
     </div>
@@ -52,15 +50,22 @@
     </button>
 </form>
 
+<script src="~/vendor/jquery/jquery.min.js"></script>
 <script>
+
+    $(document).ready(function () {
+        setMainUnit();
+    });
+
     function setMainUnit() {
 
         var select = document.getElementById("componentTypes");
         var componentTypeId = select.options[select.selectedIndex].value;
 
-        var unitSymbol = $("#hiddenSymbol_" + componentTypeId).val();
+        var symbol = $("#hiddenSymbol_" + componentTypeId).val();
+        var formattedSymbol = symbol == "" ? "" : "[" + symbol + "]";
 
-        $("#Value").html("Value: [" + unitSymbol + "]");
-        $("#UnitMultiplierId").html("Unit multiplier: [" + unitSymbol + "]");
+        $("#Value").html("Value: " + formattedSymbol);
+        $("#UnitMultiplierId").html("Unit multiplier: " + formattedSymbol);
     }
 </script>

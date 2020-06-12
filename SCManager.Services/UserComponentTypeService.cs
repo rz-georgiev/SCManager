@@ -2,7 +2,7 @@
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,6 +31,28 @@ namespace SCManager.Services
                 .SingleOrDefaultAsync(x => x.Id == id);
 
             return type;
+        }
+
+        public async Task<bool> SaveChangesAsync(UserComponentType type)
+        {
+            try
+            {
+                if (type == null)
+                {
+                    await _context.AddAsync(type);
+                }
+                else
+                {
+                    _context.Update(type);
+                }
+
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
