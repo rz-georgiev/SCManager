@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Ganss.XSS;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
+using SCManager.InputModels;
 using SCManager.RequestModels;
 using SCManager.ViewModels.Admin;
 using System;
@@ -22,6 +24,9 @@ namespace SCManager.Controllers
         private readonly IComponentTypeService _componentTypeService;
         private readonly IUnitMultiplierService _unitMultiplierService;
         private readonly IStaticSiteInfoService _staticSiteInfoService;
+        private readonly IComponentTypeDetailService _componentTypeDetailService;
+        private readonly ICloudinaryService _cloudinaryService;
+        private readonly HtmlSanitizer _htmlSanitizer;
 
         public AdminController
         (
@@ -29,7 +34,10 @@ namespace SCManager.Controllers
             IMapper mapper,
             IComponentTypeService componentTypeService,
             IUnitMultiplierService unitMultiplierService,
-            IStaticSiteInfoService staticSiteInfoService
+            IStaticSiteInfoService staticSiteInfoService,
+            IComponentTypeDetailService componentTypeDetailService,
+            ICloudinaryService cloudinaryService,
+            HtmlSanitizer htmlSanitizer
         )
         {
             _userManager = userManager;
@@ -37,6 +45,9 @@ namespace SCManager.Controllers
             _componentTypeService = componentTypeService;
             _unitMultiplierService = unitMultiplierService;
             _staticSiteInfoService = staticSiteInfoService;
+            _componentTypeDetailService = componentTypeDetailService;
+            _cloudinaryService = cloudinaryService;
+            _htmlSanitizer = htmlSanitizer;
         }
 
         public async Task<IActionResult> Index()
@@ -71,6 +82,152 @@ namespace SCManager.Controllers
             };
 
             return View(model);
+        }
+
+        public async Task<IActionResult> ComponentType(int? componentTypeId)
+        {
+            var type = await _componentTypeService.GetByIdAsync(componentTypeId);
+            if (type == null)
+            {
+                return View();
+            }
+            else
+            {
+                var details = _componentTypeDetailService.GetByComponentTypeId(type.Id);
+                var inputDetails = _mapper.Map<IEnumerable<ComponentTypeDetailInputModel>>(details);
+
+                var model = _mapper.Map<ComponentTypeInputModel>(type);
+                model.Details = inputDetails;
+
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ComponentType(ComponentTypeInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var newImageId = model.Image != null
+                   ? await _cloudinaryService.UploadImageAsync(model.Image)
+                   : null;
+
+            var type = await _componentTypeService.GetByIdAsync(model.Id);
+            if (type == null)
+            {
+                type = new ComponentType
+                {
+                    Name = model.Name,
+                    ImageId = newImageId,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedByUserId = _userManager.GetUserId(User),
+                    IsActive = true
+                };
+            }
+            else
+            {
+                type.Name = model.Name;
+
+                if (type.ImageId != null && newImageId != null)
+                {
+                    await _cloudinaryService.DeleteImageAsync(type.ImageId);
+                    type.ImageId = newImageId;
+                }
+                else
+                {
+                    type.ImageId = newImageId ?? type.ImageId;
+                }
+
+                type.LastUpdatedDateTime = DateTime.UtcNow;
+                type.LastUpdatedByUserId = _userManager.GetUserId(User);
+            }
+
+            await _componentTypeService.SaveChangesAsync(type);
+
+            return RedirectToAction("Index", "Admin");
+        }
+
+        public async Task<IActionResult> UnitMultiplier(int? multiplierId)
+        {
+            var multiplier = await _unitMultiplierService.GetByIdAsync(multiplierId);
+            if (multiplier == null)
+            {
+                return View();
+            }
+            else
+            {
+                var model = _mapper.Map<UnitMultiplierInputModel>(multiplier);
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UnitMultiplier(UnitMultiplierInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var multiplier = await _unitMultiplierService.GetByIdAsync(model.Id);
+
+            if (multiplier == null)
+            {
+                multiplier = new UnitMultiplier
+                {
+                    Name = model.Name,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedByUserId = _userManager.GetUserId(User),
+                    IsActive = true
+                };
+            }
+            else
+            {
+                multiplier.Name = model.Name;
+                multiplier.LastUpdatedDateTime = DateTime.UtcNow;
+                multiplier.LastUpdatedByUserId = _userManager.GetUserId(User);
+            }
+
+            await _unitMultiplierService.SaveChangesAsync(multiplier);
+
+            return RedirectToAction("Index", "Admin");
+        }
+
+        public async Task<IActionResult> StaticSiteInfo(int? infoId)
+        {
+            var info = await _staticSiteInfoService.GetByIdAsync(infoId);
+            if (info == null)
+            {
+                return View();
+            }
+            else
+            {
+                var model = _mapper.Map<StaticSiteInfoInputModel>(info);
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> StaticSiteInfo(StaticSiteInfoInputModel model)
+        {
+            model.Content = _htmlSanitizer.Sanitize(model.Content);
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var info = await _staticSiteInfoService.GetByIdAsync(model.Id);
+
+            info.Content = model.Content;
+            info.LastUpdatedDateTime = DateTime.UtcNow;
+            info.LastUpdatedByUserId = _userManager.GetUserId(User);
+
+            await _staticSiteInfoService.SaveChangesAsync(info);
+            return RedirectToAction("Index", "Admin");
         }
 
         [HttpPost]
