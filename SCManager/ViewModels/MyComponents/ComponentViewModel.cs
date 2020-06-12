@@ -8,8 +8,11 @@
 
         public int Quantity { get; set; }
 
-        public string Value { get; set; }
+        public float Value { get; set; }
+
+        public string Unit { get; set; }
 
         public decimal TotalPrice { get; set; }
+
     }
 }

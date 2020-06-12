@@ -2,10 +2,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.ViewModels.MyComponents;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -38,20 +42,34 @@ namespace SCManager.Controllers
             _userComponentTypeService = userComponentTypeService;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var userId = _userManager.GetUserId(User);
-            var userComponents = _userComponentTypeService.GetAllForUserId(userId);
+
+            var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.UnitMultiplier)
+                .Include(x => x.ComponentType)
+                    .ThenInclude(x => x.Details)
+                .ToList();
 
             var componentModels = new List<ComponentViewModel>();
-
-            componentModels.Add(new ComponentViewModel
+            userComponentTypes.ForEach(x =>
             {
-                Id = 1,
-                Name = "Capacitor",
-                Quantity = 5,
-                TotalPrice = 250,
-                Value = "10 pf"
+                var type = x.ComponentType;
+                var detail = x.Details.FirstOrDefault();
+                var multiplier = detail.UnitMultiplier;
+                var typeDetail = type.Details.FirstOrDefault(x => x.IsPrimary);
+
+                componentModels.Add(new ComponentViewModel
+                {
+                     Id = x.Id,
+                     Quantity = x.Quantity,
+                     TotalPrice = x.Quantity * x.UnitPrice,
+                     Name = type.Name,
+                     Value = detail.Value,
+                     Unit = $"{multiplier.Name}{typeDetail.Symbol}"
+                });
             });
 
             var model = new IndexViewModel

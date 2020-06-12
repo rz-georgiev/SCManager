@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.ViewModels;
@@ -30,7 +31,11 @@ namespace SCManager.Controllers
         public IActionResult Index()
         {
             var userId = _userManager.GetUserId(User);
-            var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId);
+           
+            var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId)
+                .Include(x => x.ComponentType)
+                .ToList();
+
             var types = userComponentTypes.Select(x => x.ComponentType);
             types = types.GroupBy(x => x.Id).Select(x => x.FirstOrDefault());
 

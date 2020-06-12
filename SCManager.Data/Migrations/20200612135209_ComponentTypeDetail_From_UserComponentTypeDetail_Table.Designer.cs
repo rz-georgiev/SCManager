@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCManager.Data;
 
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200612135209_ComponentTypeDetail_From_UserComponentTypeDetail_Table")]
+    partial class ComponentTypeDetail_From_UserComponentTypeDetail_Table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,9 +330,6 @@ namespace SCManager.Data.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsPrimary")
-                        .HasColumnType("bit");
-
                     b.Property<string>("LastUpdatedByUserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -538,8 +537,8 @@ l information. If you have any questions about how we handle user data and perso
                     b.Property<int?>("UserComponentTypeId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Value")
-                        .HasColumnType("real");
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
