@@ -85,7 +85,7 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card shadow mb-4">
-                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="ComponentType" asp-action="Index">Add type</a>
+                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="Admin" asp-action="ComponentType">Add type</a>
                 <div class="card-body">
                     <!-- COMPONENT TYPES TABLE -->
                     <div class="table-responsive">
@@ -108,12 +108,12 @@
                                     <tr>
 
                                         <td>
-                                            <a asp-area="" asp-controller="ComponentType" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                            <a asp-area="" asp-controller="Admin" asp-action="ComponentType" asp-route-componentTypeId="@type.Id">
                                                 <img src=@type.ImageUrl class="rounded-circle" alt="@type.Name" width="64" height="64">
                                             </a>
                                         </td>
                                         <td>
-                                            <a asp-area="" asp-controller="ComponentType" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                            <a asp-area="" asp-controller="Admin" asp-action="ComponentType" asp-route-componentTypeId="@type.Id">
                                                 @type.Name
                                             </a>
                                         </td>
@@ -128,7 +128,7 @@
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card shadow mb-4">
-                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="UnitMultiplier" asp-action="Index">Add multiplier</a>
+                <a type="button" class="btn btn-outline-primary" asp-area="" asp-controller="Admin" asp-action="UnitMultiplier">Add multiplier</a>
                 <div class="card-body">
                     <!-- UNIT MULTIPLIERS TABLE -->
                     <div class="table-responsive">
@@ -149,7 +149,7 @@
                                     <tr>
 
                                         <td>
-                                            <a asp-area="" asp-controller="UnitMultiplier" asp-action="Index" asp-route-componentTypeId="@type.Id">
+                                            <a asp-area="" asp-controller="Admin" asp-action="UnitMultiplier" asp-route-multiplierId="@type.Id">
                                                 @type.Name
                                             </a>
                                         </td>
@@ -184,7 +184,7 @@
                                 {
                                     <tr>
                                         <td>
-                                            <a asp-area="" asp-controller="StaticSiteInfo" asp-action="Index" asp-route-componentTypeId="@info.Id">
+                                            <a asp-area="" asp-controller="Admin" asp-action="StaticSiteInfo" asp-route-infoId="@info.Id">
                                                 @info.Name
                                             </a>
                                         </td>
