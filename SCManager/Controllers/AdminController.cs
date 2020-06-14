@@ -182,6 +182,7 @@ namespace SCManager.Controllers
                     Name = model.Name,
                     Unit = model.Unit,
                     Symbol = model.Symbol,
+                    IsPrimary = model.IsPrimary,
                     ComponentTypeId = model.ComponentTypeId,
                     CreatedDateTime = DateTime.UtcNow,
                     CreatedByUserId = _userManager.GetUserId(User),
@@ -193,12 +194,19 @@ namespace SCManager.Controllers
                 detail.Name = model.Name;
                 detail.Unit = model.Unit;
                 detail.Symbol = model.Symbol;
+                detail.IsPrimary = model.IsPrimary;
 
                 detail.LastUpdatedDateTime = DateTime.UtcNow;
                 detail.LastUpdatedByUserId = _userManager.GetUserId(User);
             }
 
+           
             await _componentTypeDetailService.SaveChangesAsync(detail);
+            if (detail.IsPrimary)
+            {
+                await _componentTypeDetailService.ResetPrimaryStatuses(detail);
+            }
+
             return Redirect($"/Admin/ComponentType?componentTypeId={model.ComponentTypeId}");
         }
 

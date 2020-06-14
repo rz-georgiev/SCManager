@@ -65,16 +65,16 @@ namespace SCManager.Controllers
             {
                 var type = x.ComponentType;
                 var multiplier = x.UnitMultiplier;
-                var typeDetail = type.Details.SingleOrDefault();
+                var typeDetail = type.Details.FirstOrDefault();
 
                 componentModels.Add(new ComponentViewModel
                 {
                     Id = x.Id,
                     Quantity = x.Quantity,
                     TotalPrice = x.Quantity * x.UnitPrice,
-                    Name = type.Name,
+                    Name = type?.Name,
                     Value = x.Value,
-                    Unit = $"{multiplier.Name}{typeDetail.Symbol}"
+                    Unit = $"{multiplier?.Name}{typeDetail?.Symbol}"
                 });
             });
 

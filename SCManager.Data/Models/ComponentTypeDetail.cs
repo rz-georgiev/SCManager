@@ -1,4 +1,6 @@
-﻿namespace SCManager.Data.Models
+﻿using System.Runtime.InteropServices.ComTypes;
+
+namespace SCManager.Data.Models
 {
     public class ComponentTypeDetail : BaseEntity
     {
@@ -11,5 +13,7 @@
         public int ComponentTypeId { get; set; }
 
         public ComponentType ComponentType { get; set; }
+
+        public bool IsPrimary { get; set; }
     }
 }
