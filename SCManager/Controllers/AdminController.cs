@@ -66,7 +66,7 @@ namespace SCManager.Controllers
 
             foreach (var componentTypeModel in componentTypeModels)
             {
-                var imageId = componentTypes.FirstOrDefault(x => x.Id == componentTypeModel.Id)?.ImageId;
+                var imageId = componentTypes.SingleOrDefault(x => x.Id == componentTypeModel.Id)?.ImageId;
                 componentTypeModel.ImageUrl = $"{Constants.BaseImageUrl}{imageId}";
             }
 
@@ -147,7 +147,59 @@ namespace SCManager.Controllers
 
             await _componentTypeService.SaveChangesAsync(type);
 
-            return RedirectToAction("Index", "Admin");
+            return Redirect($"/Admin/ComponentType?componentTypeId={model.Id}");
+        }
+
+        public async Task<IActionResult> ComponentTypeDetail(int? componentTypeDetailId,
+            int componentTypeId)
+        {
+            var detail = await _componentTypeDetailService.GetByIdAsync(componentTypeDetailId);
+            if (detail == null)
+            {
+                var model = new ComponentTypeDetailInputModel { ComponentTypeId = componentTypeId };
+                return View(model);
+            }
+            else
+            {
+                var model = _mapper.Map<ComponentTypeDetailInputModel>(detail);
+                return View(model);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ComponentTypeDetail(ComponentTypeDetailInputModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var detail = await _componentTypeDetailService.GetByIdAsync(model.Id);
+            if (detail == null)
+            {
+                detail = new ComponentTypeDetail
+                {
+                    Name = model.Name,
+                    Unit = model.Unit,
+                    Symbol = model.Symbol,
+                    ComponentTypeId = model.ComponentTypeId,
+                    CreatedDateTime = DateTime.UtcNow,
+                    CreatedByUserId = _userManager.GetUserId(User),
+                    IsActive = true
+                };
+            }
+            else
+            {
+                detail.Name = model.Name;
+                detail.Unit = model.Unit;
+                detail.Symbol = model.Symbol;
+
+                detail.LastUpdatedDateTime = DateTime.UtcNow;
+                detail.LastUpdatedByUserId = _userManager.GetUserId(User);
+            }
+
+            await _componentTypeDetailService.SaveChangesAsync(detail);
+            return Redirect($"/Admin/ComponentType?componentTypeId={model.ComponentTypeId}");
         }
 
         public async Task<IActionResult> UnitMultiplier(int? multiplierId)

@@ -65,7 +65,7 @@ namespace SCManager.Controllers
             {
                 var type = x.ComponentType;
                 var multiplier = x.UnitMultiplier;
-                var typeDetail = type.Details.FirstOrDefault(x => x.IsPrimary);
+                var typeDetail = type.Details.SingleOrDefault();
 
                 componentModels.Add(new ComponentViewModel
                 {

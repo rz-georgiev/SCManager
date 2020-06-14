@@ -6,6 +6,8 @@ namespace SCManager.InputModels
     {
         public int? Id { get; set; }
 
+        public int ComponentTypeId { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -14,5 +16,6 @@ namespace SCManager.InputModels
 
         [Required]
         public string Symbol { get; set; }
+
     }
 }
