@@ -11,5 +11,10 @@ namespace SCManager.Data.Interfaces
         Task<ComponentTypeDetail> GetByIdAsync(int? id);
 
         Task<bool> SaveChangesAsync(ComponentTypeDetail detail);
+
+        /// <summary>
+        /// Resets all primary statuses for the current component type, without the specified detail
+        /// </summary>
+        Task ResetPrimaryStatuses(ComponentTypeDetail detail);
     }
 }

@@ -17,5 +17,6 @@ namespace SCManager.InputModels
         [Required]
         public string Symbol { get; set; }
 
+        public bool IsPrimary { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using SCManager.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SCManager.Services
@@ -27,6 +28,21 @@ namespace SCManager.Services
         {
             return await _context.ComponentTypeDetails
                     .SingleOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task ResetPrimaryStatuses(ComponentTypeDetail detail)
+        {
+            var details = _context.ComponentTypeDetails
+                .Where(x => x.ComponentTypeId == detail.ComponentTypeId && x.Id != detail.Id);
+
+            await details.ForEachAsync(x => x.IsPrimary = false);
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         public async Task<bool> SaveChangesAsync(ComponentTypeDetail detail)
