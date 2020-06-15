@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCManager.Data;
 
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200615174013_UnitMultipliers23")]
+    partial class UnitMultipliers23
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -520,9 +522,6 @@ l information. If you have any questions about how we handle user data and perso
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ComponentTypeDetailId")
-                        .HasColumnType("int");
-
                     b.Property<string>("CreatedByUserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -545,8 +544,6 @@ l information. If you have any questions about how we handle user data and perso
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ComponentTypeDetailId");
 
                     b.HasIndex("CreatedByUserId");
 
@@ -686,12 +683,6 @@ l information. If you have any questions about how we handle user data and perso
 
             modelBuilder.Entity("SCManager.Data.Models.UserComponentTypeDetail", b =>
                 {
-                    b.HasOne("SCManager.Data.Models.ComponentTypeDetail", "ComponentTypeDetail")
-                        .WithMany()
-                        .HasForeignKey("ComponentTypeDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
                         .HasForeignKey("CreatedByUserId");
