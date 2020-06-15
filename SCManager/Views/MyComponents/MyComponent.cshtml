@@ -6,8 +6,8 @@
 
 @foreach (var type in Model.ComponentTypes)
 {
-    
-    <input type="hidden" id="hiddenSymbol_@type.Id" name="hiddenSymbol_@type.Id" value=1>
+    var symbol = type.Details.SingleOrDefault(x => x.IsPrimary)?.Symbol;
+    <input type="hidden" id="hiddenSymbol_@type.Id" name="hiddenSymbol_@type.Id" value=@symbol>
 }
 
 <form id="profile-form" class="user" method="post">
