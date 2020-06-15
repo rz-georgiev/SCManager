@@ -25,7 +25,7 @@
                 <br />
                 <label asp-for="Input.FormFile"></label>
                 <br />
-                <input asp-for="Input.FormFile" id="formFile" type="file" />
+                <input asp-for="Input.FormFile" id="formFile" type="file" accept=".jpg,.jpeg,.png"/>
                 <span asp-validation-for="Input.FormFile" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">

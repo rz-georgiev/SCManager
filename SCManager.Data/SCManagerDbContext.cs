@@ -13,7 +13,6 @@ namespace SCManager.Data
             : base(options)
         {
             Database.Migrate();
-            
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -42,6 +41,8 @@ namespace SCManager.Data
         public DbSet<ComponentTypeDetail> ComponentTypeDetails { get; set; }
 
         public DbSet<UserComponentType> UserComponentTypes { get; set; }
+
+        public DbSet<UserComponentTypeDetail> UserComponentTypeDetails { get; set; }
 
         public DbSet<UnitMultiplier> UnitMultipliers { get; set; }
 

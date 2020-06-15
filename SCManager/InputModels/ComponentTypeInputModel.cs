@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SCManager.CustomAttributes;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -11,6 +12,8 @@ namespace SCManager.InputModels
         [Required]
         public string Name { get; set; }
 
+        [MaxFileSize(5 * 1024 * 1024)]
+        [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg" })]
         public IFormFile Image { get; set; }
 
         public IEnumerable<ComponentTypeDetailInputModel> Details { get; set; }

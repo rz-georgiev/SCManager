@@ -15,8 +15,5 @@ namespace SCManager.Data.Models
 
         public ComponentType ComponentType { get; set; }
 
-        public int UnitMultiplierId { get; set; }
-
-        public UnitMultiplier UnitMultiplier { get; set; }
     }
 }

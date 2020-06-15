@@ -147,7 +147,7 @@ namespace SCManager.Controllers
 
             await _componentTypeService.SaveChangesAsync(type);
 
-            return Redirect($"/Admin/ComponentType?componentTypeId={model.Id}");
+            return Redirect($"/Admin/ComponentType?componentTypeId={type.Id}");
         }
 
         public async Task<IActionResult> ComponentTypeDetail(int? componentTypeDetailId,

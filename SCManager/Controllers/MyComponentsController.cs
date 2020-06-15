@@ -53,9 +53,9 @@ namespace SCManager.Controllers
             var userId = _userManager.GetUserId(User);
 
             var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId)
-                .Include(x => x.UnitMultiplier)
                 .Include(x => x.ComponentType)
                     .ThenInclude(x => x.Details)
+              
                 .ToList();
 
             userComponentTypes = userComponentTypes.OrderByDescending(x => x.Id).ToList();
@@ -64,17 +64,17 @@ namespace SCManager.Controllers
             userComponentTypes.ForEach(x =>
             {
                 var type = x.ComponentType;
-                var multiplier = x.UnitMultiplier;
-                var typeDetail = type.Details.FirstOrDefault();
+             //   var multiplier = x.UnitMultiplier;
+                var typeDetail = type.Details.SingleOrDefault(x => x.IsPrimary == true);
 
                 componentModels.Add(new ComponentViewModel
                 {
                     Id = x.Id,
                     Quantity = x.Quantity,
                     TotalPrice = x.Quantity * x.UnitPrice,
-                    Name = type?.Name,
+                    Name = type.Name,
                     Value = x.Value,
-                    Unit = $"{multiplier?.Name}{typeDetail?.Symbol}"
+                  //  Unit = $"{multiplier.Name}{typeDetail.Symbol}"
                 });
             });
 
@@ -111,7 +111,7 @@ namespace SCManager.Controllers
                     Id = component.Id,
                     ComponentTypeId = component.ComponentTypeId,
                     Quantity = component.Quantity,
-                    UnitMultiplierId = component.UnitMultiplierId,
+                 //   UnitMultiplierId = component.UnitMultiplierId,
                     UnitPrice = component.UnitPrice,
                     Value = component.Value,
                     ComponentTypes = componentTypes,
@@ -144,7 +144,7 @@ namespace SCManager.Controllers
                 {
                     ComponentTypeId = model.ComponentTypeId,
                     Quantity = model.Quantity,
-                    UnitMultiplierId = model.UnitMultiplierId,
+                  //  UnitMultiplierId = model.UnitMultiplierId,
                     UnitPrice = model.UnitPrice,
                     Value = model.Value,
                     CreatedByUserId = userId,
@@ -156,7 +156,7 @@ namespace SCManager.Controllers
             {
                 component.ComponentTypeId = model.ComponentTypeId;
                 component.Quantity = model.Quantity;
-                component.UnitMultiplierId = model.UnitMultiplierId;
+              //  component.UnitMultiplierId = model.UnitMultiplierId;
                 component.UnitPrice = model.UnitPrice;
                 component.Value = model.Value;
                 component.LastUpdatedByUserId = userId;

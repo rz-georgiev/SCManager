@@ -2,15 +2,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SCManager.CustomAttributes;
 using SCManager.Data;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using System;
 using System.ComponentModel;
-using System.IO;
-using System.Reflection;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
@@ -47,6 +45,8 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         public class InputModel
         {
             [DisplayName("New profile picture")]
+            [MaxFileSize(5 * 1024 * 1024)]
+            [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg" })]
             public IFormFile FormFile { get; set; }
         }
 
@@ -54,7 +54,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var imageId = user.ImageId ?? Constants.DefaultImageId;
-                
+
             Username = userName;
             ImageUrl = $"{Constants.BaseImageUrl}{imageId}";
         }
