@@ -4,14 +4,10 @@
     {
         public int UserComponentTypeId { get; set; }
 
-        public int ComponentTypeDetailId { get; set; }
+        public UserComponentType ComponentType { get; set; }
 
         public int UnitMultiplierId { get; set; }
 
-        public UserComponentTypeDetail UserComponentDetail { get; set; }
-
-        public ComponentTypeDetail ComponentDetail { get; set; }
-
-        public UnitMultiplier Multiplier { get; set; }
+        public UnitMultiplier UnitMultiplier { get; set; }
     }
 }
