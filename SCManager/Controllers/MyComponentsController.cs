@@ -10,6 +10,7 @@ using SCManager.ViewModels.MyComponents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -52,35 +53,37 @@ namespace SCManager.Controllers
         {
             var userId = _userManager.GetUserId(User);
 
-            var userComponentTypes = _userComponentTypeService.GetAllForUserId(userId)
+            var userComponents = _userComponentTypeService.GetAllForUserId(userId)
                 .Include(x => x.ComponentType)
                     .ThenInclude(x => x.Details)
-              
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.UnitMultiplier) 
+                .OrderByDescending(x => x.Id)
                 .ToList();
 
-            userComponentTypes = userComponentTypes.OrderByDescending(x => x.Id).ToList();
-
-            var componentModels = new List<ComponentViewModel>();
-            userComponentTypes.ForEach(x =>
+            var models = new List<ComponentViewModel>();
+            userComponents.ForEach(x =>
             {
                 var type = x.ComponentType;
-             //   var multiplier = x.UnitMultiplier;
-                var typeDetail = type.Details.SingleOrDefault(x => x.IsPrimary == true);
+                var typeDetail = type.Details.SingleOrDefault(x => x.IsPrimary);
+                var userDetail = x.Details.SingleOrDefault(x => x.ComponentTypeDetail.IsPrimary);
+                var multiplier = userDetail.UnitMultiplier;
 
-                componentModels.Add(new ComponentViewModel
+                models.Add(new ComponentViewModel
                 {
                     Id = x.Id,
-                    Quantity = x.Quantity,
-                    TotalPrice = x.Quantity * x.UnitPrice,
                     Name = type.Name,
-                    Value = x.Value,
-                  //  Unit = $"{multiplier.Name}{typeDetail.Symbol}"
+                    Quantity = x.Quantity,
+                    TotalPrice = x.UnitPrice * x.Quantity,
+                    Value = userDetail.Value,
+                    Multiplier = multiplier.Name,
+                    Unit = typeDetail.Symbol
                 });
             });
 
             var model = new IndexViewModel
             {
-                Components = componentModels
+                Components = models
             };
 
             return View(model);
@@ -111,9 +114,7 @@ namespace SCManager.Controllers
                     Id = component.Id,
                     ComponentTypeId = component.ComponentTypeId,
                     Quantity = component.Quantity,
-                 //   UnitMultiplierId = component.UnitMultiplierId,
                     UnitPrice = component.UnitPrice,
-                    Value = component.Value,
                     ComponentTypes = componentTypes,
                     UnitMultipliers = multipliers
                 };
@@ -144,9 +145,7 @@ namespace SCManager.Controllers
                 {
                     ComponentTypeId = model.ComponentTypeId,
                     Quantity = model.Quantity,
-                  //  UnitMultiplierId = model.UnitMultiplierId,
                     UnitPrice = model.UnitPrice,
-                    Value = model.Value,
                     CreatedByUserId = userId,
                     CreatedDateTime = DateTime.UtcNow,
                     IsActive = true
@@ -156,9 +155,7 @@ namespace SCManager.Controllers
             {
                 component.ComponentTypeId = model.ComponentTypeId;
                 component.Quantity = model.Quantity;
-              //  component.UnitMultiplierId = model.UnitMultiplierId;
                 component.UnitPrice = model.UnitPrice;
-                component.Value = model.Value;
                 component.LastUpdatedByUserId = userId;
                 component.LastUpdatedDateTime = DateTime.UtcNow;
             }

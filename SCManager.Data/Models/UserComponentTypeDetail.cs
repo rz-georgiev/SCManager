@@ -2,6 +2,8 @@
 {
     public class UserComponentTypeDetail : BaseEntity
     {
+        public float Value { get; set; }
+
         public int UserComponentTypeId { get; set; }
 
         public int UnitMultiplierId { get; set; }

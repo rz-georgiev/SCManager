@@ -22,11 +22,7 @@ namespace SCManager.InputModels
         public decimal UnitPrice { get; set; }
 
         [Required]
-        public float Value { get; set; }
-
-        [Required]
-        [DisplayName("Unit multiplier")]
-        public int UnitMultiplierId { get; set; }
+        public IEnumerable<MyComponentDetailInputModel> Details { get; set; }
 
         public IEnumerable<UnitMultiplier> UnitMultipliers { get; set; }
 
