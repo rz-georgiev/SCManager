@@ -1,14 +1,10 @@
-﻿@model SCManager.InputModels.MyComponentInputModel
+﻿@*@model SCManager.InputModels.MyComponentInputModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-@foreach (var type in Model.ComponentTypes)
-{
-    var symbol = type.Details.SingleOrDefault(x => x.IsPrimary)?.Symbol;
-    <input type="hidden" id="hiddenSymbol_@type.Id" name="hiddenSymbol_@type.Id" value=@symbol>
-}
+
 
 <form id="profile-form" class="user" method="post">
 
@@ -33,39 +29,25 @@
         <span asp-validation-for="UnitPrice" class="text-danger"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="Value" id="Value"></label>
-        <input asp-for="Value" class="form-control form-control-user" />
-        <span asp-validation-for="Value" class="text-danger"></span>
+
+    <div class="form-row">
+        <div class="col">
+            <label asp-for="Value" id="Value"></label>
+            <input asp-for="Value" class="form-control" />
+            <span asp-validation-for="Value" class="text-danger"></span>
+        </div>
+        <div class="col col-sm-3">
+            <label asp-for="Value" id="UnitMultiplierId"></label>
+            <select class="custom-select" asp-for="Value" asp-items="@(new SelectList(Model.UnitMultipliers, "Id", "Name"))"></select>
+            <label>Ohms</label>
+            <span asp-validation-for="Value" class="text-danger"></span>
+        </div>
     </div>
 
-    <div class="form-group">
-        <label asp-for="UnitMultiplierId" id="UnitMultiplierId"></label>
-        <select class="custom-select" asp-for="UnitMultiplierId" asp-items="@(new SelectList(Model.UnitMultipliers, "Id", "Name"))"></select>
-        <span asp-validation-for="UnitMultiplierId" class="text-danger"></span>
-    </div>
+    <br />
 
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Save
     </button>
-</form>
+</form>*@
 
-<script src="~/vendor/jquery/jquery.min.js"></script>
-<script>
-
-    $(document).ready(function () {
-        setMainUnit();
-    });
-
-    function setMainUnit() {
-
-        var select = document.getElementById("componentTypes");
-        var componentTypeId = select.options[select.selectedIndex].value;
-
-        var symbol = $("#hiddenSymbol_" + componentTypeId).val();
-        var formattedSymbol = symbol == "" ? "" : "[" + symbol + "]";
-
-        $("#Value").html("Value: " + formattedSymbol);
-        $("#UnitMultiplierId").html("Unit multiplier: " + formattedSymbol);
-    }
-</script>

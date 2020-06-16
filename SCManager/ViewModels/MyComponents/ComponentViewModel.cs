@@ -10,6 +10,8 @@
 
         public float Value { get; set; }
 
+        public string Multiplier { get; set; }
+
         public string Unit { get; set; }
 
         public decimal TotalPrice { get; set; }

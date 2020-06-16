@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SCManager.Data.Models
 {
@@ -11,9 +13,9 @@ namespace SCManager.Data.Models
         [Column(TypeName = "decimal(18, 2)")]
         public decimal UnitPrice { get; set; }
 
-        public float Value { get; set; }
-
         public ComponentType ComponentType { get; set; }
+
+        public IEnumerable<UserComponentTypeDetail> Details { get; set; }
 
     }
 }
