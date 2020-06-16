@@ -95,14 +95,18 @@ namespace SCManager.Controllers
                 .Include(x => x.Details);
 
             var multipliers = _unitMultiplierService.GetAll();
+            var details = componentTypes.Select(x => x.Details);
 
-            var component = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
-            if (component == null)
+            var viewDetails = _mapper.Map<IEnumerable<MyComponentDetailInputModel>>(details);
+
+            var userComponent = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
+            if (userComponent == null)
             {
                 var defaultModel = new MyComponentInputModel
                 {
                     ComponentTypes = componentTypes,
-                    UnitMultipliers = multipliers
+                    UnitMultipliers = multipliers,
+                    
                 };
 
                 return View(defaultModel);
@@ -111,12 +115,13 @@ namespace SCManager.Controllers
             {
                 var model = new MyComponentInputModel
                 {
-                    Id = component.Id,
-                    ComponentTypeId = component.ComponentTypeId,
-                    Quantity = component.Quantity,
-                    UnitPrice = component.UnitPrice,
+                    Id = userComponent.Id,
+                    ComponentTypeId = userComponent.ComponentTypeId,
+                    Quantity = userComponent.Quantity,
+                    UnitPrice = userComponent.UnitPrice,
                     ComponentTypes = componentTypes,
-                    UnitMultipliers = multipliers
+                    UnitMultipliers = multipliers,
+                    Details = null
                 };
 
                 return View(model);
