@@ -19,7 +19,6 @@ namespace SCManager.InputModels
         [Required]
         public decimal UnitPrice { get; set; }
 
-        [Required]
         public List<MyComponentDetailInputModel> Details { get; set; }
 
         public IEnumerable<ComponentType> ComponentTypes { get; set; }
