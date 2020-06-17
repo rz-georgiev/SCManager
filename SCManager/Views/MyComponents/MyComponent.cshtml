@@ -1,10 +1,8 @@
-﻿@*@model SCManager.InputModels.MyComponentInputModel
+﻿@model SCManager.InputModels.MyComponentInputModel
 
 @{
     ViewData["Title"] = "Index";
 }
-
-
 
 <form id="profile-form" class="user" method="post">
 
@@ -12,8 +10,9 @@
 
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
+
         <label asp-for="ComponentTypeId"></label>
-        <select id="componentTypes" onchange="setMainUnit()" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))"></select>
+        <select id="componentTypes" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))"></select>
         <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
     </div>
 
@@ -29,25 +28,31 @@
         <span asp-validation-for="UnitPrice" class="text-danger"></span>
     </div>
 
-
-    <div class="form-row">
-        <div class="col">
-            <label asp-for="Value" id="Value"></label>
-            <input asp-for="Value" class="form-control" />
-            <span asp-validation-for="Value" class="text-danger"></span>
-        </div>
-        <div class="col col-sm-3">
-            <label asp-for="Value" id="UnitMultiplierId"></label>
-            <select class="custom-select" asp-for="Value" asp-items="@(new SelectList(Model.UnitMultipliers, "Id", "Name"))"></select>
-            <label>Ohms</label>
-            <span asp-validation-for="Value" class="text-danger"></span>
-        </div>
-    </div>
+    @if (Model.Id != null)
+    {
+        @for (var index = 0; index < Model.Details.Count(); index++)
+        {
+            <input type="hidden" asp-for="Details[index].DetailId" asp-/>
+            <div class="form-row">
+                <div class="col">
+                    <label>@Model.Details[index].Name</label>
+                    <input asp-for="Details[index].Value" class="form-control" />
+                    <span asp-validation-for="Details[index].Value" class="text-danger"></span>
+                </div>
+                <div class="col col-sm-3">
+                    <label asp-for="Details[index].MultiplierId" id="UnitMultiplierId"></label>
+                    <select class="custom-select" asp-for="Details[index].MultiplierId" asp-items="@(new SelectList(Model.UnitMultipliers, "Id", "Name"))"></select>
+                    <b>@Model.Details[index].Unit</b>
+                    <span asp-validation-for="Details[index].MultiplierId" class="text-danger"></span>
+                </div>
+            </div>
+            <br />
+        }
+    }
 
     <br />
 
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Save
     </button>
-</form>*@
-
+</form>

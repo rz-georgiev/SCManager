@@ -11,6 +11,8 @@ namespace SCManager.Data.Interfaces
        
         Task<UserComponentType> GetByIdAsync(int? typeId);
 
-        Task<bool> SaveChangesAsync(UserComponentType type);
+        Task SaveComponentAsync(UserComponentType type);
+
+        Task UpdateComponentAsync(UserComponentType type);
     }
 }

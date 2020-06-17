@@ -13,8 +13,6 @@ namespace SCManager.InputModels
         [DisplayName("Component type")]
         public int ComponentTypeId { get; set; }
 
-        public IEnumerable<ComponentType> ComponentTypes { get; set; }
-
         [Required]
         public int Quantity { get; set; }
 
@@ -22,9 +20,10 @@ namespace SCManager.InputModels
         public decimal UnitPrice { get; set; }
 
         [Required]
-        public IEnumerable<MyComponentDetailInputModel> Details { get; set; }
+        public List<MyComponentDetailInputModel> Details { get; set; }
+
+        public IEnumerable<ComponentType> ComponentTypes { get; set; }
 
         public IEnumerable<UnitMultiplier> UnitMultipliers { get; set; }
-
     }
 }
