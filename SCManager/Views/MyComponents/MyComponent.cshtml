@@ -32,7 +32,7 @@
     {
         @for (var index = 0; index < Model.Details.Count(); index++)
         {
-            <input type="hidden" asp-for="Details[index].DetailId" asp-/>
+            <input type="hidden" asp-for="Details[index].DetailId"/>
             <div class="form-row">
                 <div class="col">
                     <label>@Model.Details[index].Name</label>
