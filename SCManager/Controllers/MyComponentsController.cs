@@ -10,7 +10,6 @@ using SCManager.ViewModels.MyComponents;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
 namespace SCManager.Controllers
@@ -24,6 +23,7 @@ namespace SCManager.Controllers
         private readonly IUnitMultiplierService _unitMultiplierService;
         private readonly IStaticSiteInfoService _staticSiteInfoService;
         private readonly IUserComponentTypeService _userComponentTypeService;
+        private readonly IUserComponentTypeDetailService _userComponentTypeDetailService;
         private readonly IComponentTypeDetailService _componentTypeDetailService;
         private readonly ICloudinaryService _cloudinaryService;
 
@@ -35,6 +35,7 @@ namespace SCManager.Controllers
             IUnitMultiplierService unitMultiplierService,
             IStaticSiteInfoService staticSiteInfoService,
             IUserComponentTypeService userComponentTypeService,
+            IUserComponentTypeDetailService userComponentTypeDetailService,
             IComponentTypeDetailService componentTypeDetailService,
             ICloudinaryService cloudinaryService
         )
@@ -45,6 +46,7 @@ namespace SCManager.Controllers
             _unitMultiplierService = unitMultiplierService;
             _staticSiteInfoService = staticSiteInfoService;
             _userComponentTypeService = userComponentTypeService;
+            _userComponentTypeDetailService = userComponentTypeDetailService;
             _componentTypeDetailService = componentTypeDetailService;
             _cloudinaryService = cloudinaryService;
         }
@@ -57,7 +59,7 @@ namespace SCManager.Controllers
                 .Include(x => x.ComponentType)
                     .ThenInclude(x => x.Details)
                 .Include(x => x.Details)
-                    .ThenInclude(x => x.UnitMultiplier) 
+                    .ThenInclude(x => x.UnitMultiplier)
                 .OrderByDescending(x => x.Id)
                 .ToList();
 
@@ -92,27 +94,33 @@ namespace SCManager.Controllers
         public async Task<IActionResult> MyComponent(int? userComponentTypeId)
         {
             var componentTypes = _componentTypeService.GetAll()
-                .Include(x => x.Details);
+                .Include(x => x.Details)
+                .ToList();
 
             var multipliers = _unitMultiplierService.GetAll();
-            var details = componentTypes.Select(x => x.Details);
-
-            var viewDetails = _mapper.Map<IEnumerable<MyComponentDetailInputModel>>(details);
 
             var userComponent = await _userComponentTypeService.GetByIdAsync(userComponentTypeId);
             if (userComponent == null)
             {
                 var defaultModel = new MyComponentInputModel
                 {
-                    ComponentTypes = componentTypes,
-                    UnitMultipliers = multipliers,
-                    
+                    ComponentTypes = componentTypes
                 };
 
                 return View(defaultModel);
             }
             else
             {
+                var details = _userComponentTypeDetailService.GetByUserComponentTypeId(userComponent.Id);
+                var inputDetails = details.Select(x => new MyComponentDetailInputModel
+                {
+                    DetailId = x.Id,
+                    Name = x.ComponentTypeDetail.Name,
+                    MultiplierId = x.UnitMultiplierId,
+                    Unit = x.ComponentTypeDetail.Unit,
+                    Value = x.Value
+                }).ToList();
+
                 var model = new MyComponentInputModel
                 {
                     Id = userComponent.Id,
@@ -121,7 +129,7 @@ namespace SCManager.Controllers
                     UnitPrice = userComponent.UnitPrice,
                     ComponentTypes = componentTypes,
                     UnitMultipliers = multipliers,
-                    Details = null
+                    Details = inputDetails
                 };
 
                 return View(model);
@@ -133,7 +141,9 @@ namespace SCManager.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var componentTypes = _componentTypeService.GetAll().Include(x => x.Details);
+                var componentTypes = _componentTypeService.GetAll()
+                    .Include(x => x.Details);
+
                 var multipliers = _unitMultiplierService.GetAll();
 
                 model.ComponentTypes = componentTypes;
@@ -142,11 +152,11 @@ namespace SCManager.Controllers
                 return View(model);
             }
 
-            var component = await _userComponentTypeService.GetByIdAsync(model.Id);
+            var userComponent = await _userComponentTypeService.GetByIdAsync(model.Id);
             var userId = _userManager.GetUserId(User);
-            if (component == null)
+            if (userComponent == null)
             {
-                component = new UserComponentType
+                userComponent = new UserComponentType
                 {
                     ComponentTypeId = model.ComponentTypeId,
                     Quantity = model.Quantity,
@@ -155,19 +165,48 @@ namespace SCManager.Controllers
                     CreatedDateTime = DateTime.UtcNow,
                     IsActive = true
                 };
+
+                await _userComponentTypeService.SaveComponentAsync(userComponent);
+
+                var type = await _componentTypeService.GetByIdAsync(model.ComponentTypeId);
+                var details = _componentTypeDetailService.GetByComponentTypeId(type.Id);
+
+                var userDetails = details.Select(x => new UserComponentTypeDetail
+                {
+                    UserComponentTypeId = userComponent.Id,
+                    UnitMultiplierId = 1,
+                    ComponentTypeDetailId = x.Id,
+                    Value = 0,
+                    CreatedByUserId = userId,
+                    CreatedDateTime = DateTime.UtcNow,
+                    IsActive = true
+                });
+
+                await _userComponentTypeDetailService.SaveDetailsAsync(userDetails);
             }
             else
             {
-                component.ComponentTypeId = model.ComponentTypeId;
-                component.Quantity = model.Quantity;
-                component.UnitPrice = model.UnitPrice;
-                component.LastUpdatedByUserId = userId;
-                component.LastUpdatedDateTime = DateTime.UtcNow;
+                userComponent.Quantity = model.Quantity;
+                userComponent.UnitPrice = model.UnitPrice;
+                userComponent.LastUpdatedByUserId = userId;
+                userComponent.LastUpdatedDateTime = DateTime.UtcNow;
+
+                var details = _userComponentTypeDetailService.GetByUserComponentTypeId(userComponent.Id);
+                foreach (var detail in details)
+                {
+                    var detailModel = model.Details.SingleOrDefault(x => x.DetailId == detail.Id);
+                    detail.UnitMultiplierId = detailModel.MultiplierId;
+                    detail.Value = detailModel.Value;
+
+                    detail.LastUpdatedByUserId = userId;
+                    detail.LastUpdatedDateTime = DateTime.UtcNow;
+                }
+
+                await _userComponentTypeService.UpdateComponentAsync(userComponent);
+                await _userComponentTypeDetailService.UpdateRangeAsync(details);
             }
 
-            await _userComponentTypeService.SaveChangesAsync(component);
-
-            return RedirectToAction("Index", "MyComponents");
+            return Redirect($"/MyComponents/MyComponent?userComponentTypeId={userComponent.Id}");
         }
     }
 }

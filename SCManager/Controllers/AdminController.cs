@@ -305,7 +305,7 @@ namespace SCManager.Controllers
                     await _userManager.RemoveFromRoleAsync(user, AppUserRoles.Administrator);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
