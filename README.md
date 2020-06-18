@@ -95,6 +95,8 @@ https://fontawesome.com/
 https://www.tiny.cloud/  
 https://jquery.com/  
 https://getbootstrap.com/
+https://www.freepik.com/free-photos-vectors/web-banner  
+https://undraw.co/illustrations
 Me: R. Georgiev
 
 
