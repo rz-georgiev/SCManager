@@ -19,7 +19,7 @@ namespace SCManager.CustomAttributes
             var file = value as IFormFile;
             if (file == null)
             {
-                return new ValidationResult("Please choose a file");
+                return ValidationResult.Success;
             }
             var extension = Path.GetExtension(file.FileName).ToLower();
             if (!_extensions.Contains(extension))

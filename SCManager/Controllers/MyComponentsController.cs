@@ -178,7 +178,7 @@ namespace SCManager.Controllers
                     UserComponentTypeId = userComponent.Id,
                     UnitMultiplierId = 1,
                     ComponentTypeDetailId = x.Id,
-                    Value = "0",
+                    Value = 0,
                     CreatedByUserId = userId,
                     CreatedDateTime = DateTime.UtcNow,
                     IsActive = true
