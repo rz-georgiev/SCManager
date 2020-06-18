@@ -8,17 +8,17 @@ It can also be used in some warehouses/repair shops.
 Project github url: https://github.com/rz-georgiev/SCManager
 
 # About
-This project will be used as a diploma work and for a CV upgrade.
-Supervisor: Associate Professor Dr. Lyudmila Dimitrova
-Head of a master's program: Associate Professor Dr. Stanislav Simeonov
-Head of department: Associate Professor Dr. Veselina Bureva
+This project will be used as a diploma work and for a CV upgrade.<br/><br/>
+Supervisor: Associate Professor Dr. Lyudmila Dimitrova  
+Head of a master's program: Associate Professor Dr. Stanislav Simeonov  
+Head of department: Associate Professor Dr. Veselina Bureva  
 Graduate: Radoslav Georgiev
 
 # Installation
-Download the project and start the solution.
-Create a profile and get a private key from https://sendgrid.com/
-Create a profile and get a private key from https://cloudinary.com/
-Now replace these keys in your appsettings.json file.
+Download the project and start the solution.  
+Create a profile and get a private key from https://sendgrid.com/  
+Create a profile and get a private key from https://cloudinary.com/  
+Now replace these keys in your appsettings.json file.  
 The application will automatically apply the migrations and the sample data seeding for you, so just build and run the solution.
 
 # Technologies:
@@ -42,8 +42,8 @@ The application will automatically apply the migrations and the sample data seed
 
 # Usage
 
-### Default account for testing [Administrator role]:
-Username: scmanager_test@mail.com
+### Default account for testing [Administrator role]:  
+Username: scmanager_test@mail.com  
 Password: Scmanager_test1
 
 ### User profile:
@@ -82,30 +82,18 @@ Just copy the project and have fun
 # Authors and acknowledgment
 Special thanks to:
 
-https://www.microsoft.com/en-us
-
-https://startbootstrap.com/themes/sb-admin-2/
-
-https://github.com/StartBootstrap/startbootstrap-sb-admin-2
-
-https://sendgrid.com/
-
-https://cloudinary.com/
-
-https://github.com/mganss/HtmlSanitizer
-
-https://www.chartjs.org/
-
-https://datatables.net/
-
-https://fontawesome.com/
-
-https://www.tiny.cloud/
-
-https://jquery.com/
-
+https://www.microsoft.com/en-us  
+https://startbootstrap.com/themes/sb-admin-2/  
+https://github.com/StartBootstrap/startbootstrap-sb-admin-2  
+https://sendgrid.com/  
+https://cloudinary.com/  
+https://github.com/mganss/HtmlSanitizer  
+https://www.chartjs.org/  
+https://datatables.net/  
+https://fontawesome.com/  
+https://www.tiny.cloud/  
+https://jquery.com/  
 https://getbootstrap.com/
-
 Me: R. Georgiev
 
 
