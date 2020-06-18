@@ -5,6 +5,8 @@ SCManager
 SCManager is a semiconductors management application, that is directed for usage by electronics and electrician specialists, so they can keep track of what components they have in stash.
 It can also be used in some warehouses/repair shops.
 
+Project github url: https://github.com/rz-georgiev/SCManager
+
 # About
 This project will be used as a diploma work and for a CV upgrade.
 Supervisor: Associate Professor Dr. Lyudmila Dimitrova
@@ -39,7 +41,12 @@ The application will automatically apply the migrations and the sample data seed
 * Enabled by default - protection from XSS attacks via the HTML Razor symbol escape operations
 
 # Usage
-User profile:
+
+### Default account for testing [Administrator role]:
+Username: scmanager_test@mail.com
+Password: Scmanager_test1
+
+### User profile:
 You can change your profile picture, email and password.
 You can also download your personal data in a .json file format.
 There is a option to delete your account and all related data to it.
