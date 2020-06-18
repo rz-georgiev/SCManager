@@ -2,7 +2,7 @@
 {
     public class UserComponentTypeDetail : BaseEntity
     {
-        public float Value { get; set; }
+        public string Value { get; set; }
 
         public int UserComponentTypeId { get; set; }
 

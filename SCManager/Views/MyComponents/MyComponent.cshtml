@@ -11,9 +11,19 @@
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
 
-        <label asp-for="ComponentTypeId"></label>
-        <select id="componentTypes" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))"></select>
-        <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
+        @if (Model.Id == null)
+        {
+            <label asp-for="ComponentTypeId"></label>
+            <select id="componentTypes" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))"></select>
+            <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
+        }
+        else
+        {
+            <label asp-for="ComponentTypeId"></label>
+            <select id="componentTypes" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))" disabled></select>
+            <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
+        }
+
     </div>
 
     <div class="form-group">
@@ -32,7 +42,7 @@
     {
         @for (var index = 0; index < Model.Details.Count(); index++)
         {
-            <input type="hidden" asp-for="Details[index].DetailId"/>
+            <input type="hidden" asp-for="Details[index].DetailId" />
             <div class="form-row">
                 <div class="col">
                     <label>@Model.Details[index].Name</label>

@@ -46,7 +46,7 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
         {
             [DisplayName("New profile picture")]
             [MaxFileSize(5 * 1024 * 1024)]
-            [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg" })]
+            [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg", ".gif" })]
             public IFormFile FormFile { get; set; }
         }
 

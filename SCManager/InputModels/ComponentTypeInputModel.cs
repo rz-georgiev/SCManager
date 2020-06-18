@@ -13,7 +13,7 @@ namespace SCManager.InputModels
         public string Name { get; set; }
 
         [MaxFileSize(5 * 1024 * 1024)]
-        [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg" })]
+        [AllowedExtensions(new string[] { ".png", ".jpeg", ".jpg", ".gif" })]
         public IFormFile Image { get; set; }
 
         public IEnumerable<ComponentTypeDetailInputModel> Details { get; set; }

@@ -70,6 +70,7 @@ namespace SCManager.Controllers
                 var typeDetail = type.Details.SingleOrDefault(x => x.IsPrimary);
                 var userDetail = x.Details.SingleOrDefault(x => x.ComponentTypeDetail.IsPrimary);
                 var multiplier = userDetail.UnitMultiplier;
+                var valueType = userDetail.ComponentTypeDetail.Name;
 
                 models.Add(new ComponentViewModel
                 {
@@ -77,6 +78,7 @@ namespace SCManager.Controllers
                     Name = type.Name,
                     Quantity = x.Quantity,
                     TotalPrice = x.UnitPrice * x.Quantity,
+                    ValueType = valueType,
                     Value = userDetail.Value,
                     Multiplier = multiplier.Name,
                     Unit = typeDetail.Symbol
@@ -176,7 +178,7 @@ namespace SCManager.Controllers
                     UserComponentTypeId = userComponent.Id,
                     UnitMultiplierId = 1,
                     ComponentTypeDetailId = x.Id,
-                    Value = 0,
+                    Value = "0",
                     CreatedByUserId = userId,
                     CreatedDateTime = DateTime.UtcNow,
                     IsActive = true
