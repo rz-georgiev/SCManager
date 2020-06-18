@@ -19,7 +19,8 @@ Download the project and start the solution.
 Create a profile and get a private key from https://sendgrid.com/  
 Create a profile and get a private key from https://cloudinary.com/  
 Now replace these keys in your appsettings.json file.  
-The application will automatically apply the migrations and the sample data seeding for you, so just build and run the solution.
+The application will automatically apply the migrations and the sample data seeding for you, so just build and run the solution.  
+Note: First launch can be a little bit slow, because of the database creation and the data seeding.
 
 # Technologies:
 * .NET Core 3.1
