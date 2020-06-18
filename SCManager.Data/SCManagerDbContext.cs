@@ -22,12 +22,12 @@ namespace SCManager.Data
             var users = GetDeserializedObjects<ApplicationUser>(SeedingResources.AspNetUsers);
             var roles = GetDeserializedObjects<IdentityRole>(SeedingResources.AspNetRoles);
             var usersRoles = GetDeserializedObjects<IdentityUserRole<string>>(SeedingResources.AspNetUserRoles);
-            var siteInfos = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
+            var staticSiteInfo = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
 
             builder.Entity<ApplicationUser>().HasData(users);
             builder.Entity<IdentityRole>().HasData(roles);
             builder.Entity<IdentityUserRole<string>>().HasData(usersRoles);
-            builder.Entity<StaticSiteInfo>().HasData(siteInfos);
+            builder.Entity<StaticSiteInfo>().HasData(staticSiteInfo);
         }
 
         private IEnumerable<T> GetDeserializedObjects<T>(string resourceValue) where T : class
