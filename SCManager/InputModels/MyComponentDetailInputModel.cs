@@ -11,7 +11,7 @@ namespace SCManager.InputModels
         public string Name { get; set; }
 
         [Required]
-        public string Value { get; set; }
+        public float Value { get; set; }
         
         [Required]
         [DisplayName("Multiplier")]

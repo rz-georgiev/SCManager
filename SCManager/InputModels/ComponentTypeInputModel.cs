@@ -17,6 +17,5 @@ namespace SCManager.InputModels
         public IFormFile Image { get; set; }
 
         public IEnumerable<ComponentTypeDetailInputModel> Details { get; set; }
-
     }
 }

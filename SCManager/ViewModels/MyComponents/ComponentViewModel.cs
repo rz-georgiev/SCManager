@@ -10,7 +10,7 @@
 
         public string ValueType { get; set; }
 
-        public string Value { get; set; }
+        public float Value { get; set; }
 
         public string Multiplier { get; set; }
 
