@@ -97,6 +97,7 @@ namespace SCManager.Controllers
         {
             var componentTypes = _componentTypeService.GetAll()
                 .Include(x => x.Details)
+                .Where(x => x.Details.Count(s => s.IsPrimary) > 0)
                 .ToList();
 
             var multipliers = _unitMultiplierService.GetAll();
