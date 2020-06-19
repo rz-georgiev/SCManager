@@ -186,6 +186,8 @@ namespace SCManager.Controllers
                 });
 
                 await _userComponentTypeDetailService.SaveDetailsAsync(userDetails);
+
+                return Redirect($"/MyComponents/MyComponent?userComponentTypeId={userComponent.Id}");
             }
             else
             {
@@ -207,9 +209,9 @@ namespace SCManager.Controllers
 
                 await _userComponentTypeService.UpdateComponentAsync(userComponent);
                 await _userComponentTypeDetailService.UpdateRangeAsync(details);
-            }
 
-            return Redirect($"/MyComponents/MyComponent?userComponentTypeId={userComponent.Id}");
+                return Redirect($"/MyComponents/Index");
+            }
         }
 
         public async Task<IActionResult> Delete(int id)
