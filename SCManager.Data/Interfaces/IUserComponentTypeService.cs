@@ -14,5 +14,7 @@ namespace SCManager.Data.Interfaces
         Task SaveComponentAsync(UserComponentType type);
 
         Task UpdateComponentAsync(UserComponentType type);
+
+        Task DeleteAsync(int id);
     }
 }

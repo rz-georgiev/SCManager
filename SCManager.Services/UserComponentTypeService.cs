@@ -16,6 +16,18 @@ namespace SCManager.Services
             _context = context;
         }
 
+        public async Task DeleteAsync(int id)
+        {
+            var userComponentType = await _context.UserComponentTypes
+                .SingleOrDefaultAsync(x => x.Id == id);
+
+            if (userComponentType == null)
+                return;
+
+            _context.Remove(userComponentType);
+            await _context.SaveChangesAsync();
+        }
+
         public IQueryable<UserComponentType> GetAllForUserId(string userId)
         {
             var types = _context.UserComponentTypes
