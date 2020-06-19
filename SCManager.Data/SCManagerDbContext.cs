@@ -25,7 +25,7 @@ namespace SCManager.Data
             var usersRoles = GetDeserializedObjects<IdentityUserRole<string>>(SeedingResources.AspNetUserRoles);
             var unitMultipliers = GetDeserializedObjects<UnitMultiplier>(SeedingResources.UnitMultipliers);
             var componentTypes = GetDeserializedObjects<ComponentType>(SeedingResources.ComponentTypes);
-            var componentTypeDetails = GetDeserializedObjects<ComponentTypeDetail>(SeedingResources.ComponentTypeDetails);
+            //var componentTypeDetails = GetDeserializedObjects<ComponentTypeDetail>(SeedingResources.ComponentTypeDetails);
             //  var userComponentTypes = GetDeserializedObjects<UserComponentType>(SeedingResources.UserComponentTypes);
             //  var userComponentTypeDetails = GetDeserializedObjects<UserComponentTypeDetail>(SeedingResources.UserComponentTypeDetails);
             var staticSiteInfo = GetDeserializedObjects<StaticSiteInfo>(SeedingResources.StaticSiteInfos);
@@ -35,7 +35,7 @@ namespace SCManager.Data
             builder.Entity<IdentityUserRole<string>>().HasData(usersRoles);
             builder.Entity<UnitMultiplier>().HasData(unitMultipliers);
             builder.Entity<ComponentType>().HasData(componentTypes);
-            builder.Entity<ComponentTypeDetail>().HasData(componentTypeDetails);
+            //builder.Entity<ComponentTypeDetail>().HasData(componentTypeDetails);
             //  builder.Entity<UserComponentType>().HasData(userComponentTypes);
             //  builder.Entity<UserComponentTypeDetail>().HasData(userComponentTypeDetails);
             builder.Entity<StaticSiteInfo>().HasData(staticSiteInfo);
