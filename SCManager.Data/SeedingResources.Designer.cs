@@ -61,7 +61,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;c5fb4568-51c6-43ab-8050-a5642eb9ac44&quot;,&quot;Name&quot;:&quot;Administrator&quot;,&quot;NormalizedName&quot;:&quot;ADMINISTRATOR&quot;,&quot;ConcurrencyStamp&quot;:&quot;55309049-c467-42fd-9223-e221b7c3b61a&quot;}].
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;37152c28-98e0-4067-93eb-f708a463d91b&quot;,&quot;Name&quot;:&quot;User&quot;,&quot;NormalizedName&quot;:&quot;USER&quot;,&quot;ConcurrencyStamp&quot;:&quot;514f4df7-f0a4-4b34-aaf8-54c4c874f824&quot;},{&quot;Id&quot;:&quot;c5fb4568-51c6-43ab-8050-a5642eb9ac44&quot;,&quot;Name&quot;:&quot;Administrator&quot;,&quot;NormalizedName&quot;:&quot;ADMINISTRATOR&quot;,&quot;ConcurrencyStamp&quot;:&quot;55309049-c467-42fd-9223-e221b7c3b61a&quot;}].
         /// </summary>
         internal static string AspNetRoles {
             get {
@@ -79,7 +79,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;ac202f5b-66d9-4989-a1a2-72e632a19e98&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;53ea6bca-6c80-400c-9cb5-ac31d508a7f7&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AspNetUsers {
             get {
@@ -88,11 +88,56 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:5,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T10:50:49.6542536&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;About&quot;,&quot;Content&quot;:&quot;&lt;h3 style=\&quot;margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Fira Sans&amp;quot;, &amp;quot;Droi [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:1,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:16:31.9346128&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T07:45:36.4341332&quot;,&quot;IsActive&quot;:true,&quot;ComponentTypeId&quot;:1,&quot;Name&quot;:&quot;Maximum Breakover Current&quot;,&quot;Unit&quot;:&quot;Ampers&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;Symbol&quot;:&quot;A&quot;,&quot;IsPrimary&quot;:true},{&quot;Id&quot;:2,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:16:51.7954599&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T07:45:22.3179283&quot;,&quot;IsActive&quot;:true,&quot;ComponentTypeId&quot;:1,&quot;Name&quot;:&quot;Maximum Breakov [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ComponentTypeDetails {
+            get {
+                return ResourceManager.GetString("ComponentTypeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:1,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:04:56.3178451&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:12:00.4710893&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;DIAC&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;ImageId&quot;:&quot;rvujbwa21jy4nqzpv6nh&quot;},{&quot;Id&quot;:2,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:19:20.8560471&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:24:20.9437730&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;Diode&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ComponentTypes {
+            get {
+                return ResourceManager.GetString("ComponentTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:5,&quot;CreatedDateTime&quot;:&quot;2020-05-28T00:00:00&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T14:56:30.1410283&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;About&quot;,&quot;Content&quot;:&quot;&lt;h3 style=\&quot;margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, &apos;Segoe UI&apos;, Roboto, Oxygen, Ubuntu, Cantarell, &apos;Fira Sans&apos;, &apos;Droid Sans&apos;, &apos;Helvetica Neue&apos; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string StaticSiteInfos {
             get {
                 return ResourceManager.GetString("StaticSiteInfos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:1,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:27:55.0671817&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot; &quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;},{&quot;Id&quot;:2,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:43:59.2395842&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:57:50.2142519&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;G&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;},{&quot;Id&quot;:3,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:45:38.7085628&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:57:57.0727780&quot;,&quot;IsActiv [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UnitMultipliers {
+            get {
+                return ResourceManager.GetString("UnitMultipliers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:31,&quot;CreatedDateTime&quot;:&quot;2020-06-19T07:47:37.3120836&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T13:22:45.4882088&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;IsActive&quot;:true,&quot;UserComponentTypeId&quot;:13,&quot;UnitMultiplierId&quot;:1,&quot;ComponentTypeDetailId&quot;:1,&quot;Value&quot;:1.00},{&quot;Id&quot;:32,&quot;CreatedDateTime&quot;:&quot;2020-06-19T07:47:37.3165310&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T13:22:45.4882286&quot;,&quot;LastUpdatedByUs [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UserComponentTypeDetails {
+            get {
+                return ResourceManager.GetString("UserComponentTypeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:13,&quot;CreatedDateTime&quot;:&quot;2020-06-19T07:47:37.2506545&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T13:22:45.4872857&quot;,&quot;IsActive&quot;:true,&quot;ComponentTypeId&quot;:1,&quot;Quantity&quot;:10,&quot;UnitPrice&quot;:20.00,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;},{&quot;Id&quot;:14,&quot;CreatedDateTime&quot;:&quot;2020-06-19T07:47:56.0908613&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-19T13:22:36.8433388&quot;,&quot;IsActive&quot;:true,&quot;ComponentTypeId&quot;:5,&quot;Quantity&quot;:50,&quot;UnitPrice&quot;:0.85,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-9 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UserComponentTypes {
+            get {
+                return ResourceManager.GetString("UserComponentTypes", resourceCulture);
             }
         }
     }
