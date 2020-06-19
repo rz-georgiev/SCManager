@@ -27,7 +27,6 @@ namespace SCManager.Controllers
         private readonly IComponentTypeDetailService _componentTypeDetailService;
         private readonly ICloudinaryService _cloudinaryService;
         private readonly HtmlSanitizer _htmlSanitizer;
-        private readonly RoleManager<IdentityRole> _aspNetRoleManager;
 
         public AdminController
         (
@@ -297,12 +296,15 @@ namespace SCManager.Controllers
             try
             {
                 var user = await _userManager.FindByIdAsync(model.UserId);
-                if (model.Role == AppUserRoles.Administrator)
+                if (model.NewRole == AppUserRoles.Administrator)
                 {
                     await _userManager.AddToRoleAsync(user, AppUserRoles.Administrator);
+                    await _userManager.RemoveFromRoleAsync(user, AppUserRoles.User);
+
                 }
                 else
                 {
+                    await _userManager.AddToRoleAsync(user, AppUserRoles.User);
                     await _userManager.RemoveFromRoleAsync(user, AppUserRoles.Administrator);
                 }
             }

@@ -204,9 +204,9 @@
 </div>
 
 <script>
-    function setUserRole(userId, role) {
+    function setUserRole(userId, newRole) {
 
-        var model = { UserId: userId, Role: role };
+        var model = { UserId: userId, NewRole: newRole };
 
         $.ajax({
             type: 'POST',
@@ -219,7 +219,7 @@
             },
             success: function (result) {
                 if (result) {
-                    if (role == "Administrator") {
+                    if (newRole == "Administrator") {
                         $("#button_" + userId).html("Currently: Admin");
                         $("#button_" + userId).attr("onclick", "setUserRole(\'" + userId + '\', \'User\')');
                     }
