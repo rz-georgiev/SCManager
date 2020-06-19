@@ -27,6 +27,7 @@ namespace SCManager.Controllers
         private readonly IComponentTypeDetailService _componentTypeDetailService;
         private readonly ICloudinaryService _cloudinaryService;
         private readonly HtmlSanitizer _htmlSanitizer;
+        private readonly RoleManager<IdentityRole> _aspNetRoleManager;
 
         public AdminController
         (
@@ -194,18 +195,18 @@ namespace SCManager.Controllers
                 detail.Name = model.Name;
                 detail.Unit = model.Unit;
                 detail.Symbol = model.Symbol;
-                detail.IsPrimary = model.IsPrimary;
 
                 detail.LastUpdatedDateTime = DateTime.UtcNow;
                 detail.LastUpdatedByUserId = _userManager.GetUserId(User);
             }
 
-           
-            await _componentTypeDetailService.SaveChangesAsync(detail);
-            if (detail.IsPrimary)
+            if (model.IsPrimary)
             {
+                detail.IsPrimary = model.IsPrimary;
                 await _componentTypeDetailService.ResetPrimaryStatuses(detail);
             }
+
+            await _componentTypeDetailService.SaveChangesAsync(detail);
 
             return Redirect($"/Admin/ComponentType?componentTypeId={model.ComponentTypeId}");
         }

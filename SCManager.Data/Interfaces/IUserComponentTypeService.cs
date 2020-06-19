@@ -16,5 +16,7 @@ namespace SCManager.Data.Interfaces
         Task UpdateComponentAsync(UserComponentType type);
 
         Task DeleteAsync(int id);
+
+        Task DeleteAllForUserIdAsync(string userId);
     }
 }

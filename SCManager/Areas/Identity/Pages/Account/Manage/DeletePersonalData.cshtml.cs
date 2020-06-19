@@ -1,28 +1,35 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using SCManager.Data;
+using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 
 namespace SCManager.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize(Roles = AppUserRoles.User)]
     public class DeletePersonalDataModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<DeletePersonalDataModel> _logger;
+        private readonly IUserComponentTypeService _userComponentTypeService;
 
         public DeletePersonalDataModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ILogger<DeletePersonalDataModel> logger)
+            ILogger<DeletePersonalDataModel> logger,
+            IUserComponentTypeService userComponentTypeService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _userComponentTypeService = userComponentTypeService;
         }
 
         [BindProperty]
@@ -67,7 +74,10 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            await _userComponentTypeService.DeleteAllForUserIdAsync(user.Id);
             var result = await _userManager.DeleteAsync(user);
+
+
             var userId = await _userManager.GetUserIdAsync(user);
             if (!result.Succeeded)
             {
