@@ -211,5 +211,11 @@ namespace SCManager.Controllers
 
             return Redirect($"/MyComponents/MyComponent?userComponentTypeId={userComponent.Id}");
         }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _userComponentTypeService.DeleteAsync(id);
+            return Redirect("/MyComponents/Index");
+        }
     }
 }

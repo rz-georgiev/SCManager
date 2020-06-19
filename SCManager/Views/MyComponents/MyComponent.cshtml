@@ -5,6 +5,9 @@
 }
 
 <a type="button" class="btn btn-link" asp-area="" asp-controller="MyComponents" asp-action="Index">← Go back to the MyComponents menu</a>
+<br />
+<a type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" href="#">!! Delete Component !!</a>
+
 
 <form id="profile-form" class="user" method="post">
 
@@ -25,7 +28,6 @@
             <select id="componentTypes" class="custom-select" asp-for="ComponentTypeId" asp-items="@(new SelectList(Model.ComponentTypes, "Id", "Name"))" disabled></select>
             <span asp-validation-for="ComponentTypeId" class="text-danger"></span>
         }
-
     </div>
 
     <div class="form-group">
@@ -67,4 +69,26 @@
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Save
     </button>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you wish to delete this component and it's details?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <a type="button" class="btn btn-primary" asp-area="" asp-controller="MyComponents" asp-action="Delete" asp-route-id="@Model.Id">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
