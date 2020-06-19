@@ -266,6 +266,8 @@ namespace SCManager.Controllers
             else
             {
                 var model = _mapper.Map<StaticSiteInfoInputModel>(info);
+                model.Content = _htmlSanitizer.Sanitize(info.Content);
+
                 return View(model);
             }
         }
@@ -273,8 +275,6 @@ namespace SCManager.Controllers
         [HttpPost]
         public async Task<IActionResult> StaticSiteInfo(StaticSiteInfoInputModel model)
         {
-            model.Content = _htmlSanitizer.Sanitize(model.Content);
-
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -300,7 +300,6 @@ namespace SCManager.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, AppUserRoles.Administrator);
                     await _userManager.RemoveFromRoleAsync(user, AppUserRoles.User);
-
                 }
                 else
                 {
