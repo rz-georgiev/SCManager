@@ -5,9 +5,12 @@
 }
 
 <a type="button" class="btn btn-link" asp-area="" asp-controller="MyComponents" asp-action="Index">← Go back to the MyComponents menu</a>
-<br />
-<a type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" href="#">!! Delete Component !!</a>
 
+@if (Model.Id != null)
+{
+    <br />
+    <a type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal" href="#">!! Delete Component !!</a>
+}
 
 <form id="profile-form" class="user" method="post">
 
@@ -69,7 +72,6 @@
     <button type="submit" class="btn btn-primary btn-user btn-block">
         Save
     </button>
-
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
