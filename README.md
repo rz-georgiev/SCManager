@@ -44,7 +44,7 @@ Note: First launch can be a little bit slow, because of the database creation an
 # Usage
 
 ### Default account for testing [Administrator role]:  
-Username: scmanager_test@mail.com  
+Username: scmanager_test[at]mail[dot]com  
 Password: Scmanager_test1
 
 ### User profile:
