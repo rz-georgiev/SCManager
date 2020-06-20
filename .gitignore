@@ -8,3 +8,4 @@ SCManager.Services/obj
 SCManager.Tests/bin
 SCManager.Tests/obj
 *.user
+*.pubxml
