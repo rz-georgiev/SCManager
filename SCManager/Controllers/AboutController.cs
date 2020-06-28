@@ -1,5 +1,4 @@
-﻿using Ganss.XSS;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
 using SCManager.ViewModels.About;
