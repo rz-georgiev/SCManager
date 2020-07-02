@@ -40,7 +40,7 @@ namespace SCManager.Services
             {
                 await _context.SaveChangesAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -61,7 +61,7 @@ namespace SCManager.Services
                 await _context.SaveChangesAsync();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }

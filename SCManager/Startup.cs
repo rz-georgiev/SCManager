@@ -72,6 +72,7 @@ namespace SCManager
             services.AddTransient<IStaticSiteInfoService, StaticSiteInfoService>();
             services.AddTransient<IUserComponentTypeService, UserComponentTypeService>();
             services.AddTransient<IUserComponentTypeDetailService, UserComponentTypeDetailService>();
+            services.AddTransient<ISearchService, SearchService>();
 
             services.AddResponseCompression(options => options.EnableForHttps = true);
             services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(5));
