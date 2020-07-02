@@ -9,22 +9,24 @@ namespace SCManager.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            string value = null;
-            await Task.Run(() =>
-            {
-                Variable<bool> firstCoin = Variable.Bernoulli(0.5);
-                Variable<bool> secondCoin = Variable.Bernoulli(0.5);
+            // TODO Finish this piece
 
-                Variable<bool> bothHeads = firstCoin & secondCoin;
-                InferenceEngine engine = new InferenceEngine();
+            //string value = null;
+            //await Task.Run(() =>
+            //{
+            //    Variable<bool> firstCoin = Variable.Bernoulli(0.5);
+            //    Variable<bool> secondCoin = Variable.Bernoulli(0.5);
 
-                value = engine.Infer(bothHeads).ToString();
-            });
-            var model = new IndexViewModel
-            {
-                SomeValue = value
-            };
-            return View(model);
+            //    Variable<bool> bothHeads = firstCoin & secondCoin;
+            //    InferenceEngine engine = new InferenceEngine();
+
+            //    value = engine.Infer(bothHeads).ToString();
+            //});
+            //var model = new IndexViewModel
+            //{
+            //    SomeValue = value
+            //};
+            return View(null);
         }
     }
 }
