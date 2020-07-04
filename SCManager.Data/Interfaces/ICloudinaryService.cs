@@ -11,6 +11,6 @@ namespace SCManager.Data.Interfaces
 
         IAsyncEnumerable<string> UploadImagesAsync(IEnumerable<IFormFile> formFiles);
 
-        Task DeleteImageAsync(string url);
+        Task<bool> DeleteImageAsync(string url);
     }
 }
