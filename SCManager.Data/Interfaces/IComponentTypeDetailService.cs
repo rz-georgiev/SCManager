@@ -15,6 +15,6 @@ namespace SCManager.Data.Interfaces
         /// <summary>
         /// Resets all primary statuses for the current component type, without the specified detail
         /// </summary>
-        Task ResetPrimaryStatuses(ComponentTypeDetail detail);
+        Task<bool> ResetPrimaryStatuses(ComponentTypeDetail detail);
     }
 }
