@@ -18,6 +18,7 @@ namespace SCManager.Services
         {
             _context = context;
         }
+
         public IEnumerable<ComponentTypeDetail> GetByComponentTypeId(int id)
         {
             return _context.ComponentTypeDetails
@@ -30,8 +31,11 @@ namespace SCManager.Services
                     .SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task ResetPrimaryStatuses(ComponentTypeDetail detail)
+        public async Task<bool> ResetPrimaryStatuses(ComponentTypeDetail detail)
         {
+            if (detail == null)
+                return false;
+
             var details = _context.ComponentTypeDetails
                 .Where(x => x.ComponentTypeId == detail.ComponentTypeId && x.Id != detail.Id);
 
@@ -39,9 +43,11 @@ namespace SCManager.Services
             try
             {
                 await _context.SaveChangesAsync();
+                return true;
             }
             catch (Exception)
             {
+                return false;
             }
         }
 
