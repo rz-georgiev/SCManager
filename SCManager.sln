@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCManager.Data", "SCManager
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCManager.Services", "SCManager.Services\SCManager.Services.csproj", "{5A4C43FF-E26D-47B6-9089-0C02E866876D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCManager.Tests", "SCManager.Tests\SCManager.Tests.csproj", "{38100332-8D52-4C53-96E4-4CF50533C3BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SCManager.Tests", "SCManager.Tests\SCManager.Tests.csproj", "{38100332-8D52-4C53-96E4-4CF50533C3BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

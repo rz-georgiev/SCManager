@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using System.Threading.Tasks;
+using SCManager.InputModels;
 
 namespace SCManager.Controllers
 {
@@ -22,12 +22,7 @@ namespace SCManager.Controllers
 
         public IActionResult Index()
         {
-            // var user = await _userManager.GetUserAsync(User);
-
-            // var userComponentTypes = _searchService.GetUserComponentTypes(user.Id);
-            // var componentTypes = _searchService.GetAllComponentTypes();
-
-            var a = ViewBag.CurrentFilter;
+            var a = ViewBag.CurrentFilter as string;
 
             return View();
         }
