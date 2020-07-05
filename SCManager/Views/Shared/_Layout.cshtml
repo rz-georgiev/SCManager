@@ -143,7 +143,17 @@
                             <i class="fa fa-bars"></i>
                         </button>
 
-                        <partial name="_GlobalSearchPartial" />
+                        <!-- Topbar Search -->
+                        <form asp-area="" asp-controller="Search" asp-action="Index" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" method="get">
+                            <div class="input-group">
+                                @Html.TextBox("SearchText", ViewBag.CurrentFilter as string)
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
@@ -268,9 +278,6 @@
 
     <!-- Page level custom scripts -->
     <script src="~/js/demo/datatables-demo.js"></script>
-
-
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>

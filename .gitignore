@@ -9,3 +9,4 @@ SCManager.Tests/bin
 SCManager.Tests/obj
 *.user
 *.pubxml
+SCManager.Tests/appsettings.json
