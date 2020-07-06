@@ -17,6 +17,13 @@ namespace SCManager.Services
 
         public async Task<Response> SendEmailAsync(string receiverEmail, string subject, string message)
         {
+            if (string.IsNullOrWhiteSpace(receiverEmail) ||
+                string.IsNullOrWhiteSpace(subject) ||
+                string.IsNullOrWhiteSpace(message))
+            {
+                return null;
+            }
+
             var apiKey = _configuration["SendGridCredentials:ApiKey"];
             var senderEmail = _configuration["SendGridCredentials:SenderEmail"];
             var senderName = _configuration["SendGridCredentials:SenderName"];
