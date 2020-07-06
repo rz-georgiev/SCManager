@@ -1,33 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SCManager.Data;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.Services;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SCManager.Tests.Services
 {
     [TestClass]
-    public class ComponentTypeDetailServiceTests
+    public class ComponentTypeDetailServiceTests : BaseTest
     {
         private readonly IComponentTypeDetailService _componentTypeDetailService;
 
         public ComponentTypeDetailServiceTests()
         {
-            var configuration = new ConfigurationBuilder()
-           .AddJsonFile("appsettings.json")
-           .Build();
-
-            var options = new DbContextOptionsBuilder();
-            options.UseSqlServer(configuration.GetConnectionString("SCManagerDbConnection"));
-
-            var context = new SCManagerDbContext(options.Options);
-
-            _componentTypeDetailService = new ComponentTypeDetailService(context);
+            _componentTypeDetailService = new ComponentTypeDetailService(SCManagerDbContext);
         }
 
         [DataTestMethod]
