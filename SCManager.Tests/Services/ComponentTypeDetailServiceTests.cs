@@ -22,14 +22,14 @@ namespace SCManager.Tests.Services
         [DataRow(0)]
         [DataRow(-1)]
         [DataRow(-2)]
-        public void GetByComponentTypeId_HasInvalidId_ReturnsEmptyCollection(int value)
+        public void GetByComponentTypeId_WhenIdIsInvalid_ShouldReturnEmptyCollection(int value)
         {
             var result = _componentTypeDetailService.GetByComponentTypeId(value);
             Assert.IsTrue(!result.Any());
         }
 
         [TestMethod]
-        public async Task GetByIdAsync_HasNullId_ReturnsNull()
+        public async Task GetByIdAsync_WhenIdIsNull_ShouldReturnNull()
         {
             var result = await _componentTypeDetailService.GetByIdAsync(null);
             Assert.IsNull(result);
@@ -38,21 +38,21 @@ namespace SCManager.Tests.Services
         [DataTestMethod]
         [DataRow(0)]
         [DataRow(-1)]
-        public async Task GetByIdAsync_HasInvalidId_ReturnsNull(int value)
+        public async Task GetByIdAsync_WhenIdIsInvalid_ShouldReturnNull(int value)
         {
             var result = await _componentTypeDetailService.GetByIdAsync(value);
             Assert.IsNull(result);
         }
 
         [TestMethod]
-        public async Task ResetPrimaryStatuses_HasNullArgument_ReturnsFalse()
+        public async Task ResetPrimaryStatuses_WhenArgumentIsNull_ShouldReturnFalse()
         {
             var result = await _componentTypeDetailService.ResetPrimaryStatuses(null);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_InvalidNewObject_ReturnsFalse()
+        public async Task SaveChangesAsync_WhenNewObjectIsInvalid_ShouldReturnFalse()
         {
             var detail = new ComponentTypeDetail();
             var result = await _componentTypeDetailService.SaveChangesAsync(detail);
@@ -61,7 +61,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_ValidNewObject_ReturnsTrue()
+        public async Task SaveChangesAsync_WhenNewObjectIsValid_ShouldReturnTrue()
         {
             var detail = new ComponentTypeDetail
             {
@@ -80,7 +80,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_InvalidUpdateObject_ReturnsFalse()
+        public async Task SaveChangesAsync_WhenUpdateObjectIsInvalid_ShouldReturnFalse()
         {
             var detail = new ComponentTypeDetail();
             var result = await _componentTypeDetailService.SaveChangesAsync(detail);
@@ -89,7 +89,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_ValidUpdateObject_ReturnsTrue()
+        public async Task SaveChangesAsync_WhenUpdateObjectIsValid_ShouldReturnTrue()
         {
             var detail = new ComponentTypeDetail
             {

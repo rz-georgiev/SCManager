@@ -30,21 +30,21 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task UploadImageAsync_HasNullArgument_ReturnsNull()
+        public async Task UploadImageAsync_WhenArgumentIsNull_ShouldReturnNull()
         {
             var result = await _cloudinaryService.UploadImageAsync(null);
             Assert.IsNull(result);
         }
 
         [TestMethod]
-        public void UploadImagesAsync_HasNullArgument_ReturnsNull()
+        public void UploadImagesAsync_WhenArgumentIsNull_ShouldReturnNull()
         {
             var result = _cloudinaryService.UploadImagesAsync(null);
             Assert.IsNull(result.GetAsyncEnumerator().Current);
         }
 
         [TestMethod]
-        public void UploadImagesAsync_HasEmptyArgument_ReturnsNull()
+        public void UploadImagesAsync_WhenArgumentIsEmpty_ShouldReturnNull()
         {
             IEnumerable<IFormFile> files = new List<IFormFile>();
 
@@ -53,7 +53,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task DeleteImageAsync_HasNullArgument_ReturnsFalse()
+        public async Task DeleteImageAsync_WhenArgumentIsNull_ShouldReturnFalse()
         {
             var result = await _cloudinaryService.DeleteImageAsync(null);
             Assert.IsFalse(result);
