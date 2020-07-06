@@ -41,7 +41,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_InvalidNewObject_ReturnsFalse()
+        public async Task SaveChangesAsync_WhenNewObjectIsInvalid_ShouldReturnFalse()
         {
             var type = new ComponentType();
             var result = await _componentTypeService.SaveChangesAsync(type);
@@ -50,7 +50,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_ValidNewObject_ReturnsTrue()
+        public async Task SaveChangesAsync_WhenNewObjectIsValid_ShouldReturnTrue()
         {
             var type = new ComponentType
             {
@@ -66,7 +66,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_InvalidUpdateObject_ReturnsFalse()
+        public async Task SaveChangesAsync_WhenUpdateObjectIsInvalid_ShouldReturnFalse()
         {
             var type = new ComponentType();
             var result = await _componentTypeService.SaveChangesAsync(type);
@@ -75,7 +75,7 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_ValidUpdateObject_ReturnsTrue()
+        public async Task SaveChangesAsync_WhenUpdateObjectIsValid_ShouldReturnTrue()
         {
             var type = new ComponentType
             {
