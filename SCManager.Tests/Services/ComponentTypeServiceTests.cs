@@ -2,6 +2,7 @@
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.Services;
+using System;
 using System.Threading.Tasks;
 
 namespace SCManager.Tests.Services
@@ -40,10 +41,54 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
-        public async Task SaveChangesAsync_WhenArgumentIsNull_ShouldReturnNewObject()
+        public async Task SaveChangesAsync_InvalidNewObject_ReturnsFalse()
         {
-            var result = await _componentTypeService.SaveChangesAsync(null);
-            Assert.IsNotNull(result);
+            var type = new ComponentType();
+            var result = await _componentTypeService.SaveChangesAsync(type);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public async Task SaveChangesAsync_ValidNewObject_ReturnsTrue()
+        {
+            var type = new ComponentType
+            {
+                Name = "",
+                ImageId = "",
+                CreatedDateTime = DateTime.UtcNow,
+                CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
+                IsActive = true
+            };
+            var result = await _componentTypeService.SaveChangesAsync(type);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public async Task SaveChangesAsync_InvalidUpdateObject_ReturnsFalse()
+        {
+            var type = new ComponentType();
+            var result = await _componentTypeService.SaveChangesAsync(type);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public async Task SaveChangesAsync_ValidUpdateObject_ReturnsTrue()
+        {
+            var type = new ComponentType
+            {
+                Id = 1,
+                Name = "",
+                ImageId = "",
+                CreatedDateTime = DateTime.UtcNow,
+                CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
+                IsActive = true
+            };
+            var result = await _componentTypeService.SaveChangesAsync(type);
+
+            Assert.IsTrue(result);
         }
     }
 }
