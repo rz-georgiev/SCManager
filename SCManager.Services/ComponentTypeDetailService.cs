@@ -33,7 +33,7 @@ namespace SCManager.Services
 
         public async Task<bool> ResetPrimaryStatuses(ComponentTypeDetail detail)
         {
-            if (detail == null)
+            if (detail == null || detail.Id == 0)
                 return false;
 
             var details = _context.ComponentTypeDetails
@@ -55,7 +55,7 @@ namespace SCManager.Services
         {
             try
             {
-                if (detail == null)
+                if (detail.Id == 0)
                 {
                     await _context.AddAsync(detail);
                 }

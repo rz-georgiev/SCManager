@@ -4,7 +4,7 @@ using SCManager.Data;
 
 namespace SCManager.Tests.Services
 {
-    public class BaseTest
+    public abstract class BaseTest
     {
         protected readonly SCManagerDbContext SCManagerDbContext;
 
