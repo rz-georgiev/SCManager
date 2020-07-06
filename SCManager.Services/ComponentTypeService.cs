@@ -28,13 +28,12 @@ namespace SCManager.Services
             return await _context.ComponentTypes
                 .SingleOrDefaultAsync(x => x.Id == id);
         }
-
  
         public async Task<bool> SaveChangesAsync(ComponentType type)
         {
             try
             {
-                if (type == null)
+                if (type.Id == 0)
                 {
                     await _context.AddAsync(type);
                 }

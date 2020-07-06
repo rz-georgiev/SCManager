@@ -33,7 +33,7 @@ namespace SCManager.Services
         {
             try
             {
-                if (multiplier == null)
+                if (multiplier.Id == 0)
                 {
                     await _context.AddAsync(multiplier);
                 }

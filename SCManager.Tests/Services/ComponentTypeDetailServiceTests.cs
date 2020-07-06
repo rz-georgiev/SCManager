@@ -2,6 +2,7 @@
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
 using SCManager.Services;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -51,12 +52,60 @@ namespace SCManager.Tests.Services
         }
 
         [TestMethod]
+        public async Task SaveChangesAsync_InvalidNewObject_ReturnsFalse()
+        {
+            var detail = new ComponentTypeDetail();
+            var result = await _componentTypeDetailService.SaveChangesAsync(detail);
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public async Task SaveChangesAsync_ValidNewObject_ReturnsTrue()
+        {
+            var detail = new ComponentTypeDetail
+            {
+                Name = "",
+                Unit = "",
+                Symbol = "",
+                IsPrimary = true,
+                ComponentTypeId = 1,
+                CreatedDateTime = DateTime.UtcNow,
+                CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
+                IsActive = true
+            };
+            var result = await _componentTypeDetailService.SaveChangesAsync(detail);
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
         public async Task SaveChangesAsync_InvalidUpdateObject_ReturnsFalse()
         {
             var detail = new ComponentTypeDetail();
             var result = await _componentTypeDetailService.SaveChangesAsync(detail);
 
             Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public async Task SaveChangesAsync_ValidUpdateObject_ReturnsTrue()
+        {
+            var detail = new ComponentTypeDetail
+            {
+                Id = 1,
+                Name = "",
+                Unit = "",
+                Symbol = "",
+                IsPrimary = true,
+                ComponentTypeId = 1,
+                CreatedDateTime = DateTime.UtcNow,
+                CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
+                IsActive = true
+            };
+            var result = await _componentTypeDetailService.SaveChangesAsync(detail);
+
+            Assert.IsTrue(result);
         }
     }
 }

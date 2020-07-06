@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SCManager.Data.Interfaces;
+using SCManager.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SCManager.Services.Tests
+namespace SCManager.Tests.Services
 {
     [TestClass]
     public class CloudinaryServiceTests
