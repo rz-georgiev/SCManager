@@ -23,16 +23,40 @@ namespace SCManager.Services
                 .Where(x => x.UserComponentTypeId == id);
         }
 
-        public async Task SaveDetailsAsync(IEnumerable<UserComponentTypeDetail> details)
+        public async Task<bool> SaveDetailsAsync(IEnumerable<UserComponentTypeDetail> details)
         {
-            await _context.UserComponentTypeDetails.AddRangeAsync(details);
-            await _context.SaveChangesAsync();
-        }
+            if (details == null)
+                return false;
 
-        public async Task UpdateRangeAsync(IEnumerable<UserComponentTypeDetail> details)
+            try
+            {
+                await _context.UserComponentTypeDetails.AddRangeAsync(details);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        
+        public async Task<bool> UpdateRangeAsync(IEnumerable<UserComponentTypeDetail> details)
         {
-            _context.UserComponentTypeDetails.UpdateRange(details);
-            await _context.SaveChangesAsync();
+            if (details == null)
+                return false;
+
+            try
+            {
+                _context.UserComponentTypeDetails.UpdateRange(details);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

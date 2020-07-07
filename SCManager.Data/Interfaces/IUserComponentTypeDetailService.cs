@@ -6,10 +6,10 @@ namespace SCManager.Data.Interfaces
 {
     public interface IUserComponentTypeDetailService
     {
-        Task SaveDetailsAsync(IEnumerable<UserComponentTypeDetail> details);
+        Task<bool> SaveDetailsAsync(IEnumerable<UserComponentTypeDetail> details);
 
         IEnumerable<UserComponentTypeDetail> GetByUserComponentTypeId(int? typeId);
 
-        Task UpdateRangeAsync(IEnumerable<UserComponentTypeDetail> details);
+        Task<bool> UpdateRangeAsync(IEnumerable<UserComponentTypeDetail> details);
     }
 }
