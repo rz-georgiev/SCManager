@@ -11,12 +11,12 @@ namespace SCManager.Data.Interfaces
        
         Task<UserComponentType> GetByIdAsync(int? typeId);
 
-        Task SaveComponentAsync(UserComponentType type);
+        Task<bool> SaveComponentAsync(UserComponentType type);
 
-        Task UpdateComponentAsync(UserComponentType type);
+        Task<bool> UpdateComponentAsync(UserComponentType type);
 
-        Task DeleteAsync(int id);
+        Task<bool> DeleteAsync(int id);
 
-        Task DeleteAllForUserIdAsync(string userId);
+        Task<bool> DeleteAllForUserIdAsync(string userId);
     }
 }
