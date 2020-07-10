@@ -93,7 +93,7 @@ namespace SCManager.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> MyComponent(int? userComponentTypeId)
+        public async Task<IActionResult> MyComponent(int? userComponentTypeId, int? defaultComponentTypeId)
         {
             var componentTypes = _componentTypeService.GetAll()
                 .Include(x => x.Details)
@@ -107,7 +107,8 @@ namespace SCManager.Controllers
             {
                 var defaultModel = new MyComponentInputModel
                 {
-                    ComponentTypes = componentTypes
+                    ComponentTypes = componentTypes,
+                    ComponentTypeId = defaultComponentTypeId ?? 0
                 };
 
                 return View(defaultModel);

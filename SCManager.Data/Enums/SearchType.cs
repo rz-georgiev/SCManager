@@ -2,7 +2,7 @@
 {
     public enum SearchType
     {
-        MyComponents = 1,
-        Components = 2
+        MyComponent = 1,
+        Component = 2
     }
 }

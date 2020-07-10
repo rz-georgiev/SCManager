@@ -1,15 +1,9 @@
-﻿using SCManager.Data.Enums;
+﻿using System.Collections.Generic;
 
 namespace SCManager.ViewModels.Search
 {
     public class IndexViewModel
     {
-        public int Id { get; set; }
-
-        public string ComponentName { get; set; }
-
-        public int? Quantity { get; set; }
-
-        public SearchType SearchType { get; set; }
+        public IEnumerable<ComponentViewModel> Models { get; set; }
     }
 }
