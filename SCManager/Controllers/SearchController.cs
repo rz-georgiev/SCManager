@@ -26,42 +26,47 @@ namespace SCManager.Controllers
 
         public async Task<IActionResult> Index(string searchText)
         {
+            searchText = searchText.ToLower();
             var user = await _userManager.GetUserAsync(User);
 
             var userComponentTypes = _searchService
                 .GetUserComponentTypes(user.Id)
                 .Include(x => x.ComponentType)
                 .Where(x => x.ComponentType.Name
+                .ToLower()
                 .Contains(searchText));
 
             var componentTypes = _searchService
                 .GetAllComponentTypes()
-                .Where(x => x.Name.Contains(searchText));
+                .Where(x => x.Name.ToLower()
+                .Contains(searchText));
 
-            var models = new List<IndexViewModel>();
+            var models = new List<ComponentViewModel>();
             await userComponentTypes.ForEachAsync(x =>
             {
-                models.Add(new IndexViewModel
+                models.Add(new ComponentViewModel
                 {
                     Id = x.Id,
                     ComponentName = x.ComponentType.Name,
                     Quantity = x.Quantity,
-                    SearchType = Data.Enums.SearchType.MyComponents
+                    SearchType = Data.Enums.SearchType.MyComponent
                 });
             });
 
             await componentTypes.ForEachAsync(x =>
             {
-                models.Add(new IndexViewModel
+                models.Add(new ComponentViewModel
                 {
                     Id = x.Id,
                     ComponentName = x.Name,
                     Quantity = null,
-                    SearchType = Data.Enums.SearchType.Components
+                    SearchType = Data.Enums.SearchType.Component
                 });
             });
 
-            return View(models);
+            var model = new IndexViewModel { Models = models };
+
+            return View(model);
         }
     }
 }
