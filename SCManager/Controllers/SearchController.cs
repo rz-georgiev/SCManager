@@ -1,9 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SCManager.Data.Interfaces;
 using SCManager.Data.Models;
-using SCManager.InputModels;
+using SCManager.ViewModels.Search;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace SCManager.Controllers
 {
@@ -20,11 +24,44 @@ namespace SCManager.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchText)
         {
-            var a = ViewBag.CurrentFilter as string;
+            var user = await _userManager.GetUserAsync(User);
 
-            return View();
+            var userComponentTypes = _searchService
+                .GetUserComponentTypes(user.Id)
+                .Include(x => x.ComponentType)
+                .Where(x => x.ComponentType.Name
+                .Contains(searchText));
+
+            var componentTypes = _searchService
+                .GetAllComponentTypes()
+                .Where(x => x.Name.Contains(searchText));
+
+            var models = new List<IndexViewModel>();
+            await userComponentTypes.ForEachAsync(x =>
+            {
+                models.Add(new IndexViewModel
+                {
+                    Id = x.Id,
+                    ComponentName = x.ComponentType.Name,
+                    Quantity = x.Quantity,
+                    SearchType = Data.Enums.SearchType.MyComponents
+                });
+            });
+
+            await componentTypes.ForEachAsync(x =>
+            {
+                models.Add(new IndexViewModel
+                {
+                    Id = x.Id,
+                    ComponentName = x.Name,
+                    Quantity = null,
+                    SearchType = Data.Enums.SearchType.Components
+                });
+            });
+
+            return View(models);
         }
     }
 }
