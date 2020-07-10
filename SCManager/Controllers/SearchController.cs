@@ -26,32 +26,46 @@ namespace SCManager.Controllers
 
         public async Task<IActionResult> Index(string searchText)
         {
-            searchText = searchText.ToLower();
+            searchText = searchText?.ToLower();
             var user = await _userManager.GetUserAsync(User);
 
-            var userComponentTypes = _searchService
-                .GetUserComponentTypes(user.Id)
+            var userComponentTypes = _searchService.GetUserComponentTypes(user.Id)
                 .Include(x => x.ComponentType)
+                    .ThenInclude(x => x.Details)
+                .Include(x => x.Details)
+                    .ThenInclude(x => x.UnitMultiplier)
                 .Where(x => x.ComponentType.Name
                 .ToLower()
-                .Contains(searchText));
-
-            var componentTypes = _searchService
-                .GetAllComponentTypes()
-                .Where(x => x.Name.ToLower()
-                .Contains(searchText));
+                .Contains(searchText))
+                .OrderByDescending(x => x.Id);
 
             var models = new List<ComponentViewModel>();
             await userComponentTypes.ForEachAsync(x =>
             {
+                var type = x.ComponentType;
+                var typeDetail = type.Details.SingleOrDefault(x => x.IsPrimary);
+                var userDetail = x.Details.SingleOrDefault(x => x.ComponentTypeDetail.IsPrimary);
+                var multiplier = userDetail.UnitMultiplier;
+                var valueType = userDetail.ComponentTypeDetail.Name;
+
                 models.Add(new ComponentViewModel
                 {
                     Id = x.Id,
                     ComponentName = x.ComponentType.Name,
                     Quantity = x.Quantity,
+                    TotalPrice = x.UnitPrice * x.Quantity,
+                    ValueType = valueType,
+                    Value = userDetail.Value,
+                    Multiplier = multiplier.Name,
+                    Unit = typeDetail.Symbol,
                     SearchType = Data.Enums.SearchType.MyComponent
                 });
             });
+
+            var componentTypes = _searchService
+              .GetAllComponentTypes()
+              .Where(x => x.Name.ToLower()
+              .Contains(searchText));
 
             await componentTypes.ForEachAsync(x =>
             {

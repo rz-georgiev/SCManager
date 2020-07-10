@@ -1,68 +1,67 @@
 ﻿@model SCManager.ViewModels.Search.IndexViewModel
 
-    <div id="cardsContainer">
+<div id="cardsContainer">
 
-        @{
-            var myComponents = Model.Models.Where(x => x.SearchType == SCManager.Data.Enums.SearchType.MyComponent);
-            var components = Model.Models.Where(x => x.SearchType == SCManager.Data.Enums.SearchType.Component);
-        }
+    @{
+        var myComponents = Model.Models.Where(x => x.SearchType == SCManager.Data.Enums.SearchType.MyComponent);
+        var components = Model.Models.Where(x => x.SearchType == SCManager.Data.Enums.SearchType.Component);
+    }
 
-        <h3>My components</h3>
-        @if (!myComponents.Any())
+    <h3>My components</h3>
+    @if (!myComponents.Any())
+    {
+        <h5 class="text-danger">--- Nothing found in the stash ---</h5>
+    }
+    else
+    {
+        @foreach (var component in myComponents)
         {
-            <h5 class="text-danger">--- Nothing found in the stash ---</h5>
-        }
-        else
-        {
-            @foreach (var component in myComponents)
-            {
-                <div class="card border-left-success shadow h-100 py-2" style="margin-bottom: 15px">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    <a asp-area="" asp-controller="MyComponents" asp-action="MyComponent" asp-route-userComponentTypeId="@component.Id">
-                                        @component.ComponentName x @component.Quantity
-                                    </a>
-                                </div>
-                                @*<div class="h5 mb-0 font-weight-bold text-gray-800">@component.ValueType: @component.Value @component.Multiplier@component.Unit</div>*@
+            <div class="card border-left-success shadow h-100 py-2" style="margin-bottom: 15px">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <a asp-area="" asp-controller="MyComponents" asp-action="MyComponent" asp-route-userComponentTypeId="@component.Id">
+                                    @component.ComponentName x @component.Quantity
+                                </a>
                             </div>
-                            @*<div class="col-auto">
-                                <span class="float-right">Total price: @component.TotalPrice</span>
-                            </div>*@
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@component.ValueType: @component.Value @component.Multiplier@component.Unit</div>
+                        </div>
+                        <div class="col-auto">
+                            <span class="float-right">Total price: @component.TotalPrice</span>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
         }
+    }
 
-        <h3>-----------------------------</h3>
-        <br />
-        <br />
+    <h3>-----------------------------</h3>
+    <br />
+    <br />
 
-        <h3>Possible components</h3>
-        @if (!components.Any())
+    <h3>Possible components</h3>
+    @if (!components.Any())
+    {
+        <h5 class="text-danger">--- Nothing found in the stash ---</h5>
+    }
+    else
+    {
+        @foreach (var component in components)
         {
-            <h5 class="text-danger">--- Nothing found in the stash ---</h5>
-        }
-        else
-        {
-            @foreach (var component in components)
-            {
-                <div class="card border-left-success shadow h-100 py-2" style="margin-bottom: 15px">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    <a asp-area="" asp-controller="MyComponents" asp-action="MyComponent" asp-route-userComponentTypeId="@component.Id">
-                                        @component.ComponentName
-                                    </a>
-                                </div>
+            <div class="card border-left-success shadow h-100 py-2" style="margin-bottom: 15px">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                <a asp-area="" asp-controller="MyComponents" asp-action="MyComponent" asp-route-defaultComponentTypeId="@component.Id">
+                                    @component.ComponentName
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            }
+            </div>
         }
-
-    </div>
+    }
+</div>

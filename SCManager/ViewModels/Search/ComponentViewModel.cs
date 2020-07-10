@@ -10,6 +10,16 @@ namespace SCManager.ViewModels.Search
 
         public int? Quantity { get; set; }
 
+        public decimal? TotalPrice { get; set; }
+
+        public string ValueType { get; set; }
+
+        public float? Value { get; set; }
+
+        public string Multiplier { get; set; }
+
+        public string Unit { get; set; }
+
         public SearchType SearchType { get; set; }
     }
 }
