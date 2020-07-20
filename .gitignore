@@ -10,3 +10,6 @@ SCManager.Tests/obj
 *.user
 *.pubxml
 SCManager.Tests/appsettings.json
+*.v2
+.vs/SCManager/v16/.suo
+*.v2
