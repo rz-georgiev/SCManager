@@ -36,7 +36,6 @@ namespace SCManager
         {
             _services = services;
 
-            ConfigureHttpSettings();
             ConfigureCookiePolicyOptions();
             ConfigureDbContext();
             ConfigureIdentityRolesOptions();
@@ -94,24 +93,6 @@ namespace SCManager
 
         // Separating the ConfigureServices method into different pieces
         // Its too damn big otherwise.
-        private void ConfigureHttpSettings()
-        {
-            //_services.AddHttpsRedirection(options =>
-            //{
-            //    options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
-            //    options.HttpsPort = 5001;
-            //});
-
-            //_services.AddHsts(options =>
-            //{
-            //    options.Preload = true;
-            //    options.IncludeSubDomains = true;
-            //    options.MaxAge = TimeSpan.FromDays(60);
-            //    //options.ExcludedHosts.Add("scmananager.eu");
-            //    //options.ExcludedHosts.Add("www.scmanager.eu");
-            //});
-        }
-
         private void ConfigureCookiePolicyOptions()
         {
             _services.Configure<CookiePolicyOptions>(options =>
