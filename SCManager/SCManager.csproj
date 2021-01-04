@@ -10,7 +10,7 @@
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
 		<PackageReference Include="BuildBundlerMinifier" Version="3.2.447" />
 		<PackageReference Include="Cloudinary.Core" Version="1.31.0" />
-		<PackageReference Include="HtmlSanitizer" Version="5.0.331" />
+		<PackageReference Include="HtmlSanitizer" Version="5.0.372" />
 		<PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
