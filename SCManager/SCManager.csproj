@@ -22,7 +22,7 @@
 		<PackageReference Include="Microsoft.ML.Probabilistic" Version="0.3.2102.1701" />
 		<PackageReference Include="Microsoft.ML.Probabilistic.Compiler" Version="0.3.2102.1701" />
 		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-		<PackageReference Include="Moment.js" Version="2.29.1" />
+		<PackageReference Include="Moment.js" Version="2.29.2" />
 	</ItemGroup>
 
 	<ItemGroup>
