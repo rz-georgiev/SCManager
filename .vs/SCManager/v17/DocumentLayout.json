@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "D:\\Development\\SCManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\scmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\scmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\migrations\\20240523123508_initialwithmysql.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\migrations\\20240523123508_initialwithmysql.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\scmanager.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\scmanager.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\services\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|solutionrelative:scmanager.tests\\services\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|solutionrelative:scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,89 +38,106 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SCManager",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj",
-              "RelativeDocumentMoniker": "SCManager\\SCManager.csproj",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj [Read Only]",
-              "RelativeToolTip": "SCManager\\SCManager.csproj [Read Only]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-23T12:11:34.09Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20240523120827_TestWithArchivedSqlServerFiles3.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs [Read Only]",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs [Read Only]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:08:27.226Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SCManager.Data",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\SCManager.Data.csproj",
-              "RelativeDocumentMoniker": "SCManager.Data\\SCManager.Data.csproj",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\SCManager.Data.csproj [Read Only]",
-              "RelativeToolTip": "SCManager.Data\\SCManager.Data.csproj [Read Only]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-05-23T12:01:20.998Z",
-              "EditorCaption": " [Read Only]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "20240523120339_TestWithArchivedSqlServerFiles.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs [Read Only]",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs [Read Only]",
+              "DocumentIndex": 0,
+              "Title": "20240523123508_InitialWithMySql.Designer.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
+              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
+              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAawBEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T12:35:33.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "20240523123508_InitialWithMySql.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
+              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
+              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:03:39.43Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-05-23T12:35:08.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Production.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Production.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeToolTip": "SCManager\\appsettings.Production.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T12:34:50.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Development.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeToolTip": "SCManager\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T12:34:49.253Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BaseTest.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
-              "RelativeDocumentMoniker": "SCManager.Tests\\Services\\BaseTest.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs [Read Only]",
-              "RelativeToolTip": "SCManager.Tests\\Services\\BaseTest.cs [Read Only]",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:51:24.318Z",
-              "EditorCaption": " [Read Only]"
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeToolTip": "SCManager\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T12:34:47.241Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
+              "RelativeDocumentMoniker": "SCManager.Tests\\appsettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
+              "RelativeToolTip": "SCManager.Tests\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T12:33:29.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Startup.cs",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
               "RelativeDocumentMoniker": "SCManager\\Startup.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs [Read Only]",
-              "RelativeToolTip": "SCManager\\Startup.cs [Read Only]",
-              "ViewState": "AQIAAGEAAAAAAAAAAAASwHUAAAAOAAAA",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
+              "RelativeToolTip": "SCManager\\Startup.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAawHQAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:49:02.357Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-05-23T12:32:18.322Z",
+              "EditorCaption": ""
             }
           ]
         }

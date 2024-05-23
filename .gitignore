@@ -23,3 +23,7 @@ SCManager.Tests/appsettings.json
 /.vs/SCManager/v17/.futdcache.v1
 /.vs/SCManager/v17/fileList.bin
 /.vs/SCManager/FileContentIndex
+/SCManager/appsettings.Development.json
+/SCManager/appsettings.json
+/SCManager/appsettings.Production.json
+/SCManager.Tests/appsettings.json
