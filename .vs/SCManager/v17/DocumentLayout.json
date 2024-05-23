@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "D:\\Development\\SCManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\scmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\scmanager.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\scmanager.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\scmanager.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523115431_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523115431_Initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\services\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,15 +39,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "20240523120916_TestWithArchivedSqlServerFiles.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120916_TestWithArchivedSqlServerFiles.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:09:16.905Z",
-              "EditorCaption": ""
+              "Title": "SCManager",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj",
+              "RelativeDocumentMoniker": "SCManager\\SCManager.csproj",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj [Read Only]",
+              "RelativeToolTip": "SCManager\\SCManager.csproj [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-23T12:11:34.09Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
@@ -59,12 +55,12 @@
               "Title": "20240523120827_TestWithArchivedSqlServerFiles3.cs",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
               "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs [Read Only]",
+              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120827_TestWithArchivedSqlServerFiles3.cs [Read Only]",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T12:08:27.226Z",
-              "EditorCaption": ""
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
@@ -72,12 +68,12 @@
               "Title": "SCManager.Data",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\SCManager.Data.csproj",
               "RelativeDocumentMoniker": "SCManager.Data\\SCManager.Data.csproj",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\SCManager.Data.csproj",
-              "RelativeToolTip": "SCManager.Data\\SCManager.Data.csproj",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\SCManager.Data.csproj [Read Only]",
+              "RelativeToolTip": "SCManager.Data\\SCManager.Data.csproj [Read Only]",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-05-23T12:01:20.998Z",
-              "EditorCaption": ""
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Bookmark",
@@ -89,51 +85,38 @@
               "Title": "20240523120339_TestWithArchivedSqlServerFiles.cs",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
               "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs [Read Only]",
+              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523120339_TestWithArchivedSqlServerFiles.cs [Read Only]",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T12:03:39.43Z",
-              "EditorCaption": ""
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "20240523115431_Initial.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523115431_Initial.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523115431_Initial.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523115431_Initial.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523115431_Initial.cs",
-              "ViewState": "AQIAADgAAAAAAAAAAAAewE4AAAA5AAAA",
+              "Title": "BaseTest.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
+              "RelativeDocumentMoniker": "SCManager.Tests\\Services\\BaseTest.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs [Read Only]",
+              "RelativeToolTip": "SCManager.Tests\\Services\\BaseTest.cs [Read Only]",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:54:32.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-23T11:51:24.318Z",
+              "EditorCaption": " [Read Only]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "BaseTest.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
-              "RelativeDocumentMoniker": "SCManager.Tests\\Services\\BaseTest.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
-              "RelativeToolTip": "SCManager.Tests\\Services\\BaseTest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T11:51:24.318Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Startup.cs",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
               "RelativeDocumentMoniker": "SCManager\\Startup.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
-              "RelativeToolTip": "SCManager\\Startup.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs [Read Only]",
+              "RelativeToolTip": "SCManager\\Startup.cs [Read Only]",
               "ViewState": "AQIAAGEAAAAAAAAAAAASwHUAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-23T11:49:02.357Z",
-              "EditorCaption": ""
+              "EditorCaption": " [Read Only]"
             }
           ]
         }
