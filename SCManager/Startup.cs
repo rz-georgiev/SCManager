@@ -110,10 +110,11 @@ namespace SCManager
 
         private void ConfigureDbContext()
         {
+            var connectionString = Configuration.GetConnectionString("SCManagerDbConnection");
             _services.AddDbContext<SCManagerDbContext>
             (
                 options => options
-                .UseSqlServer(Configuration.GetConnectionString("SCManagerDbConnection"))
+                .UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
             );
         }
 

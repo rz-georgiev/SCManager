@@ -14,8 +14,10 @@ namespace SCManager.Tests.Services
             .AddJsonFile("appsettings.json")
             .Build();
 
+            var connectionString = configuration.GetConnectionString("SCManagerDbConnection");
+
             var options = new DbContextOptionsBuilder();
-            options.UseSqlServer(configuration.GetConnectionString("SCManagerDbConnection"));
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
             SCManagerDbContext = new SCManagerDbContext(options.Options);
         }

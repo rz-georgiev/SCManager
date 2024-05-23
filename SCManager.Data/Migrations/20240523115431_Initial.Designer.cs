@@ -7,45 +7,48 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCManager.Data;
 
+#nullable disable
+
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    [Migration("20200620075429_UpdatedDataSeedingInfo")]
-    partial class UpdatedDataSeedingInfo
+    [Migration("20240523115431_Initial")]
+    partial class Initial
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.5")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
+                        .HasDatabaseName("RoleNameIndex");
 
-                    b.ToTable("AspNetRoles");
+                    b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
@@ -68,87 +71,89 @@ namespace SCManager.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims");
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("UserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles");
+                    b.ToTable("AspNetUserRoles", (string)null);
 
                     b.HasData(
                         new
@@ -161,104 +166,103 @@ namespace SCManager.Data.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasMaxLength(128)
+                        .HasColumnType("varchar(128)");
 
                     b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens");
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("ImageId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsBanned")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(256)")
-                        .HasMaxLength(256);
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("LastUpdatedByUserId");
 
                     b.HasIndex("NormalizedEmail")
-                        .HasName("EmailIndex");
+                        .HasDatabaseName("EmailIndex");
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+                        .HasDatabaseName("UserNameIndex");
 
-                    b.ToTable("AspNetUsers");
+                    b.ToTable("AspNetUsers", (string)null);
 
                     b.HasData(
                         new
@@ -285,29 +289,32 @@ namespace SCManager.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("ImageId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("longtext");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -453,38 +460,43 @@ namespace SCManager.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ComponentTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("IsPrimary")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Symbol")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Unit")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1003,29 +1015,33 @@ namespace SCManager.Data.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1039,114 +1055,7 @@ namespace SCManager.Data.Migrations
                         new
                         {
                             Id = 5,
-                            Content = @"<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Name</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">SCManager</p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Description</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">SCManager is a semiconductors management application, that is directed for usage by electronics and electrician specialists, so they can keep track of what components they have in stash.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color:rgba(255, 255, 255, 1);"">It can also be used in some warehouses/repair shops.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;"">Project github url:&nbsp;</span><a href=""https://github.com/rz-georgiev/SCManager"">https://github.com/rz-georgiev/SCManager</a></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">About</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">This project will be used as a <strong>diploma work</strong> and for a <strong>CV upgrade.</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Supervisor: Associate Professor Dr. Lyudmila Dimitrova</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1);""><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;"">Head of a master's program:&nbsp;</span><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">Associate Professor Dr.</span><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">&nbsp;Stanislav Simeonov</span></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">Head of department:&nbsp;</span><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">Associate Professor Dr.</span><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">&nbsp;Veselina Bureva</span></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;"">Graduate: Radoslav Georgiev</span></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Installation</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Download the project and start the solution.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Create a profile and get a private key from&nbsp;<a style=""font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"" href=""https://sendgrid.com/"">https://sendgrid.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Create a profile and get a private key from <a style=""font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"" href=""https://cloudinary.com/"">https://cloudinary.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Now replace these keys in your appsettings.json file.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">The application will automatically apply the migrations and the sample data seeding for you, so just build and run the solution.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;"">Note: First launch can be a little bit slow, because of the database creation and the data seeding.</span></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Technologies:</h3>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* .NET Core 3.1</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Entity Framework Core</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* AutoMapper</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* BuildBundlerMinifier</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Cloudinary.Core</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* HtmlSanitizer</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Bootstrap</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* SendGrid</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Chart.js</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Datatables.js</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* JQuery</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* ML.NET for the Bayesian analysis</span></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Features</h3>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Enabled ASP.NET Core Identity authentication [extended via ApplicationUser class]</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Enabled auto-generation of antiforgery token for each post request.</span></p>
-<p><span style=""color: rgba(52, 73, 94, 1);"">* Enabled by default - protection from XSS attacks via the HTML Razor symbol escape operations</span></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125;"">Usage</h3>
-<p><strong style=""color: rgba(74, 74, 74, 1);"">User profile:</strong></p>
-<p><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">You can change your profile picture, email and password.</span></p>
-<p><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">You can also download your personal data in a .json file format.</span></p>
-<p><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">There is a option to delete your account and all related data to it.</span></p>
-<p><span style=""color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">In the Two-factor authentication tab, you can configure an authenticator app via a QR code or a private key, so when you login, you will have an additional layer of security.</span></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);""><strong>Dashboard: </strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">You can see how many components you have in total of each type and what percentage it takes from the total components count [via a progress bar].</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">In the top right of the progress bar there is a total price for all the components of the type.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">In the bottom there is a chart which shows you also the total price for each component type.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><strong>My components:</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Here you can add a new component and fill it with Quantites, Unit price and all other properties associated with it.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubun tu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Also you can see in a nice card menu all components you have and their basic information.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><strong>Bayesian analysis TODO:</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">###</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><strong>Admin panel:</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Displayed in a neat fully functional tables, you can manage the Users roles,</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);"">create/edit component types, create/edit unit multipliers and also edit the site Privacy and About tabs information.</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">To see and use the Admin panel you need to authorized and have the according roles [""Administrator""].</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><strong>Privacy policy:</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">There you can read all needed information about the GDPR agreements and your user rights. [Theres is an GDPR agreement option when you first visit the website].</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><strong>About:&nbsp;</strong></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Well, this is the page you are currently reading.</p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Support</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Post your questions to scmanager_test[at]mail[dot]com</p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Contributing</h3>
-<p><span style=""color: rgba(52, 73, 94, 1);"">Just copy the project a nd have fun</span></p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Authors and acknowledgment</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(52, 73, 94, 1);"">Special thanks to:</span></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://www.microsoft.com/en-us"">https://www.microsoft.com/en-us</a></p>
-<p style=""margin: 1em 0 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://startbootstrap.com/themes/sb-admin-2/"">https://startbootstrap.com/themes/sb-admin-2/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://github.com/StartBootstrap/startbootstrap-sb-admin-2"">https://github.com/StartBootstrap/startbootstrap-sb-admin-2</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a style=""font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"" href=""https://sendgrid.com/"">https://sendgrid.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a style=""font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"" href=""https://cloudinary.com/"">https://cloudinary.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxyg en, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://github.com/mganss/HtmlSanitizer"">https://github.com/mganss/HtmlSanitizer</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1);""><a href=""https://www.chartjs.org/"">https://www.chartjs.org/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://datatables.net/"">https://datatables.net/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://fontawesome.com/"">https://fontawesome.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://www.tiny.cloud/"">https://www.tiny.cloud/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><a href=""https://jquery.com/"">https://jquery.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);""><a href=""https://getbootstrap.com/"">https://getbootstrap.com/</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);""><a href=""https://www.freepik.com/free-photos-vectors/web-banner"">https://www.freepik.com/free-photos-vectors/web-banner</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);""><a href=""https://undraw.co/illustrations"">https://undraw.co/illustrations</a></p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">Me: R. Georgiev</p>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);"">&nbsp;</p>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">License</h3>
-<pre style=""overflow: auto; font-family: Consolas, Monaco, Courier, monospace; font-size: 14px; background-color: rgba(255, 255, 255, 1); border: 1px solid rgba(238, 238, 238, 1); border-radius: 3px; padding: 20px; color: rgba(92, 88, 85, 1);"">MIT License
-
-Copyright (c) [2020] [SCManager]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the ""Software""), to deal
-in the Software without restric
-tion, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so
-, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED ""AS IS"",WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHE
-R IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</pre>
-<h3 style=""margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);"">Project status</h3>
-<p style=""margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);""><span style=""color: rgba(52, 73, 94, 1);"">Currently in development.</span></p>",
+                            Content = "<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Name</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">SCManager</p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Description</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">SCManager is a semiconductors management application, that is directed for usage by electronics and electrician specialists, so they can keep track of what components they have in stash.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color:rgba(255, 255, 255, 1);\">It can also be used in some warehouses/repair shops.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;\">Project github url:&nbsp;</span><a href=\"https://github.com/rz-georgiev/SCManager\">https://github.com/rz-georgiev/SCManager</a></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">About</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">This project will be used as a <strong>diploma work</strong> and for a <strong>CV upgrade.</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Supervisor: Associate Professor Dr. Lyudmila Dimitrova</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1);\"><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;\">Head of a master's program:&nbsp;</span><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">Associate Professor Dr.</span><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">&nbsp;Stanislav Simeonov</span></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">Head of department:&nbsp;</span><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">Associate Professor Dr.</span><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">&nbsp;Veselina Bureva</span></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px;\">Graduate: Radoslav Georgiev</span></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Installation</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Download the project and start the solution.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Create a profile and get a private key from&nbsp;<a style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\" href=\"https://sendgrid.com/\">https://sendgrid.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Create a profile and get a private key from <a style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\" href=\"https://cloudinary.com/\">https://cloudinary.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Now replace these keys in your appsettings.json file.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">The application will automatically apply the migrations and the sample data seeding for you, so just build and run the solution.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;\">Note: First launch can be a little bit slow, because of the database creation and the data seeding.</span></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Technologies:</h3>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* .NET Core 3.1</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Entity Framework Core</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* AutoMapper</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* BuildBundlerMinifier</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Cloudinary.Core</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* HtmlSanitizer</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Bootstrap</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* SendGrid</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Chart.js</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Datatables.js</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* JQuery</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* ML.NET for the Bayesian analysis</span></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Features</h3>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Enabled ASP.NET Core Identity authentication [extended via ApplicationUser class]</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Enabled auto-generation of antiforgery token for each post request.</span></p>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">* Enabled by default - protection from XSS attacks via the HTML Razor symbol escape operations</span></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125;\">Usage</h3>\r\n<p><strong style=\"color: rgba(74, 74, 74, 1);\">User profile:</strong></p>\r\n<p><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">You can change your profile picture, email and password.</span></p>\r\n<p><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">You can also download your personal data in a .json file format.</span></p>\r\n<p><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">There is a option to delete your account and all related data to it.</span></p>\r\n<p><span style=\"color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">In the Two-factor authentication tab, you can configure an authenticator app via a QR code or a private key, so when you login, you will have an additional layer of security.</span></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);\"><strong>Dashboard: </strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">You can see how many components you have in total of each type and what percentage it takes from the total components count [via a progress bar].</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">In the top right of the progress bar there is a total price for all the components of the type.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">In the bottom there is a chart which shows you also the total price for each component type.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><strong>My components:</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Here you can add a new component and fill it with Quantites, Unit price and all other properties associated with it.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubun tu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Also you can see in a nice card menu all components you have and their basic information.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><strong>Bayesian analysis TODO:</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">###</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><strong>Admin panel:</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Displayed in a neat fully functional tables, you can manage the Users roles,</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);\">create/edit component types, create/edit unit multipliers and also edit the site Privacy and About tabs information.</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">To see and use the Admin panel you need to authorized and have the according roles [\"Administrator\"].</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><strong>Privacy policy:</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">There you can read all needed information about the GDPR agreements and your user rights. [Theres is an GDPR agreement option when you first visit the website].</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><strong>About:&nbsp;</strong></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Well, this is the page you are currently reading.</p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Support</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Post your questions to scmanager_test[at]mail[dot]com</p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Contributing</h3>\r\n<p><span style=\"color: rgba(52, 73, 94, 1);\">Just copy the project a nd have fun</span></p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Authors and acknowledgment</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(52, 73, 94, 1);\">Special thanks to:</span></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://www.microsoft.com/en-us\">https://www.microsoft.com/en-us</a></p>\r\n<p style=\"margin: 1em 0 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://startbootstrap.com/themes/sb-admin-2/\">https://startbootstrap.com/themes/sb-admin-2/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://github.com/StartBootstrap/startbootstrap-sb-admin-2\">https://github.com/StartBootstrap/startbootstrap-sb-admin-2</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\" href=\"https://sendgrid.com/\">https://sendgrid.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\" href=\"https://cloudinary.com/\">https://cloudinary.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxyg en, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://github.com/mganss/HtmlSanitizer\">https://github.com/mganss/HtmlSanitizer</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1);\"><a href=\"https://www.chartjs.org/\">https://www.chartjs.org/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://datatables.net/\">https://datatables.net/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://fontawesome.com/\">https://fontawesome.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://www.tiny.cloud/\">https://www.tiny.cloud/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><a href=\"https://jquery.com/\">https://jquery.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);\"><a href=\"https://getbootstrap.com/\">https://getbootstrap.com/</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);\"><a href=\"https://www.freepik.com/free-photos-vectors/web-banner\">https://www.freepik.com/free-photos-vectors/web-banner</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); background-color: rgba(255, 255, 255, 1);\"><a href=\"https://undraw.co/illustrations\">https://undraw.co/illustrations</a></p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">Me: R. Georgiev</p>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\">&nbsp;</p>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">License</h3>\r\n<pre style=\"overflow: auto; font-family: Consolas, Monaco, Courier, monospace; font-size: 14px; background-color: rgba(255, 255, 255, 1); border: 1px solid rgba(238, 238, 238, 1); border-radius: 3px; padding: 20px; color: rgba(92, 88, 85, 1);\">MIT License\r\n\r\nCopyright (c) [2020] [SCManager]\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restric\r\ntion, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so\r\n, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\",WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHE\r\nR IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.</pre>\r\n<h3 style=\"margin: 1em 0 1.5rem; padding: 0; font-size: 1.5rem; color: rgba(54, 54, 54, 1); line-height: 1.125; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: rgba(255, 255, 255, 1);\">Project status</h3>\r\n<p style=\"margin: 1em 0 0; padding: 0; color: rgba(74, 74, 74, 1); font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 16px; background-color: rgba(255, 255, 255, 1);\"><span style=\"color: rgba(52, 73, 94, 1);\">Currently in development.</span></p>",
                             CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
                             CreatedDateTime = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
@@ -1157,23 +1066,7 @@ SOFTWARE.</pre>
                         new
                         {
                             Id = 6,
-                            Content = @"<p>Your privacy is important to us. It is SCManager's policy to respect your privacy regarding any information we may collect from you across our website, <a href=""http://www.scmanager.com/"">http://www.scmanager.com/</a>, and other sites we
- own and operate.</p>
-<p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we&rsquo;re collecting it and how it will be used.</p>
-<p>We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we&rsquo;ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
-<p>We don&rsquo;t share any personally identifying information publicly or with third-parties, ex
-cept when required to by law.</p>
-<p>Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>
-<p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>
-<p>Your continued use of our website will be regarded as acceptance of our practices around privacy and persona
-l information. If you have any questions about how we handle user data and personal information, feel free to contact us.</p>
-<p>&nbsp;</p>
-<p>This policy is effective as of 2 June 2020.</p>
-<p>&nbsp;</p>
-<p>Best regards,</p>
-<p>The SCManager team</p>
-<p>&nbsp;</p>
-<p><a title=""Generate a free privacy policy"" href=""https://getterms.io"">Privacy Policy created with GetTerms.</a></p>",
+                            Content = "<p>Your privacy is important to us. It is SCManager's policy to respect your privacy regarding any information we may collect from you across our website, <a href=\"http://www.scmanager.com/\">http://www.scmanager.com/</a>, and other sites we\r\n own and operate.</p>\r\n<p>We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we&rsquo;re collecting it and how it will be used.</p>\r\n<p>We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we&rsquo;ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>\r\n<p>We don&rsquo;t share any personally identifying information publicly or with third-parties, ex\r\ncept when required to by law.</p>\r\n<p>Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites, and cannot accept responsibility or liability for their respective privacy policies.</p>\r\n<p>You are free to refuse our request for your personal information, with the understanding that we may be unable to provide you with some of your desired services.</p>\r\n<p>Your continued use of our website will be regarded as acceptance of our practices around privacy and persona\r\nl information. If you have any questions about how we handle user data and personal information, feel free to contact us.</p>\r\n<p>&nbsp;</p>\r\n<p>This policy is effective as of 2 June 2020.</p>\r\n<p>&nbsp;</p>\r\n<p>Best regards,</p>\r\n<p>The SCManager team</p>\r\n<p>&nbsp;</p>\r\n<p><a title=\"Generate a free privacy policy\" href=\"https://getterms.io\">Privacy Policy created with GetTerms.</a></p>",
                             CreatedByUserId = "7b26038d-1a43-4248-90e1-dc7f0381d7fa",
                             CreatedDateTime = new DateTime(2020, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
@@ -1185,26 +1078,29 @@ l information. If you have any questions about how we handle user data and perso
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -1291,26 +1187,28 @@ l information. If you have any questions about how we handle user data and perso
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ComponentTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -1395,26 +1293,28 @@ l information. If you have any questions about how we handle user data and perso
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("ComponentTypeDetailId")
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("LastUpdatedByUserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime?>("LastUpdatedDateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("UnitMultiplierId")
                         .HasColumnType("int");
@@ -1423,7 +1323,7 @@ l information. If you have any questions about how we handle user data and perso
                         .HasColumnType("int");
 
                     b.Property<float>("Value")
-                        .HasColumnType("real");
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -1745,17 +1645,25 @@ l information. If you have any questions about how we handle user data and perso
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.ComponentType", b =>
                 {
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.ComponentTypeDetail", b =>
@@ -1768,33 +1676,53 @@ l information. If you have any questions about how we handle user data and perso
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("ComponentType");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.StaticSiteInfo", b =>
                 {
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.UnitMultiplier", b =>
                 {
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.UserComponentType", b =>
@@ -1807,11 +1735,19 @@ l information. If you have any questions about how we handle user data and perso
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
                         .HasForeignKey("LastUpdatedByUserId");
+
+                    b.Navigation("ComponentType");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
                 });
 
             modelBuilder.Entity("SCManager.Data.Models.UserComponentTypeDetail", b =>
@@ -1824,7 +1760,9 @@ l information. If you have any questions about how we handle user data and perso
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "CreatedByUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId");
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("SCManager.Data.Models.ApplicationUser", "LastUpdatedByUser")
                         .WithMany()
@@ -1841,6 +1779,26 @@ l information. If you have any questions about how we handle user data and perso
                         .HasForeignKey("UserComponentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ComponentType");
+
+                    b.Navigation("ComponentTypeDetail");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("LastUpdatedByUser");
+
+                    b.Navigation("UnitMultiplier");
+                });
+
+            modelBuilder.Entity("SCManager.Data.Models.ComponentType", b =>
+                {
+                    b.Navigation("Details");
+                });
+
+            modelBuilder.Entity("SCManager.Data.Models.UserComponentType", b =>
+                {
+                    b.Navigation("Details");
                 });
 #pragma warning restore 612, 618
         }
