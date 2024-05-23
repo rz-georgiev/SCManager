@@ -215,6 +215,7 @@ namespace SCManager.Controllers
             }
         }
 
+      
         public async Task<IActionResult> Delete(int id)
         {
             await _userComponentTypeService.DeleteAsync(id);
