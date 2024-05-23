@@ -7,7 +7,7 @@ namespace SCManager.Controllers
 {
     public class BayesianAnalysisController : Controller
     {
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             // TODO Finish this piece
 

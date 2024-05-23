@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Ganss.XSS;
+using Ganss.Xss;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

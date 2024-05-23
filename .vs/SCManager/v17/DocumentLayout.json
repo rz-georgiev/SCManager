@@ -1,0 +1,206 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Development\\SCManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\services\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|solutionrelative:scmanager.tests\\services\\basetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|solutionrelative:scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\scmanager.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\scmanager.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\controllers\\bayesiananalysiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\controllers\\bayesiananalysiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\controllers\\privacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\controllers\\privacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseTest.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
+              "RelativeDocumentMoniker": "SCManager.Tests\\Services\\BaseTest.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\Services\\BaseTest.cs",
+              "RelativeToolTip": "SCManager.Tests\\Services\\BaseTest.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAUwBEAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:33:42.345Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.Production.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Production.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeToolTip": "SCManager\\appsettings.Production.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T11:33:29.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeToolTip": "SCManager\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T11:33:26.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Development.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeToolTip": "SCManager\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T11:33:14.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
+              "RelativeDocumentMoniker": "SCManager.Tests\\appsettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
+              "RelativeToolTip": "SCManager.Tests\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T11:25:04.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "SCManager\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Properties\\launchSettings.json",
+              "RelativeToolTip": "SCManager\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-23T11:22:07.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SCManager",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj",
+              "RelativeDocumentMoniker": "SCManager\\SCManager.csproj",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\SCManager.csproj",
+              "RelativeToolTip": "SCManager\\SCManager.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-23T11:18:21.895Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BayesianAnalysisController.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Controllers\\BayesianAnalysisController.cs",
+              "RelativeDocumentMoniker": "SCManager\\Controllers\\BayesianAnalysisController.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Controllers\\BayesianAnalysisController.cs",
+              "RelativeToolTip": "SCManager\\Controllers\\BayesianAnalysisController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAB8AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:17:02.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
+              "RelativeDocumentMoniker": "SCManager\\Startup.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
+              "RelativeToolTip": "SCManager\\Startup.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAUwHMAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:16:45.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PrivacyController.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Controllers\\PrivacyController.cs",
+              "RelativeDocumentMoniker": "SCManager\\Controllers\\PrivacyController.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Controllers\\PrivacyController.cs",
+              "RelativeToolTip": "SCManager\\Controllers\\PrivacyController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:15:45.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "SCManager\\Controllers\\AdminController.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "SCManager\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-23T11:15:26.187Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

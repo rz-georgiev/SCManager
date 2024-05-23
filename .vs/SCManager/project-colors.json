@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c90d961c-4aea-4047-bb22-1eb177f190eb": {
+      "ProjectGuid": "c90d961c-4aea-4047-bb22-1eb177f190eb",
+      "DisplayName": "SCManager",
+      "ColorIndex": 0
+    },
+    "ab900888-9405-4ff5-be56-8f74fd982933": {
+      "ProjectGuid": "ab900888-9405-4ff5-be56-8f74fd982933",
+      "DisplayName": "SCManager.Data",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
