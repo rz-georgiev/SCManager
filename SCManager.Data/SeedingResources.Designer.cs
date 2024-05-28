@@ -19,7 +19,7 @@ namespace SCManager.Data {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class SeedingResources {
@@ -79,7 +79,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;postmaster@scmanager.space&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;postmaster@scmanager.space&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;53ea6bca-6c80-400c-9cb5-ac31d508a7f7&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;53ea6bca-6c80-400c-9cb5-ac31d508a7f7&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AspNetUsers {
             get {
@@ -97,7 +97,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:1,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:04:56.3178451&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:12:00.4710893&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;DIAC&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;ImageId&quot;:&quot;rvujbwa21jy4nqzpv6nh&quot;},{&quot;Id&quot;:2,&quot;CreatedDateTime&quot;:&quot;2020-06-18T12:19:20.8560471&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2020-06-18T12:24:20.9437730&quot;,&quot;IsActive&quot;:true,&quot;Name&quot;:&quot;Diode&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:1,&quot;CreatedDateTime&quot;:&quot;2020-06-18T09:04:56.317Z&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2022-08-25T08:35:36.253Z&quot;,&quot;IsActive&quot;:1,&quot;Name&quot;:&quot;DIAC&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;ImageId&quot;:&quot;ppslaiahjrh2k4epp0em&quot;},{&quot;Id&quot;:2,&quot;CreatedDateTime&quot;:&quot;2020-06-18T09:19:20.856Z&quot;,&quot;LastUpdatedDateTime&quot;:&quot;2022-08-25T08:35:31.182Z&quot;,&quot;IsActive&quot;:1,&quot;Name&quot;:&quot;Diode&quot;,&quot;CreatedByUserId&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;LastUpdatedByUserId&quot;:&quot;7b26038d-1a43-4248-9 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ComponentTypes {
             get {
