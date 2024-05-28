@@ -16,9 +16,9 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ISendGridService _sendGridService;
+        private readonly ISmtpService _sendGridService;
 
-        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, ISendGridService sendGridService)
+        public ForgotPasswordModel(UserManager<ApplicationUser> userManager, ISmtpService sendGridService)
         {
             _userManager = userManager;
             _sendGridService = sendGridService;

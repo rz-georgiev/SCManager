@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\Development\\SCManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\migrations\\20240523123508_initialwithmysql.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\migrations\\20240523123508_initialwithmysql.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.production.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -19,16 +15,28 @@
       "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|d:\\development\\scmanager\\scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{38100332-8D52-4C53-96E4-4CF50533C3BF}|SCManager.Tests\\SCManager.Tests.csproj|solutionrelative:scmanager.tests\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\interfaces\\ismtpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\interfaces\\ismtpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A4C43FF-E26D-47B6-9089-0C02E866876D}|SCManager.Services\\SCManager.Services.csproj|d:\\development\\scmanager\\scmanager.services\\smtpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A4C43FF-E26D-47B6-9089-0C02E866876D}|SCManager.Services\\SCManager.Services.csproj|solutionrelative:scmanager.services\\smtpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|d:\\development\\scmanager\\scmanager.data\\baseresources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AB900888-9405-4FF5-BE56-8F74FD982933}|SCManager.Data\\SCManager.Data.csproj|solutionrelative:scmanager.data\\baseresources.resx||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|d:\\development\\scmanager\\scmanager\\areas\\identity\\pages\\account\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C90D961C-4AEA-4047-BB22-1EB177F190EB}|SCManager\\SCManager.csproj|solutionrelative:scmanager\\areas\\identity\\pages\\account\\forgotpassword.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,105 +46,132 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 8,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20240523123508_InitialWithMySql.Designer.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.Designer.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAawBEAAAAaAAAA",
+              "DocumentIndex": 6,
+              "Title": "SmtpService.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Services\\SmtpService.cs",
+              "RelativeDocumentMoniker": "SCManager.Services\\SmtpService.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Services\\SmtpService.cs",
+              "RelativeToolTip": "SCManager.Services\\SmtpService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:35:33.238Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20240523123508_InitialWithMySql.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
-              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
-              "RelativeToolTip": "SCManager.Data\\Migrations\\20240523123508_InitialWithMySql.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:35:08.6Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.Production.json",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
-              "RelativeDocumentMoniker": "SCManager\\appsettings.Production.json",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
-              "RelativeToolTip": "SCManager\\appsettings.Production.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-23T12:34:50.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "SCManager\\appsettings.Development.json",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
-              "RelativeToolTip": "SCManager\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-23T12:34:49.253Z",
+              "WhenOpened": "2024-05-28T12:39:53.914Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
-              "RelativeDocumentMoniker": "SCManager\\appsettings.json",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
-              "RelativeToolTip": "SCManager\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-23T12:34:47.241Z",
+              "Title": "20240528133924_ReplacedEmails.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs",
+              "RelativeDocumentMoniker": "SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs",
+              "RelativeToolTip": "SCManager.Data\\Migrations\\20240528133924_ReplacedEmails.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T13:39:24.457Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
               "RelativeDocumentMoniker": "SCManager.Tests\\appsettings.json",
               "ToolTip": "D:\\Development\\SCManager\\SCManager.Tests\\appsettings.json",
               "RelativeToolTip": "SCManager.Tests\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAARAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-05-23T12:33:29.323Z",
+              "WhenOpened": "2024-05-28T13:35:14.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseResources.resx",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\BaseResources.resx",
+              "RelativeDocumentMoniker": "SCManager.Data\\BaseResources.resx",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\BaseResources.resx",
+              "RelativeToolTip": "SCManager.Data\\BaseResources.resx",
+              "ViewState": "AQIAAG0AAAAAAAAAAAArwHwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-05-28T13:28:13.498Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
-              "RelativeDocumentMoniker": "SCManager\\Startup.cs",
-              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Startup.cs",
-              "RelativeToolTip": "SCManager\\Startup.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAawHQAAAAXAAAA",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Development.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Development.json",
+              "RelativeToolTip": "SCManager\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-28T13:14:56.316Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Production.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.Production.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.Production.json",
+              "RelativeToolTip": "SCManager\\appsettings.Production.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-28T13:14:55.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeDocumentMoniker": "SCManager\\appsettings.json",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\appsettings.json",
+              "RelativeToolTip": "SCManager\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-28T13:13:10.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ForgotPassword.cshtml.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "RelativeDocumentMoniker": "SCManager\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "RelativeToolTip": "SCManager\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAcwDwAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-23T12:32:18.322Z",
+              "WhenOpened": "2024-05-28T12:52:10.654Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ISmtpService.cs",
+              "DocumentMoniker": "D:\\Development\\SCManager\\SCManager.Data\\Interfaces\\ISmtpService.cs",
+              "RelativeDocumentMoniker": "SCManager.Data\\Interfaces\\ISmtpService.cs",
+              "ToolTip": "D:\\Development\\SCManager\\SCManager.Data\\Interfaces\\ISmtpService.cs",
+              "RelativeToolTip": "SCManager.Data\\Interfaces\\ISmtpService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-28T12:51:56.299Z",
               "EditorCaption": ""
             }
           ]

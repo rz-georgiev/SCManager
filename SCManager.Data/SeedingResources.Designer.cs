@@ -79,7 +79,7 @@ namespace SCManager.Data {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;scmanager_test@mail.com&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;53ea6bca-6c80-400c-9cb5-ac31d508a7f7&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to [{&quot;Id&quot;:&quot;7b26038d-1a43-4248-90e1-dc7f0381d7fa&quot;,&quot;UserName&quot;:&quot;postmaster@scmanager.space&quot;,&quot;NormalizedUserName&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;Email&quot;:&quot;postmaster@scmanager.space&quot;,&quot;NormalizedEmail&quot;:&quot;SCMANAGER_TEST@MAIL.COM&quot;,&quot;EmailConfirmed&quot;:true,&quot;PasswordHash&quot;:&quot;AQAAAAEAACcQAAAAEM9A4bvt\/Ci2fC2r5Si1p2dEX8\/v8\/svgQqI1rqocSOUcWqgfzD8A8OGlpU\/6qiZbQ==&quot;,&quot;SecurityStamp&quot;:&quot;UFEWI655NFJHSNPMEJBEGWHAJKHAVWIW&quot;,&quot;ConcurrencyStamp&quot;:&quot;53ea6bca-6c80-400c-9cb5-ac31d508a7f7&quot;,&quot;PhoneNumberConfirmed&quot;:false,&quot;TwoFactorEnabled&quot;:false,&quot;LockoutEnabl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AspNetUsers {
             get {

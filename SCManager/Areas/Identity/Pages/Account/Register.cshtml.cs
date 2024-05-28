@@ -23,13 +23,13 @@ namespace SCManager.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        private readonly ISendGridService _sendGridService;
+        private readonly ISmtpService _sendGridService;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            ISendGridService sendGridService)
+            ISmtpService sendGridService)
         {
             _userManager = userManager;
             _signInManager = signInManager;

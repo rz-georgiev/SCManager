@@ -137,7 +137,7 @@ namespace SCManager
             _services.AddSingleton(cloudinary);
             _services.AddSingleton(new HtmlSanitizer());
             _services.AddSingleton<ICloudinaryService, CloudinaryService>();
-            _services.AddSingleton<ISendGridService, SendGridService>();
+            _services.AddSingleton<ISmtpService, SmtpService>();
 
             _services.AddTransient<IUnitMultiplierService, UnitMultiplierService>();
             _services.AddTransient<IComponentTypeService, ComponentTypeService>();

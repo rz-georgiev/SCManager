@@ -16,12 +16,12 @@ namespace SCManager.Areas.Identity.Pages.Account.Manage
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly ISendGridService _sendGridService;
+        private readonly ISmtpService _sendGridService;
 
         public EmailModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ISendGridService sendGridService)
+            ISmtpService sendGridService)
         {
             _userManager = userManager;
             _signInManager = signInManager;

@@ -19,7 +19,7 @@ namespace SCManager.Data {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class BaseResources {
@@ -67,9 +67,9 @@ namespace SCManager.Data {
         ///&lt;div&gt;
         ///&lt;p&gt;Best regards,&lt;/p&gt;
         ///&lt;div&gt;&lt;strong&gt;&lt;strong&gt;The SCManager team&amp;nbsp;&lt;/strong&gt;&lt;/strong&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/div&gt;
-        ///&lt;div&gt;Email: &lt;a href=&quot;mailto:scmanager_test@mail.com&quot;&gt;scmanager_test@mail.com&lt;/a&gt;&lt;/div&gt;
+        ///&lt;div&gt;Email: &lt;a href=&quot;mailto:postmaster@scmanager.space&quot;&gt;postmaster@scmanager.space&lt;/a&gt;&lt;/div&gt;
         ///&lt;div&gt;&amp;nbsp;&lt;/div&gt;
-        ///&lt;div&gt;&lt;img src=&quot;https://res.cloudinary.com/dffy4iztl/image/upload/v1595534325/favicon_ue6adr.png&quot; alt=&quot;&quot; width=&quot;48&quot; height=&quot;48&quot; /&gt;&lt;/div [rest of string was truncated]&quot;;.
+        ///&lt;div&gt;&lt;img src=&quot;https://res.cloudinary.com/dffy4iztl/image/upload/v1595534325/favicon_ue6adr.png&quot; alt=&quot;&quot; width=&quot;48&quot; height=&quot;48&quot; / [rest of string was truncated]&quot;;.
         /// </summary>
         public static string EmailBaseContent {
             get {

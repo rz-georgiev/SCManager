@@ -14,9 +14,9 @@ namespace SCManager.Areas.Identity.Pages.Account
     public class RegisterConfirmationModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ISendGridService _sendGridService;
+        private readonly ISmtpService _sendGridService;
 
-        public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, ISendGridService sendGridService)
+        public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, ISmtpService sendGridService)
         {
             _userManager = userManager;
             _sendGridService = sendGridService;
