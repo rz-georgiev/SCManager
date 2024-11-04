@@ -5,12 +5,11 @@ using SCManager.Data.Models;
 using System;
 using System.Threading.Tasks;
 
-public class QueryLoggingMiddleware(RequestDelegate next, SCManagerDbContext dbContext)
+public class QueryLoggingMiddleware(RequestDelegate next)
 {
     private readonly RequestDelegate _next = next;
-    private readonly SCManagerDbContext _dbContext = dbContext;
 
-    public async Task InvokeAsync(HttpContext context)
+    public async Task InvokeAsync(HttpContext context, SCManagerDbContext dbContext)
     {
         // Capture the client's IP address
         var ipAddress = context.Connection.RemoteIpAddress?.ToString();
@@ -29,8 +28,8 @@ public class QueryLoggingMiddleware(RequestDelegate next, SCManagerDbContext dbC
         };
 
         // Save the log entry to the database
-        _dbContext.RequestLogEntries.Add(logEntry);
-        await _dbContext.SaveChangesAsync();
+        dbContext.RequestLogEntries.Add(logEntry);
+        await dbContext.SaveChangesAsync();
 
         // Log the information (optional)
 

@@ -41,3 +41,6 @@ SCManager.Tests/appsettings.json
 /SCManager/appsettings.Production.json
 /SCManager.Tests/appsettings.json
 /SCManager.Tests/appsettings.json
+/.vs/SCManager/DesignTimeBuild/.dtbcache.v2
+/.vs/SCManager/v17/.suo
+/.vs/SCManager/v17/DocumentLayout.json
