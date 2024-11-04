@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SCManager.Data;
 
@@ -11,9 +12,11 @@ using SCManager.Data;
 namespace SCManager.Data.Migrations
 {
     [DbContext(typeof(SCManagerDbContext))]
-    partial class SCManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101093403_AddedRequestLogEntries")]
+    partial class AddedRequestLogEntries
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

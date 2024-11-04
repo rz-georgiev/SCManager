@@ -10,7 +10,7 @@
 
         [Required]
         public DateTime CreatedDateTime { get; set; }
-
+        
         public DateTime? LastUpdatedDateTime { get; set; }
 
         public string LastUpdatedByUserId { get; set; }

@@ -78,6 +78,8 @@ namespace SCManager
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMiddleware<QueryLoggingMiddleware>();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

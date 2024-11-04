@@ -80,7 +80,8 @@ namespace SCManager.Areas.Identity.Pages.Account
                     UserName = Input.Email,
                     Email = Input.Email,
                     CreatedDateTime = DateTime.UtcNow,
-                    IsBanned = false
+                    IsBanned = false,
+                    
                 };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);

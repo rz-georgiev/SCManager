@@ -58,5 +58,9 @@ namespace SCManager.Data
         public DbSet<UnitMultiplier> UnitMultipliers { get; set; }
 
         public DbSet<StaticSiteInfo> StaticSiteInfos { get; set; }
+
+
+        public DbSet<RequestLogEntry> RequestLogEntries { get; set; }
+        
     }
 }
